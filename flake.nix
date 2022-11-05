@@ -2,9 +2,6 @@
 # - https://github.com/LnL7/nix-darwin/blob/master/modules/examples/flake.nix
 # - https://rycee.gitlab.io/home-manager/index.html#sec-flakes-nix-darwin-module
 
-# Note that nix-darwin, home-manager (and Homebrew) need installing manually
-# before this flake can be used.
-
 {
   description = "nix-darwin system";
 
