@@ -14,5 +14,6 @@
 
   homebrew.casks = [
     "hammerspoon"
+    "signal"
   ];
 }
