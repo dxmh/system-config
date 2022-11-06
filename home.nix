@@ -12,6 +12,7 @@
 
   home.packages = with pkgs; [
     awscli2
+    coreutils
     fzf
     jless
     jq
