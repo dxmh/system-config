@@ -6,7 +6,7 @@
 
   home.activation = {
     reloadKittyConf = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      killall -SIGUSR1 kitty
+      killall -SIGUSR1 kitty || true
     '';
   };
 
