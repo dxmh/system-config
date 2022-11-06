@@ -48,7 +48,7 @@
     KeyRepeat = 2; # Fastest repeat
     InitialKeyRepeat = 15; # Shortest delay until repeat
     "com.apple.trackpad.enableSecondaryClick" = true;
-    "com.apple.trackpad.scaling" = 0.0; # Fastest tracking speed
+    "com.apple.trackpad.scaling" = 2.0; # Slowest is 0, fastest is 3
   };
 
   system.defaults.trackpad = {
