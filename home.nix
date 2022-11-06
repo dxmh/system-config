@@ -164,4 +164,16 @@
     };
   };
 
+  # Alternative kitty icon
+  # https://sw.kovidgoyal.net/kitty/faq/#i-do-not-like-the-kitty-icon
+  home.file.".config/kitty/kitty.app.png" = {
+    source = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/samholmes/whiskers/89bdb2/whiskers-tokyo.png";
+      sha256 = "sha256:1jdldcqbdr6ccnppq6pfm925xinzm6vfiv5q3cx1b4cpg14zax83";
+    };
+    onChange = ''
+      rm /var/folders/*/*/*/com.apple.dock.iconcache; killall Dock
+    '';
+  };
+
 }
