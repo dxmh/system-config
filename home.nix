@@ -1,7 +1,5 @@
 { pkgs, lib, config, ... }: {
 
-  imports = [ ./link-apps.nix ];
-
   home.stateVersion = "22.05";
 
   home.activation = {
