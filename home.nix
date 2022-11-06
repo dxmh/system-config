@@ -79,7 +79,7 @@
       shell = "${pkgs.fish}/bin/fish";
     };
     darwinLaunchOptions = [
-      "--title='Kitty Terminal'"
+      "--title='kitty'"
     ];
     extraConfig = builtins.readFile ./dotfiles/kitty.conf;
     theme = "One Half Light";
