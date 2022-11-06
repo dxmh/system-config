@@ -28,7 +28,7 @@
   home.sessionVariables = {
     DIRENV_LOG_FORMAT = ""; # https://github.com/direnv/direnv/issues/68
     FZF_DEFAULT_COMMAND = "rg --files --hidden --glob !.git/";
-    FZF_DEFAULT_OPTS = "--color=dark";
+    FZF_DEFAULT_OPTS = "--color=light";
     MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
   };
 
