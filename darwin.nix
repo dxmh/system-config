@@ -31,7 +31,7 @@
     orientation = "bottom";
     show-process-indicators = true;
     show-recents = false;
-    tilesize = 48;
+    tilesize = 36;
   };
 
   system.defaults.finder = {
