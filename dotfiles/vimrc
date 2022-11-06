@@ -1,6 +1,7 @@
 " Plugins for nvim
 if has('nvim')
   lua require('gitsigns').setup()
+  set signcolumn=yes " always show the sign column
 endif
 
 " Put leader key under the thumb
