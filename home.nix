@@ -72,6 +72,9 @@
     difftastic = {
       enable = true;
     };
+    ignores = [
+      ".DS_Store"
+    ];
   };
 
   programs.kitty = {
