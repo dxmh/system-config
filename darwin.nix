@@ -31,6 +31,7 @@
     orientation = "bottom";
     show-process-indicators = true;
     show-recents = false;
+    static-only = true;
     tilesize = 36;
   };
 
