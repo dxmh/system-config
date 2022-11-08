@@ -10,6 +10,10 @@
     };
   };
 
+  homebrew.brews = [
+    "chrome-cli"
+  ];
+
   homebrew.taps = [
     "homebrew/cask"
   ];
