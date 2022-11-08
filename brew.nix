@@ -18,5 +18,7 @@
     "hammerspoon"
   ] ++ lib.optionals (!isWork) [
     "signal"
+  ] ++ lib.optionals isWork [
+    "docker"
   ];
 }
