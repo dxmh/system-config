@@ -26,6 +26,7 @@
 
       lot = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
+        specialArgs = { isWork = false; };
         modules = [
           configuration
           darwin.darwinModules.simple
@@ -36,6 +37,7 @@
 
       cbd = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
+        specialArgs = { isWork = true; };
         modules = [
           configuration
           darwin.darwinModules.simple

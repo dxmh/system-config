@@ -1,3 +1,5 @@
+{ lib, isWork, ... }:
+
 {
   homebrew = {
     enable = true;
@@ -14,6 +16,7 @@
 
   homebrew.casks = [
     "hammerspoon"
+  ] ++ lib.optionals (!isWork) [
     "signal"
   ];
 }
