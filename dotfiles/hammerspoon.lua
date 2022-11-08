@@ -1,3 +1,5 @@
+require "scratchpad"
+
 function toggleApp(myApp)
   hs.application.enableSpotlightForNameSearches(true)
   local app = hs.application.find(myApp)
