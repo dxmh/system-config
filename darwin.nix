@@ -7,6 +7,11 @@
   '';
   services.nix-daemon.enable = true;
 
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 7d";
+  };
+
   environment.variables = {
     EDITOR = "vim";
   };
