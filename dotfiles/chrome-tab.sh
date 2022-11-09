@@ -1,11 +1,11 @@
 set -x
+export PATH=$PATH:/usr/local/bin:/opt/homebrew
 
-chromeCli="/usr/local/bin/chrome-cli"
 searchString="$1"
-tabId=$($chromeCli list links | grep -im1 "$searchString" | sed -E 's/^\[([0-9]+)\].*$/\1/')
+tabId=$(chrome-cli list links | grep -im1 "$searchString" | sed -E 's/^\[([0-9]+)\].*$/\1/')
 
 if test -n "$tabId"; then
-	$chromeCli activate -t "$tabId"
+	chrome-cli activate -t "$tabId"
 else
-	$chromeCli open "https://$searchString"
+	chrome-cli open "https://$searchString"
 fi
