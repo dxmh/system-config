@@ -21,7 +21,9 @@
   homebrew.casks = [
     "hammerspoon"
   ] ++ lib.optionals (!isWork) [
+    "google-chrome"
     "signal"
+    "zoom"
   ] ++ lib.optionals isWork [
     "docker"
   ];
