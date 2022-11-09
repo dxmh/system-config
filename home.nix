@@ -22,6 +22,7 @@
     terraform
     tree
     (writeShellScriptBin "ssm" (builtins.readFile ./dotfiles/ssm.sh))
+    (writeShellScriptBin "chrome-tab" (builtins.readFile ./dotfiles/chrome-tab.sh))
   ];
 
   home.sessionVariables = {
