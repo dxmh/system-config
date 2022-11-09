@@ -28,7 +28,7 @@
   security.pam.enableSudoTouchIdAuth = true;
 
   system.defaults.dock = {
-    autohide = false;
+    autohide = true;
     autohide-delay = 0.0;
     autohide-time-modifier = 0.2; # Animation duration
     mineffect = "scale";
@@ -38,7 +38,7 @@
     show-process-indicators = true;
     show-recents = false;
     static-only = true;
-    tilesize = 36;
+    tilesize = 45;
   };
 
   system.defaults.finder = {
