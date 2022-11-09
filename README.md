@@ -22,6 +22,14 @@ Install `brew` (so we can manage GUI applications with nix-darwin), as per the [
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+### Rosetta 2
+
+Install [Rosetta](https://support.apple.com/en-gb/HT211861) if necessary:
+
+```shell
+/usr/sbin/softwareupdate --install-rosetta --agree-to-license
+```
+
 ### nix-darwin
 
 Create the `/run` symlink that the [`nix-darwin` installer](https://github.com/LnL7/nix-darwin#install) would usually set up:
