@@ -21,7 +21,7 @@ set mouse=a " enable mouse in all modes
 
 " Easier access to frequent commands
 nnoremap <leader><leader> <cmd>Telescope buffers<Return>
-nnoremap <leader>t <cmd>Telescope buffers<Return>
+nnoremap s <cmd>Telescope find_files<Return>
 nnoremap <leader>bd :bd<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
@@ -35,7 +35,7 @@ nnoremap <leader>m :make<CR>
 nnoremap <leader>e :
 
 " Git commands
-nnoremap <silent> s :Git<CR><bar>:normal gUk=<CR>
+nnoremap <leader>gs :Git<CR><bar>:normal gUk<CR>
 nnoremap <leader>g<space> :Git 
 nnoremap <leader>gb :Git blame<CR>
 nnoremap <leader>gd :Gvdiffsplit<CR>
