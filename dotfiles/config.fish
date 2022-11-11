@@ -11,6 +11,7 @@ end
 # Just show the current directory in the title
 function fish_title
   basename (fish_prompt_pwd_dir_length=0 prompt_pwd);
+  tput bel
 end
 
 abbr a "aws"
