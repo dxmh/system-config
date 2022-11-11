@@ -35,7 +35,7 @@ nnoremap <leader>m :make<CR>
 nnoremap <leader>e :
 
 " Git commands
-nnoremap <leader>gs :Git<CR><bar>:normal gUk<CR>
+nnoremap <leader>gs :Gtabedit :<CR><bar>:normal gUk<CR>
 nnoremap <leader>g<space> :Git 
 nnoremap <leader>gb :Git blame<CR>
 nnoremap <leader>gd :Gvdiffsplit<CR>
