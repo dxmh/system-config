@@ -3,7 +3,7 @@ require "scratchpad"
 function toggleApp(myApp)
   hs.application.enableSpotlightForNameSearches(true)
   local app = hs.application.find(myApp)
-  if app and app:isFrontmost() then
+  if app ~= nil and app:isFrontmost() then
     app:hide()
   else
     hs.application.launchOrFocus(myApp)
