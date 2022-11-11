@@ -7,7 +7,6 @@ function toggleApp(myApp)
     app:hide()
   else
     hs.application.launchOrFocus(myApp)
-    hs.mouse.absolutePosition(hs.window.focusedWindow():frame().center)
   end
 end
 
