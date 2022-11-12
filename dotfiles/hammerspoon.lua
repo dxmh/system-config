@@ -7,18 +7,18 @@ hs.grid.setGrid('10x10')
 local hyper = {"control", "option", "command"}
 
 local screenPositions = {
-	left = {x=0, y=0, w=6, h=10},
-	left_top = {x=0, y=0, w=6, h=5},
-	left_bottom = {x=0, y=5, w=6, h=5},
-	right = {x=6, y=0, w=4, h=10},
-	right_top = {x=6, y=0, w=4, h=5},
-	right_bottom = {x=6, y=5, w=4, h=5},
-	big = {x=0, y=0, w=10, h=10},
-	middle = {x=2, y=1, w=6, h=8}
+  left = {x=0, y=0, w=6, h=10},
+  left_top = {x=0, y=0, w=6, h=5},
+  left_bottom = {x=0, y=5, w=6, h=5},
+  right = {x=6, y=0, w=4, h=10},
+  right_top = {x=6, y=0, w=4, h=5},
+  right_bottom = {x=6, y=5, w=4, h=5},
+  big = {x=0, y=0, w=10, h=10},
+  middle = {x=2, y=1, w=6, h=8}
 }
 
 local appKeys = {
-	-- osascript -e 'id of app "Foo"'
+  -- osascript -e 'id of app "Foo"'
   [","] = "com.apple.systempreferences",
   ["c"] = "com.google.Chrome",
   ["d"] = "com.apple.iCal",
@@ -53,22 +53,22 @@ for k, v in pairs(appKeys) do
 end
 
 hs.hotkey.bind(hyper, "1", function()
-	hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.left)
-	hs.grid.set(hs.application.open("net.kovidgoyal.kitty"):mainWindow(), screenPositions.right)
+  hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.left)
+  hs.grid.set(hs.application.open("net.kovidgoyal.kitty"):mainWindow(), screenPositions.right)
 end)
 
 hs.hotkey.bind(hyper, "2", function()
-	hs.grid.set(hs.application.open("us.zoom.xos"):mainWindow(), screenPositions.left_top)
-	hs.grid.set(hs.application.open("pro.writer.mac"):mainWindow(), screenPositions.left_bottom)
-	hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.right)
+  hs.grid.set(hs.application.open("us.zoom.xos"):mainWindow(), screenPositions.left_top)
+  hs.grid.set(hs.application.open("pro.writer.mac"):mainWindow(), screenPositions.left_bottom)
+  hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.right)
 end)
 
 hs.hotkey.bind(hyper, "3", function()
-	hs.grid.set(hs.application.open("com.apple.iCal"):mainWindow(), screenPositions.left)
-	hs.grid.set(hs.application.open("com.apple.reminders"):mainWindow(), screenPositions.right)
+  hs.grid.set(hs.application.open("com.apple.iCal"):mainWindow(), screenPositions.left)
+  hs.grid.set(hs.application.open("com.apple.reminders"):mainWindow(), screenPositions.right)
 end)
 
 hs.hotkey.bind(hyper, "h", function()
-	hs.grid.set(hs.application.open("net.kovidgoyal.kitty"):mainWindow(), screenPositions.left)
-	hs.grid.set(hs.application.open("org.hammerspoon.Hammerspoon"):mainWindow(), screenPositions.right)
+  hs.grid.set(hs.application.open("net.kovidgoyal.kitty"):mainWindow(), screenPositions.left)
+  hs.grid.set(hs.application.open("org.hammerspoon.Hammerspoon"):mainWindow(), screenPositions.right)
 end)
