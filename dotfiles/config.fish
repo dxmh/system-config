@@ -8,9 +8,9 @@ if set -q KITTY_INSTALLATION_DIR
   set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
 end
 
-# Just show the current directory in the title
+# Just show the current directory and command in the title
 function fish_title
-  basename (fish_prompt_pwd_dir_length=0 prompt_pwd);
+  echo (basename (prompt_pwd)) $argv | cut -d' ' -f1-2
   tput bel
 end
 
