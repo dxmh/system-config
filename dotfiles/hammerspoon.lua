@@ -28,6 +28,7 @@ local appKeys = {
   ["d"] = "com.apple.iCal",
   ["e"] = "com.apple.mail",
   ["f"] = "com.apple.finder",
+  ["g"] = "org.whispersystems.signal-desktop",
   ["i"] = "pro.writer.mac",
   ["k"] = "net.kovidgoyal.kitty",
   ["m"] = "com.apple.MobileSMS",
