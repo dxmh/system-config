@@ -7,15 +7,6 @@ hs.grid.setGrid('10x10')
 local hyper = {"control", "option", "command"}
 local shift_hyper = {"shift", "control", "option", "command"}
 
-local function contains(table, element)
-	for _, value in ipairs(table) do
-		if value == element then
-			return true
-		end
-	end
-	return false
-end
-
 local screenPositions = {
   left = {x=0, y=0, w=6, h=10},
   left_top = {x=0, y=0, w=6, h=5},
@@ -64,7 +55,7 @@ local function hideAppsExcept(myApps)
   end
   for _, window in pairs(hs.window.visibleWindows()) do
     thisApp = window:application():bundleID()
-    if not contains(myApps, thisApp) then
+    if not hs.fnutils.contains(myApps, thisApp) then
       window:application():hide()
     end
   end
