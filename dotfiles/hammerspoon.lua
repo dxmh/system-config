@@ -108,9 +108,10 @@ end)
 
 hs.hotkey.bind(hyper, "2", function()
   hideAppsExcept({"us.zoom.xos", "pro.writer.mac", "com.google.Chrome"})
-  hs.grid.set(hs.application.open("us.zoom.xos"):mainWindow(), screenPositions.left_top)
+  hs.grid.set(hs.application.open("us.zoom.xos"):getWindow('Zoom Meeting'), screenPositions.left_top)
   hs.grid.set(hs.application.open("pro.writer.mac"):mainWindow(), screenPositions.left_bottom)
   hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.right)
+  hs.application.get("us.zoom.xos"):getWindow('Zoom Meeting'):close()
 end)
 
 hs.hotkey.bind(hyper, "3", function()
