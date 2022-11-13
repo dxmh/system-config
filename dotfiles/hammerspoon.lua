@@ -96,6 +96,14 @@ for k, v in pairs(webAppKeys) do
   end)
 end
 
+-- Split screen with another app
+for k, v in pairs(appKeys) do
+  hs.hotkey.bind(shift_hyper, k, function()
+    hs.grid.set(hs.window.focusedWindow(), screenPositions.left)
+    hs.grid.set(hs.application.open(v):mainWindow(), screenPositions.right)
+  end)
+end
+
 -- Navigate windows
 hs.hotkey.bind(hyper, "up", function() hs.window.filter.focusNorth() end)
 hs.hotkey.bind(hyper, "right", function() hs.window.filter.focusEast() end)
