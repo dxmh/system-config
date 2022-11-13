@@ -71,7 +71,10 @@ local function hideAppsExcept(myApps)
 end
 
 for k, v in pairs(appKeys) do
-  hs.hotkey.bind(hyper, k, function() hideAppsExcept({v}) end)
+  hs.hotkey.bind(hyper, k, function()
+    hideAppsExcept({v})
+    hs.grid.set(hs.application.get(v):mainWindow(), screenPositions.big)
+  end)
 end
 
 hs.hotkey.bind(hyper, "up", function() hs.window.filter.focusNorth() end)
