@@ -121,6 +121,13 @@ hs.hotkey.bind(hyper, "3", function()
   hs.grid.set(hs.application.open("com.apple.reminders"):mainWindow(), screenPositions.right)
 end)
 
+hs.hotkey.bind(hyper, "4", function()
+  hideAppsExcept({"pro.writer.mac", "com.google.Chrome"})
+  hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.left)
+  hs.grid.set(hs.application.open("pro.writer.mac"):mainWindow(), screenPositions.right)
+  openChromeTab("harvestapp.com")
+end)
+
 hs.hotkey.bind(hyper, "h", function()
   hideAppsExcept({"net.kovidgoyal.kitty", "org.hammerspoon.Hammerspoon"})
   hs.grid.set(hs.application.open("net.kovidgoyal.kitty"):mainWindow(), screenPositions.left)
