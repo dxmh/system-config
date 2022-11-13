@@ -5,6 +5,7 @@ hs.grid.setMargins({25,25})
 hs.grid.setGrid('10x10')
 
 local hyper = {"control", "option", "command"}
+local shift_hyper = {"shift", "control", "option", "command"}
 
 local screenPositions = {
   left = {x=0, y=0, w=6, h=10},
@@ -51,6 +52,16 @@ end
 for k, v in pairs(appKeys) do
   hs.hotkey.bind(hyper, k, function() toggleApp(v) end)
 end
+
+hs.hotkey.bind(hyper, "up", function() hs.window.filter.focusNorth() end)
+hs.hotkey.bind(hyper, "right", function() hs.window.filter.focusEast() end)
+hs.hotkey.bind(hyper, "down", function() hs.window.filter.focusSouth() end)
+hs.hotkey.bind(hyper, "left", function() hs.window.filter.focusWest() end)
+
+hs.hotkey.bind(shift_hyper, "up", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.big) end)
+hs.hotkey.bind(shift_hyper, "right", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.right) end)
+hs.hotkey.bind(shift_hyper, "down", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.middle) end)
+hs.hotkey.bind(shift_hyper, "left", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.left) end)
 
 hs.hotkey.bind(hyper, "1", function()
   hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.left)
