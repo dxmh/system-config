@@ -1,12 +1,14 @@
 require "scratchpad"
 
+local hyper = {"control", "option", "command"}
+local shift_hyper = {"shift", "control", "option", "command"}
+
+-- Set up our grid
 hs.window.animationDuration = 0
 hs.grid.setMargins({25,25})
 hs.grid.setGrid('10x10')
 
-local hyper = {"control", "option", "command"}
-local shift_hyper = {"shift", "control", "option", "command"}
-
+-- Common window positions
 local screenPositions = {
   left = {x=0, y=0, w=6, h=10},
   left_top = {x=0, y=0, w=6, h=5},
@@ -18,6 +20,7 @@ local screenPositions = {
   middle = {x=2, y=1, w=6, h=8}
 }
 
+-- List of hotkeys assigned to common apps
 local appKeys = {
   -- osascript -e 'id of app "Foo"'
   [","] = "com.apple.systempreferences",
@@ -38,7 +41,8 @@ local appKeys = {
   ["z"] = "us.zoom.xos",
 }
 
-local tabKeys = {
+-- List of hotkeys assigned to common webapps
+local webAppKeys = {
   ["l"] = "app.slack.com",
   ["o"] = "outlook.office.com",
 }
@@ -75,6 +79,7 @@ function openChromeTab(searchTerm)
   hs.application.open("com.google.Chrome")
 end
 
+-- Show apps with their hotkey
 for k, v in pairs(appKeys) do
   hs.hotkey.bind(hyper, k, function()
     hideAppsExcept({v})
@@ -82,7 +87,8 @@ for k, v in pairs(appKeys) do
   end)
 end
 
-for k, v in pairs(tabKeys) do
+-- Show web apps (via tabs in Google Chrome) with their hotkey
+for k, v in pairs(webAppKeys) do
   hs.hotkey.bind(hyper, k, function()
     openChromeTab(v)
     hideAppsExcept({"com.google.Chrome"})
@@ -90,22 +96,26 @@ for k, v in pairs(tabKeys) do
   end)
 end
 
+-- Navigate windows
 hs.hotkey.bind(hyper, "up", function() hs.window.filter.focusNorth() end)
 hs.hotkey.bind(hyper, "right", function() hs.window.filter.focusEast() end)
 hs.hotkey.bind(hyper, "down", function() hs.window.filter.focusSouth() end)
 hs.hotkey.bind(hyper, "left", function() hs.window.filter.focusWest() end)
 
+-- Resize windows
 hs.hotkey.bind(shift_hyper, "up", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.big) end)
 hs.hotkey.bind(shift_hyper, "right", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.right) end)
 hs.hotkey.bind(shift_hyper, "down", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.middle) end)
 hs.hotkey.bind(shift_hyper, "left", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.left) end)
 
+-- Window layout for common terminal/browser work
 hs.hotkey.bind(hyper, "1", function()
   hideAppsExcept({"com.google.Chrome", "net.kovidgoyal.kitty"})
   hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.left)
   hs.grid.set(hs.application.open("net.kovidgoyal.kitty"):mainWindow(), screenPositions.right)
 end)
 
+-- Window layout for virtual meetings
 hs.hotkey.bind(hyper, "2", function()
   hideAppsExcept({"us.zoom.xos", "pro.writer.mac", "com.google.Chrome"})
   hs.grid.set(hs.application.open("us.zoom.xos"):getWindow('Zoom Meeting'), screenPositions.left_top)
@@ -115,12 +125,14 @@ hs.hotkey.bind(hyper, "2", function()
   openChromeTab("app.slack.com")
 end)
 
+-- Window layout for planning
 hs.hotkey.bind(hyper, "3", function()
   hideAppsExcept({"com.apple.iCal", "com.apple.reminders"})
   hs.grid.set(hs.application.open("com.apple.iCal"):mainWindow(), screenPositions.left)
   hs.grid.set(hs.application.open("com.apple.reminders"):mainWindow(), screenPositions.right)
 end)
 
+-- Window layout for completing timesheets
 hs.hotkey.bind(hyper, "4", function()
   hideAppsExcept({"pro.writer.mac", "com.google.Chrome"})
   hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.left)
@@ -128,8 +140,11 @@ hs.hotkey.bind(hyper, "4", function()
   openChromeTab("harvestapp.com")
 end)
 
+-- Window layout for working on Hammerspoon
 hs.hotkey.bind(hyper, "h", function()
   hideAppsExcept({"net.kovidgoyal.kitty", "org.hammerspoon.Hammerspoon"})
   hs.grid.set(hs.application.open("net.kovidgoyal.kitty"):mainWindow(), screenPositions.left)
   hs.grid.set(hs.application.open("org.hammerspoon.Hammerspoon"):mainWindow(), screenPositions.right)
+  hs.console.clearConsole()
+  hs.reload()
 end)
