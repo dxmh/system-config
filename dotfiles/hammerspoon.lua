@@ -59,15 +59,15 @@ local function toggleApp(myApp)
 end
 
 local function hideAppsExcept(myApps)
-	for _, app in ipairs(myApps) do
-  	hs.application.open(app)
+  for _, app in ipairs(myApps) do
+    hs.application.open(app)
   end
-	for _, window in pairs(hs.window.visibleWindows()) do
-		thisApp = window:application():bundleID()
-		if not contains(myApps, thisApp) then
-			window:application():hide()
-		end
-	end
+  for _, window in pairs(hs.window.visibleWindows()) do
+    thisApp = window:application():bundleID()
+    if not contains(myApps, thisApp) then
+      window:application():hide()
+    end
+  end
 end
 
 for k, v in pairs(appKeys) do
