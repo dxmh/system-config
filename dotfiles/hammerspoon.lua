@@ -4,12 +4,12 @@ require "scratchpad"
 m = hs.hotkey.modal.new('', 'f19')
 
 function m:entered()
-  hs.alert'Entered mode'
+  mIndicator = hs.alert'Leader...'
   hs.timer.doAfter(2, function() m:exit() end)
 end
 
 function m:exited()
-  hs.alert'Exited mode'
+  hs.alert.closeSpecific(mIndicator)
 end
 
 m:bind('', 'escape', function() m:exit() end)
