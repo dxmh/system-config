@@ -27,7 +27,6 @@ local appKeys = {
   ["f"] = "com.apple.finder",
   ["i"] = "pro.writer.mac",
   ["k"] = "net.kovidgoyal.kitty",
-  ["l"] = "com.tinyspeck.slackmacgap",
   ["m"] = "com.apple.MobileSMS",
   ["n"] = "com.apple.Notes",
   ["p"] = "com.apple.Preview",
@@ -37,6 +36,11 @@ local appKeys = {
   ["u"] = "com.apple.Music",
   ["x"] = "Passwords",
   ["z"] = "us.zoom.xos",
+}
+
+local tabKeys = {
+  ["l"] = "app.slack.com",
+  ["o"] = "outlook.office.com",
 }
 
 local function toggleApp(myApp)
@@ -61,10 +65,28 @@ local function hideAppsExcept(myApps)
   end
 end
 
+function openChromeTab(searchTerm)
+  hs.task.new(
+    "/etc/profiles/per-user/"..os.getenv("USER").."/bin/chrome-tab",
+    nil,
+    function(exitCode, stdOut, stdErr) print(stdErr) return true end,
+    { searchTerm }
+  ):start()
+  hs.application.open("com.google.Chrome")
+end
+
 for k, v in pairs(appKeys) do
   hs.hotkey.bind(hyper, k, function()
     hideAppsExcept({v})
     hs.grid.set(hs.application.get(v):mainWindow(), screenPositions.big)
+  end)
+end
+
+for k, v in pairs(tabKeys) do
+  hs.hotkey.bind(hyper, k, function()
+    openChromeTab(v)
+    hideAppsExcept({"com.google.Chrome"})
+    hs.grid.set(hs.window.focusedWindow(), screenPositions.big)
   end)
 end
 
