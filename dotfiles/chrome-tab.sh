@@ -1,5 +1,5 @@
 set -x
-export PATH=$PATH:/usr/local/bin:/opt/homebrew
+export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin
 
 searchString="$1"
 tabId=$(chrome-cli list links | grep -im1 "$searchString" | sed -E 's/^\[([0-9]+)\].*$/\1/')
