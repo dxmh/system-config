@@ -1,7 +1,8 @@
 require "scratchpad"
 
--- Set up our leader key (I've remapped Capslock to F19 elsewhere)
-local m = hs.hotkey.modal.new('', 'f19')
+-- Set up our leader key
+local leaderKey = "f14"
+local m = hs.hotkey.modal.new('', leaderKey)
 
 function m:entered()
   mIndicator = hs.alert'Leader...'
@@ -13,7 +14,7 @@ function m:exited()
 end
 
 m:bind('', 'escape', function() m:exit() end)
-m:bind('', 'f19', function() m:exit() end)
+m:bind('', leaderKey, function() m:exit() end)
 
 -- Set up our grid
 hs.window.animationDuration = 0
