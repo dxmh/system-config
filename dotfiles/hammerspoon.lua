@@ -1,7 +1,7 @@
 require "scratchpad"
 
-local hyper = {"control", "option", "command"}
-local shift_hyper = {"shift", "control", "option", "command"}
+local hyper = {"rightCmd"}
+local shift_hyper = {"shift", "rightCmd"}
 
 -- Set up our grid
 hs.window.animationDuration = 0
