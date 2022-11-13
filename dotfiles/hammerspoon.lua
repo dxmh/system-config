@@ -1,7 +1,7 @@
 require "scratchpad"
 
 -- Set up our leader key (I've remapped Capslock to F19 elsewhere)
-m = hs.hotkey.modal.new('', 'f19')
+local m = hs.hotkey.modal.new('', 'f19')
 
 function m:entered()
   mIndicator = hs.alert'Leader...'
@@ -82,7 +82,7 @@ local function hideAppsExcept(myApps)
   end
 end
 
-function openChromeTab(searchTerm)
+local function openChromeTab(searchTerm)
   hs.task.new(
     "/etc/profiles/per-user/"..os.getenv("USER").."/bin/chrome-tab",
     nil,
