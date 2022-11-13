@@ -7,6 +7,15 @@ hs.grid.setGrid('10x10')
 local hyper = {"control", "option", "command"}
 local shift_hyper = {"shift", "control", "option", "command"}
 
+local function contains(table, element)
+	for _, value in ipairs(table) do
+		if value == element then
+			return true
+		end
+	end
+	return false
+end
+
 local screenPositions = {
   left = {x=0, y=0, w=6, h=10},
   left_top = {x=0, y=0, w=6, h=5},
@@ -49,8 +58,20 @@ local function toggleApp(myApp)
   end
 end
 
+local function hideAppsExcept(myApps)
+	for _, app in ipairs(myApps) do
+  	hs.application.open(app)
+  end
+	for _, window in pairs(hs.window.visibleWindows()) do
+		thisApp = window:application():bundleID()
+		if not contains(myApps, thisApp) then
+			window:application():hide()
+		end
+	end
+end
+
 for k, v in pairs(appKeys) do
-  hs.hotkey.bind(hyper, k, function() toggleApp(v) end)
+  hs.hotkey.bind(hyper, k, function() hideAppsExcept({v}) end)
 end
 
 hs.hotkey.bind(hyper, "up", function() hs.window.filter.focusNorth() end)
