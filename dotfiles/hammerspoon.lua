@@ -73,7 +73,7 @@ end
 
 local function hideAppsExcept(myApps)
   for _, app in ipairs(myApps) do
-    hs.application.open(app)
+    hs.application.open(app, 5, true)
   end
   for _, window in pairs(hs.window.visibleWindows()) do
     thisApp = window:application():bundleID()
@@ -97,7 +97,7 @@ end
 for k, v in pairs(appKeys) do
   m:bind("", k, function()
     hideAppsExcept({v})
-    hs.grid.set(hs.application.get(v):mainWindow(), screenPositions.big)
+    hs.grid.set(hs.application.open(v, 5, true):mainWindow(), screenPositions.big)
     m:exit()
   end)
 end
@@ -116,7 +116,7 @@ end
 for k, v in pairs(appKeys) do
   m:bind("shift", k, function()
     hs.grid.set(hs.window.focusedWindow(), screenPositions.left)
-    hs.grid.set(hs.application.open(v):mainWindow(), screenPositions.right)
+    hs.grid.set(hs.application.open(v, 5, true):mainWindow(), screenPositions.right)
     m:exit()
   end)
 end
