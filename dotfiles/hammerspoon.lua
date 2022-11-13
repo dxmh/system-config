@@ -112,6 +112,7 @@ hs.hotkey.bind(hyper, "2", function()
   hs.grid.set(hs.application.open("pro.writer.mac"):mainWindow(), screenPositions.left_bottom)
   hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.right)
   hs.application.get("us.zoom.xos"):getWindow('Zoom Meeting'):close()
+  openChromeTab("app.slack.com")
 end)
 
 hs.hotkey.bind(hyper, "3", function()
