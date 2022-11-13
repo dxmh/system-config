@@ -88,22 +88,26 @@ hs.hotkey.bind(shift_hyper, "down", function() hs.grid.set(hs.window.focusedWind
 hs.hotkey.bind(shift_hyper, "left", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.left) end)
 
 hs.hotkey.bind(hyper, "1", function()
+  hideAppsExcept({"com.google.Chrome", "net.kovidgoyal.kitty"})
   hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.left)
   hs.grid.set(hs.application.open("net.kovidgoyal.kitty"):mainWindow(), screenPositions.right)
 end)
 
 hs.hotkey.bind(hyper, "2", function()
+  hideAppsExcept({"us.zoom.xos", "pro.writer.mac", "com.google.Chrome"})
   hs.grid.set(hs.application.open("us.zoom.xos"):mainWindow(), screenPositions.left_top)
   hs.grid.set(hs.application.open("pro.writer.mac"):mainWindow(), screenPositions.left_bottom)
   hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.right)
 end)
 
 hs.hotkey.bind(hyper, "3", function()
+  hideAppsExcept({"com.apple.iCal", "com.apple.reminders"})
   hs.grid.set(hs.application.open("com.apple.iCal"):mainWindow(), screenPositions.left)
   hs.grid.set(hs.application.open("com.apple.reminders"):mainWindow(), screenPositions.right)
 end)
 
 hs.hotkey.bind(hyper, "h", function()
+  hideAppsExcept({"net.kovidgoyal.kitty", "org.hammerspoon.Hammerspoon"})
   hs.grid.set(hs.application.open("net.kovidgoyal.kitty"):mainWindow(), screenPositions.left)
   hs.grid.set(hs.application.open("org.hammerspoon.Hammerspoon"):mainWindow(), screenPositions.right)
 end)
