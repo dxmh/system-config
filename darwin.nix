@@ -70,6 +70,8 @@
     SecondClickThreshold = 0; # "Light" firmness required
   };
 
+  # Key remapping
+  # https://developer.apple.com/library/archive/technotes/tn2450/
   system.keyboard = {
     enableKeyMapping = true;
     userKeyMapping = [
