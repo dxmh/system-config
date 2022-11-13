@@ -74,12 +74,12 @@
   # https://developer.apple.com/library/archive/technotes/tn2450/
   system.keyboard = {
     enableKeyMapping = true;
-    userKeyMapping = [
-      {
-        HIDKeyboardModifierMappingSrc = 30064771129; # CapsLock
-        HIDKeyboardModifierMappingDst = 30064771177; # F14
-      }
-    ];
+    remapCapsLockToControl = true;
+    userKeyMapping = [{
+      # Remap right command to F14
+      HIDKeyboardModifierMappingSrc = 30064771303;
+      HIDKeyboardModifierMappingDst = 30064771177;
+    }];
   };
 
 }
