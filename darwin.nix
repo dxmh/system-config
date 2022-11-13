@@ -72,7 +72,12 @@
 
   system.keyboard = {
     enableKeyMapping = true;
-    remapCapsLockToControl = true;
+    userKeyMapping = [
+      {
+        HIDKeyboardModifierMappingSrc = 30064771129; # CapsLock
+        HIDKeyboardModifierMappingDst = 30064771177; # F14
+      }
+    ];
   };
 
 }
