@@ -57,7 +57,7 @@ local appKeys = {
 
 -- List of hotkeys assigned to common webapps
 local webAppKeys = {
-  ["l"] = "app.slack.com",
+  ["l"] = "app.slack.com/client",
   ["o"] = "outlook.office.com",
 }
 
