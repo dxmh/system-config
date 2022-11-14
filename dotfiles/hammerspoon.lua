@@ -52,7 +52,6 @@ local appKeys = {
   ["s"] = "com.apple.Safari",
   ["t"] = "net.kovidgoyal.kitty", -- t for terminal, for muscle memory
   ["u"] = "com.apple.Music",
-  ["x"] = "Passwords",
   ["z"] = "us.zoom.xos",
 }
 
@@ -133,6 +132,14 @@ m:bind("shift", "up", function() hs.grid.set(hs.window.focusedWindow(), screenPo
 m:bind("shift", "right", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.right) m:exit() end)
 m:bind("shift", "down", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.middle) m:exit() end)
 m:bind("shift", "left", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.left) m:exit() end)
+
+-- Open "Password manager"
+m:bind("", "x", function()
+  local prefPane = "/System/Library/PreferencePanes/Passwords.prefPane"
+  hs.task.new("/usr/bin/open", nil, function() return true end, { prefPane }):start()
+  hs.application.open("com.apple.systempreferences", 5, true):mainWindow():centerOnScreen()
+  m:exit()
+end)
 
 -- Window layout for common terminal/browser work
 m:bind("", "1", function()
