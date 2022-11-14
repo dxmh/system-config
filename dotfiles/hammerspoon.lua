@@ -42,6 +42,7 @@ local appKeys = {
   ["e"] = "com.apple.mail",
   ["f"] = "com.apple.finder",
   ["g"] = "org.whispersystems.signal-desktop",
+  ["h"] = "com.apple.Home",
   ["i"] = "pro.writer.mac",
   ["k"] = "net.kovidgoyal.kitty",
   ["m"] = "com.apple.MobileSMS",
@@ -170,7 +171,7 @@ m:bind("", "4", function()
 end)
 
 -- Window layout for working on Hammerspoon
-m:bind("", "h", function()
+m:bind("shift", "h", function()
   hideAppsExcept({"net.kovidgoyal.kitty", "org.hammerspoon.Hammerspoon"})
   hs.grid.set(hs.application.open("net.kovidgoyal.kitty"):mainWindow(), screenPositions.left)
   hs.grid.set(hs.application.open("org.hammerspoon.Hammerspoon"):mainWindow(), screenPositions.right)
