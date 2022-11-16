@@ -56,7 +56,6 @@ local appKeys = {
   ["k"] = "net.kovidgoyal.kitty",
   ["m"] = "com.apple.MobileSMS",
   ["n"] = "com.apple.Notes",
-  ["p"] = "com.apple.Preview",
   ["r"] = "com.apple.reminders",
   ["s"] = "com.apple.Safari",
   ["t"] = "net.kovidgoyal.kitty", -- t for terminal, for muscle memory
@@ -187,12 +186,13 @@ m:bind("", "4", function()
 end)
 
 -- Window layout for working on Hammerspoon
-m:bind("shift", "h", function()
+m:bind("", "p", function()
   hideAppsExcept({"net.kovidgoyal.kitty", "org.hammerspoon.Hammerspoon"})
   hs.grid.set(hs.application.open("net.kovidgoyal.kitty"):mainWindow(), screenPositions.left)
   hs.grid.set(hs.application.open("org.hammerspoon.Hammerspoon"):mainWindow(), screenPositions.right)
   hs.console.clearConsole()
-  hs.reload()
+  m:exit()
+end)
   m:exit()
 end)
 
