@@ -241,5 +241,5 @@ m:bind("", "space", function()
   m:exit()
 end)
 
--- Load additional Hammerspoon config for testing purposes
-require "scratchpad"
+-- Load any additional Hammerspoon config:
+require "local"
