@@ -166,31 +166,11 @@ m:bind("", "1", function()
   m:exit()
 end)
 
--- Window layout for virtual meetings
+-- Window layout for task management
 m:bind("", "2", function()
-  hideAppsExcept({"us.zoom.xos", "pro.writer.mac", "com.google.Chrome"})
-  hs.grid.set(hs.application.open("us.zoom.xos"):getWindow('Zoom Meeting'), screenPositions.left_top)
-  hs.grid.set(hs.application.open("pro.writer.mac"):mainWindow(), screenPositions.left_bottom)
-  hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.right)
-  hs.application.get("us.zoom.xos"):getWindow('Zoom'):close()
-  openChromeTab("app.slack.com")
-  m:exit()
-end)
-
--- Window layout for planning
-m:bind("", "3", function()
   hideAppsExcept({"com.apple.iCal", "com.apple.reminders"})
   hs.grid.set(hs.application.open("com.apple.iCal"):mainWindow(), screenPositions.left)
   hs.grid.set(hs.application.open("com.apple.reminders"):mainWindow(), screenPositions.right)
-  m:exit()
-end)
-
--- Window layout for completing timesheets
-m:bind("", "4", function()
-  hideAppsExcept({"pro.writer.mac", "com.google.Chrome"})
-  hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.left)
-  hs.grid.set(hs.application.open("pro.writer.mac"):mainWindow(), screenPositions.right)
-  openChromeTab("harvestapp.com")
   m:exit()
 end)
 
@@ -202,6 +182,62 @@ m:bind("", "p", function()
   hs.console.clearConsole()
   m:exit()
 end)
+
+-- Fuzzy chooser for things that aren't quite important enough for a hotkey binding
+choices = {
+  {
+    ["text"] = "Zoom meeting",
+    ["subText"] = "Arrange the screen for a Zoom meeting",
+    ["type"] = "activity",
+    ["value"] = "zoomMeeting",
+  },
+  {
+    ["text"] = "Timesheets",
+    ["subText"] = "Arrange the screen for completing timesheets",
+    ["type"] = "activity",
+    ["value"] = "timesheets",
+  },
+}
+
+chooser = hs.chooser.new(function(choice)
+  if choice == nil then
+    return false
+
+  elseif choice.type == "url" then
+    openSafariTab(choice.value)
+
+  elseif choice.type == "activity" then
+
+    if choice == nil then
+      return false
+
+    elseif choice.value == "zoomMeeting" then
+      hideAppsExcept({"us.zoom.xos", "pro.writer.mac", "com.google.Chrome"})
+      hs.grid.set(hs.application.open("us.zoom.xos"):getWindow('Zoom Meeting'), screenPositions.left_top)
+      hs.grid.set(hs.application.open("pro.writer.mac"):mainWindow(), screenPositions.left_bottom)
+      hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.right)
+      hs.application.get("us.zoom.xos"):getWindow('Zoom'):close()
+      openChromeTab("app.slack.com")
+
+    elseif choice.value == "timesheets" then
+      hideAppsExcept({"pro.writer.mac", "com.google.Chrome"})
+      hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.left)
+      hs.grid.set(hs.application.open("pro.writer.mac"):mainWindow(), screenPositions.right)
+      openChromeTab("harvestapp.com")
+
+    end
+  end
+end)
+
+chooser
+  :bgDark(true)
+  :placeholderText("Launch something")
+  :rows(5)
+  :searchSubText(true)
+
+m:bind("", "space", function()
+  chooser:choices(choices)
+  chooser:show()
   m:exit()
 end)
 
