@@ -101,6 +101,15 @@ local function openChromeTab(searchTerm)
   hs.application.open("com.google.Chrome")
 end
 
+local function openSafariTab(url)
+  hs.osascript.applescript([[
+    tell application "Safari"
+      open location "]] .. url ..[["
+      activate
+    end tell
+  ]])
+end
+
 -- Show apps with their hotkey
 for k, v in pairs(appKeys) do
   m:bind("", k, function()
