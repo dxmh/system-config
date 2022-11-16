@@ -1,5 +1,3 @@
-require "scratchpad"
-
 hs.alert("Hammerspoon config loaded")
 
 -- Reload hammerspoon configuration whenever it changes
@@ -197,3 +195,6 @@ m:bind("shift", "h", function()
   hs.reload()
   m:exit()
 end)
+
+-- Load additional Hammerspoon config for testing purposes
+require "scratchpad"
