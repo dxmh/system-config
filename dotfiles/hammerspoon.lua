@@ -1,5 +1,16 @@
 require "scratchpad"
 
+hs.alert("Hammerspoon config loaded")
+
+-- Reload hammerspoon configuration whenever it changes
+hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", function(paths, flagTables)
+  for _, file in pairs(paths) do
+    if file:sub(-4) == ".lua" then
+      hs.reload()
+    end
+  end
+end):start()
+
 -- Set up our leader key
 local leaderKey = "f14"
 local m = hs.hotkey.modal.new('', leaderKey)
