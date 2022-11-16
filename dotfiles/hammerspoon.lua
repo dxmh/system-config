@@ -11,7 +11,7 @@ end):start()
 
 -- Set up our leader key
 local leaderKey = "f14"
-local m = hs.hotkey.modal.new('', leaderKey)
+m = hs.hotkey.modal.new('', leaderKey)
 
 function m:entered()
   mIndicator = hs.alert'Leader...'
