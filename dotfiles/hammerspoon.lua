@@ -18,7 +18,7 @@ m:bind('', leaderKey, function() m:exit() end)
 
 -- Set up our grid
 hs.window.animationDuration = 0
-hs.grid.setMargins({25,25})
+hs.grid.setMargins({0,0})
 hs.grid.setGrid('10x10')
 
 -- Common window positions
