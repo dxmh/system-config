@@ -15,7 +15,7 @@ leaderKey = "f14"
 m = hs.hotkey.modal.new("", leaderKey)
 
 function m:entered()
-  mIndicator = hs.alert"Leader..."
+  mIndicator = hs.alert"⌘"
   hs.timer.doAfter(2, function() m:exit() end)
 end
 
