@@ -159,7 +159,15 @@
   };
 
   home.file.".hammerspoon/init.lua" = {
-    source = ./dotfiles/hammerspoon.lua;
+    source = ./dotfiles/hammerspoon/init.lua;
+  };
+
+  home.file.".hammerspoon/appkeys.lua" = {
+    source = ./dotfiles/hammerspoon/appkeys.lua;
+  };
+
+  home.file.".hammerspoon/chooser.lua" = {
+    source = ./dotfiles/hammerspoon/chooser.lua;
   };
 
   home.file.".config/kitty/smart_scroll.py" = {

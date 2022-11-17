@@ -1,37 +1,10 @@
-hs.alert("Hammerspoon config loaded")
-
--- Reload hammerspoon configuration whenever it changes
-hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", function(paths, flagTables)
-  for _, file in pairs(paths) do
-    if file:sub(-4) == ".lua" then
-      hs.reload()
-    end
-  end
-end):start()
-
--- Set up our leader key
-local leaderKey = "f14"
-m = hs.hotkey.modal.new('', leaderKey)
-
-function m:entered()
-  mIndicator = hs.alert'Leader...'
-  hs.timer.doAfter(2, function() m:exit() end)
-end
-
-function m:exited()
-  hs.alert.closeSpecific(mIndicator)
-end
-
-m:bind('', 'escape', function() m:exit() end)
-m:bind('', leaderKey, function() m:exit() end)
-
 -- Set up our grid
 hs.window.animationDuration = 0
 hs.grid.setMargins({0,0})
 hs.grid.setGrid('10x10')
 
 -- Common window positions
-local screenPositions = {
+screenPositions = {
   left = {x=0, y=0, w=6, h=10},
   left_top = {x=0, y=0, w=6, h=5},
   left_bottom = {x=0, y=5, w=6, h=5},
@@ -43,8 +16,8 @@ local screenPositions = {
 }
 
 -- List of hotkeys assigned to common apps
+-- Bundle IDs can be found with `osascript -e 'id of app "Foo"'`
 local appKeys = {
-  -- osascript -e 'id of app "Foo"'
   [","] = "com.apple.systempreferences",
   ["c"] = "com.google.Chrome",
   ["d"] = "com.apple.iCal",
@@ -69,7 +42,8 @@ local webAppKeys = {
   ["o"] = "outlook.office.com",
 }
 
-local function toggleApp(myApp)
+-- Hide or open an app with it's hotkey
+function toggleApp(myApp)
   hs.application.enableSpotlightForNameSearches(true)
   local app = hs.application.find(myApp)
   if app ~= nil and app:isFrontmost() then
@@ -79,7 +53,8 @@ local function toggleApp(myApp)
   end
 end
 
-local function hideAppsExcept(myApps)
+-- Hide all apps except for the ones we want
+function hideAppsExcept(myApps)
   for _, app in ipairs(myApps) do
     hs.application.open(app, 5, true)
   end
@@ -91,7 +66,8 @@ local function hideAppsExcept(myApps)
   end
 end
 
-local function openChromeTab(searchTerm)
+-- Use `chrome-cli` to show or create the tab we want
+function openChromeTab(searchTerm)
   hs.task.new(
     "/etc/profiles/per-user/"..os.getenv("USER").."/bin/chrome-tab",
     nil,
@@ -101,145 +77,97 @@ local function openChromeTab(searchTerm)
   hs.application.open("com.google.Chrome")
 end
 
-local function openSafariTab(url)
-  hs.osascript.applescript([[
-    tell application "Safari"
-      open location "]] .. url ..[["
-      activate
-    end tell
-  ]])
-end
-
 -- Show apps with their hotkey
 for k, v in pairs(appKeys) do
   m:bind("", k, function()
+    m:exit()
     hideAppsExcept({v})
     hs.grid.set(hs.application.open(v, 5, true):mainWindow(), screenPositions.big)
-    m:exit()
   end)
 end
 
 -- Show web apps (via tabs in Google Chrome) with their hotkey
 for k, v in pairs(webAppKeys) do
   m:bind("", k, function()
+    m:exit()
     openChromeTab(v)
     hideAppsExcept({"com.google.Chrome"})
     hs.grid.set(hs.window.focusedWindow(), screenPositions.big)
-    m:exit()
   end)
 end
 
 -- Split screen with another app
 for k, v in pairs(appKeys) do
   m:bind("shift", k, function()
+    m:exit()
     hs.grid.set(hs.window.focusedWindow(), screenPositions.left)
     hs.grid.set(hs.application.open(v, 5, true):mainWindow(), screenPositions.right)
-    m:exit()
   end)
 end
 
 -- Navigate windows
-m:bind("", "up", function() hs.window.filter.focusNorth() m:exit() end)
-m:bind("", "right", function() hs.window.filter.focusEast() m:exit() end)
-m:bind("", "down", function() hs.window.filter.focusSouth() m:exit() end)
-m:bind("", "left", function() hs.window.filter.focusWest() m:exit() end)
+m:bind("", "up", function() m:exit() hs.window.filter.focusNorth() end)
+m:bind("", "right", function() m:exit() hs.window.filter.focusEast() end)
+m:bind("", "down", function() m:exit() hs.window.filter.focusSouth() end)
+m:bind("", "left", function() m:exit() hs.window.filter.focusWest() end)
 
 -- Resize windows
-m:bind("shift", "up", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.big) m:exit() end)
-m:bind("shift", "right", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.right) m:exit() end)
-m:bind("shift", "down", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.middle) m:exit() end)
-m:bind("shift", "left", function() hs.grid.set(hs.window.focusedWindow(), screenPositions.left) m:exit() end)
+m:bind("shift", "up", function() m:exit() hs.grid.set(hs.window.focusedWindow(), screenPositions.big) end)
+m:bind("shift", "right", function() m:exit() hs.grid.set(hs.window.focusedWindow(), screenPositions.right) end)
+m:bind("shift", "down", function() m:exit() hs.grid.set(hs.window.focusedWindow(), screenPositions.middle) end)
+m:bind("shift", "left", function() m:exit() hs.grid.set(hs.window.focusedWindow(), screenPositions.left) end)
+
+-- Quit all open apps and windows
+m:bind("", "q", function()
+  m:exit()
+  hs.osascript.applescript([[
+    -- get list of open apps
+    tell application "System Events"
+      set allApps to displayed name of (every process whose background only is false) as list
+    end tell
+
+    -- leave some apps open
+    set exclusions to {"Hammerspoon"}
+
+    -- quit each app
+    repeat with thisApp in allApps
+      set thisApp to thisApp as text
+      if thisApp is not in exclusions then
+        tell application thisApp to quit
+      end if
+    end repeat
+  ]])
+end)
 
 -- Open "Password manager"
 m:bind("", "x", function()
+  m:exit()
   local prefPane = "/System/Library/PreferencePanes/Passwords.prefPane"
   hs.task.new("/usr/bin/open", nil, function() return true end, { prefPane }):start()
   hs.application.open("com.apple.systempreferences", 5, true):mainWindow():centerOnScreen()
-  m:exit()
 end)
 
 -- Window layout for common terminal/browser work
 m:bind("", "1", function()
+  m:exit()
   hideAppsExcept({"com.google.Chrome", "net.kovidgoyal.kitty"})
   hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.left)
   hs.grid.set(hs.application.open("net.kovidgoyal.kitty"):mainWindow(), screenPositions.right)
-  m:exit()
 end)
 
 -- Window layout for task management
 m:bind("", "2", function()
+  m:exit()
   hideAppsExcept({"com.apple.iCal", "com.apple.reminders"})
   hs.grid.set(hs.application.open("com.apple.iCal"):mainWindow(), screenPositions.left)
   hs.grid.set(hs.application.open("com.apple.reminders"):mainWindow(), screenPositions.right)
-  m:exit()
 end)
 
 -- Window layout for working on Hammerspoon
 m:bind("", "p", function()
+  m:exit()
   hideAppsExcept({"net.kovidgoyal.kitty", "org.hammerspoon.Hammerspoon"})
   hs.grid.set(hs.application.open("net.kovidgoyal.kitty"):mainWindow(), screenPositions.left)
   hs.grid.set(hs.application.open("org.hammerspoon.Hammerspoon"):mainWindow(), screenPositions.right)
   hs.console.clearConsole()
-  m:exit()
 end)
-
--- Fuzzy chooser for things that aren't quite important enough for a hotkey binding
-choices = {
-  {
-    ["text"] = "Zoom meeting",
-    ["subText"] = "Arrange the screen for a Zoom meeting",
-    ["type"] = "activity",
-    ["value"] = "zoomMeeting",
-  },
-  {
-    ["text"] = "Timesheets",
-    ["subText"] = "Arrange the screen for completing timesheets",
-    ["type"] = "activity",
-    ["value"] = "timesheets",
-  },
-}
-
-chooser = hs.chooser.new(function(choice)
-  if choice == nil then
-    return false
-
-  elseif choice.type == "url" then
-    openSafariTab(choice.value)
-
-  elseif choice.type == "activity" then
-
-    if choice == nil then
-      return false
-
-    elseif choice.value == "zoomMeeting" then
-      hideAppsExcept({"us.zoom.xos", "pro.writer.mac", "com.google.Chrome"})
-      hs.grid.set(hs.application.open("us.zoom.xos"):getWindow('Zoom Meeting'), screenPositions.left_top)
-      hs.grid.set(hs.application.open("pro.writer.mac"):mainWindow(), screenPositions.left_bottom)
-      hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.right)
-      hs.application.get("us.zoom.xos"):getWindow('Zoom'):close()
-      openChromeTab("app.slack.com")
-
-    elseif choice.value == "timesheets" then
-      hideAppsExcept({"pro.writer.mac", "com.google.Chrome"})
-      hs.grid.set(hs.application.open("com.google.Chrome"):mainWindow(), screenPositions.left)
-      hs.grid.set(hs.application.open("pro.writer.mac"):mainWindow(), screenPositions.right)
-      openChromeTab("harvestapp.com")
-
-    end
-  end
-end)
-
-chooser
-  :bgDark(true)
-  :placeholderText("Launch something")
-  :rows(5)
-  :searchSubText(true)
-
-m:bind("", "space", function()
-  chooser:choices(choices)
-  chooser:show()
-  m:exit()
-end)
-
--- Load any additional Hammerspoon config:
-require "local"
