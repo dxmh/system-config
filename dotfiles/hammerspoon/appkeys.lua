@@ -163,11 +163,11 @@ m:bind("", "2", function()
   hs.grid.set(hs.application.open("com.apple.reminders"):mainWindow(), screenPositions.right)
 end)
 
--- Window layout for working on Hammerspoon
+-- Setup for working with Hammerspoon
 m:bind("", "p", function()
   m:exit()
-  hideAppsExcept({"net.kovidgoyal.kitty", "org.hammerspoon.Hammerspoon"})
-  hs.grid.set(hs.application.open("net.kovidgoyal.kitty"):mainWindow(), screenPositions.left)
-  hs.grid.set(hs.application.open("org.hammerspoon.Hammerspoon"):mainWindow(), screenPositions.right)
+  hs.application.open("org.hammerspoon.Hammerspoon")
+  hs.grid.set(hs.console.hswindow():focus(), screenPositions.big)
+  hs.reload()
   hs.console.clearConsole()
 end)
