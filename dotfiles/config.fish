@@ -22,7 +22,7 @@ abbr m "make -s"
 abbr ns "nix-shell"
 abbr psg "ps auxwww | grep -i"
 abbr qr "qrencode -t ansi"
-abbr t "z"; # z is not pinky-friendly; t is for "to"
+abbr c "z"; # z is not pinky-friendly; c is for "cd"
 abbr tf "terraform"
 abbr kssh "kitty +kitten ssh"
 
