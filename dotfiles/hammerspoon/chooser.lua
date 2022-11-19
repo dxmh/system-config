@@ -71,7 +71,7 @@ function populateChoices()
   end)
 
   -- Application windows
-  hs.fnutils.map(hs.window.filter.default:getWindows(), function(win)
+  hs.fnutils.map(hs.window.visibleWindows(), function(win)
     if win ~= hs.window.focusedWindow() and win:application():bundleID() ~= "com.apple.Safari" then
       table.insert(c, {
         text = win:title(),
