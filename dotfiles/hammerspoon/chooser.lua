@@ -70,19 +70,18 @@ function populateChoices()
     })
   end)
 
-  -- -- Application windows
-  -- TODO: This is too slow. See https://www.reddit.com/r/hammerspoon/comments/nzo4ty.
-  -- hs.fnutils.map(hs.window.filter.default:getWindows(), function(win)
-  --   if win ~= hs.window.focusedWindow() and win:application():bundleID() ~= "com.apple.Safari" then
-  --     table.insert(c, {
-  --       text = win:title(),
-  --       subText = win:application():title(),
-  --       image = hs.image.imageFromAppBundle(win:application():bundleID()),
-  --       value = win,
-  --       type = "window",
-  --     })
-  --   end
-  -- end)
+  -- Application windows
+  hs.fnutils.map(hs.window.filter.default:getWindows(), function(win)
+    if win ~= hs.window.focusedWindow() and win:application():bundleID() ~= "com.apple.Safari" then
+      table.insert(c, {
+        text = win:title(),
+        subText = win:application():title(),
+        image = hs.image.imageFromAppBundle(win:application():bundleID()),
+        value = win,
+        type = "window",
+      })
+    end
+  end)
 
   -- Other choices
   for _, v in pairs(otherChoices) do
