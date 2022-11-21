@@ -1,19 +1,5 @@
 { pkgs, ... }: {
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      kitty = prev.kitty.overrideAttrs (oldAttrs: {
-        icon = builtins.fetchurl {
-          url = "https://raw.githubusercontent.com/DinkDonk/kitty-icon/main/kitty-light.icns";
-          sha256 = "sha256:110s4gb6mkgnmh6hl1jy361kji14v9hl30g9vb48xah6zs6zzqh8";
-        };
-        postInstall = oldAttrs.postInstall or "" + ''
-          cp -v $icon $out/Applications/kitty.app/Contents/Resources/kitty.icns
-        '';
-      });
-    })
-  ];
-
   nix.package = pkgs.nixVersions.stable;
   nix.extraOptions = ''
     experimental-features = nix-command flakes
