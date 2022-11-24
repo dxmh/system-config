@@ -74,6 +74,7 @@
   # https://developer.apple.com/library/archive/technotes/tn2450/
   system.keyboard = {
     enableKeyMapping = true;
+    nonUS.remapTilde = true;
     remapCapsLockToControl = true;
     userKeyMapping = [{
       # Remap right command to F14
