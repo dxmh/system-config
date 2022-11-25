@@ -28,6 +28,7 @@
   security.pam.enableSudoTouchIdAuth = true;
 
   system.defaults.dock = {
+    appswitcher-all-displays = true;
     autohide = true;
     autohide-delay = 0.0;
     autohide-time-modifier = 0.2; # Animation duration
