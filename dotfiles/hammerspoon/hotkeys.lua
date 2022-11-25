@@ -5,6 +5,12 @@ local hotkey   = require("hs.hotkey")
 local eventtap = require("hs.eventtap")
 local keycodes = require("hs.keycodes")
 
+if hs.host.operatingSystemVersion().major >= 13 then
+  passPane = "x-apple.systempreferences:com.apple.Passwords-Settings.extension"
+else
+  passPane = "/System/Library/PreferencePanes/Passwords.prefPane"
+end
+
 local myKeys = {
   hotkey.new({ "cmd" }, ",", function() hs.application.open("com.apple.systempreferences") end),
   hotkey.new({ "cmd" }, "c", function() hs.application.open("com.google.Chrome") end),
@@ -24,6 +30,7 @@ local myKeys = {
   hotkey.new({ "cmd" }, "t", function() hs.application.open("net.kovidgoyal.kitty") end),
   hotkey.new({ "cmd" }, "u", function() hs.application.open("com.apple.Music") end),
   hotkey.new({ "cmd" }, "z", function() hs.application.open("us.zoom.xos") end),
+  hotkey.new({ "cmd" }, "x", function() hs.task.new("/usr/bin/open", nil, function() return true end, { passPane }):start() end),
 }
 local myKeysActive = false
 
