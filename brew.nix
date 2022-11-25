@@ -26,5 +26,6 @@
     "zoom"
   ] ++ lib.optionals isWork [
     "docker"
+    "rectangle"
   ];
 }
