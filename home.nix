@@ -162,12 +162,8 @@
     source = ./dotfiles/hammerspoon/init.lua;
   };
 
-  home.file.".hammerspoon/appkeys.lua" = {
-    source = ./dotfiles/hammerspoon/appkeys.lua;
-  };
-
-  home.file.".hammerspoon/chooser.lua" = {
-    source = ./dotfiles/hammerspoon/chooser.lua;
+  home.file.".hammerspoon/hotkeys.lua" = {
+    source = ./dotfiles/hammerspoon/hotkeys.lua;
   };
 
   home.file.".config/kitty/smart_scroll.py" = {
