@@ -24,6 +24,7 @@
   ] ++ lib.optionals (!isWork) [
     "google-chrome"
     "signal"
+    "slack"
     "zoom"
   ] ++ lib.optionals isWork [
     "docker"
