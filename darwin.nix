@@ -29,17 +29,17 @@
 
   system.defaults.dock = {
     appswitcher-all-displays = true;
-    autohide = true;
+    autohide = false;
     autohide-delay = 0.0;
     autohide-time-modifier = 0.2; # Animation duration
     mineffect = "scale";
     minimize-to-application = true;
     mru-spaces = false; # Don't automatically rearrange spaces
     orientation = "bottom";
-    show-process-indicators = true;
+    show-process-indicators = false; # Show dots for open applications
     show-recents = false;
-    static-only = true;
-    tilesize = 45;
+    static-only = true; # Show only open applications in the Dock
+    tilesize = 40;
   };
 
   system.defaults.finder = {
