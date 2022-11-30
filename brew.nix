@@ -21,6 +21,7 @@
   homebrew.casks = [
     "hammerspoon"
     "rectangle"
+    "mouse-fix"
   ] ++ lib.optionals (!isWork) [
     "google-chrome"
     "signal"
