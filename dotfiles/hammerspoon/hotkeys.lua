@@ -13,23 +13,6 @@ end
 
 local myKeys = {
   hotkey.new({ "cmd" }, ",", function() hs.application.open("com.apple.systempreferences") end),
-  hotkey.new({ "cmd" }, "c", function() hs.application.open("com.google.Chrome") end),
-  hotkey.new({ "cmd" }, "d", function() hs.application.open("com.apple.iCal") end),
-  hotkey.new({ "cmd" }, "e", function() hs.application.open("com.apple.mail") end),
-  hotkey.new({ "cmd" }, "f", function() hs.application.open("com.apple.finder") end),
-  hotkey.new({ "cmd" }, "g", function() hs.application.open("org.whispersystems.signal-desktop") end),
-  hotkey.new({ "cmd" }, "h", function() hs.application.open("com.apple.Home") end),
-  hotkey.new({ "cmd" }, "i", function() hs.application.open("pro.writer.mac") end),
-  hotkey.new({ "cmd" }, "k", function() hs.application.open("net.kovidgoyal.kitty") end),
-  hotkey.new({ "cmd" }, "l", function() hs.application.open("com.tinyspeck.slackmacgap") end),
-  hotkey.new({ "cmd" }, "m", function() hs.application.open("com.apple.MobileSMS") end),
-  hotkey.new({ "cmd" }, "n", function() hs.application.open("com.apple.Notes") end),
-  hotkey.new({ "cmd" }, "p", function() hs.application.open("org.hammerspoon.Hammerspoon") end),
-  hotkey.new({ "cmd" }, "r", function() hs.application.open("com.apple.reminders") end),
-  hotkey.new({ "cmd" }, "s", function() hs.application.open("com.apple.Safari") end),
-  hotkey.new({ "cmd" }, "t", function() hs.application.open("net.kovidgoyal.kitty") end),
-  hotkey.new({ "cmd" }, "u", function() hs.application.open("com.apple.Music") end),
-  hotkey.new({ "cmd" }, "z", function() hs.application.open("us.zoom.xos") end),
   hotkey.new({ "cmd" }, "x", function() hs.task.new("/usr/bin/open", nil, function() return true end, { passPane }):start() end),
 }
 local myKeysActive = false
