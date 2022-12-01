@@ -14,6 +14,7 @@ end
 local myKeys = {
   hotkey.new({ "cmd" }, ",", function() hs.application.open("com.apple.systempreferences") end),
   hotkey.new({ "cmd" }, "x", function() hs.task.new("/usr/bin/open", nil, function() return true end, { passPane }):start() end),
+  hotkey.new({ "cmd" }, "/", function() spoon.ElgatoKey:toggle() end),
 }
 local myKeysActive = false
 
