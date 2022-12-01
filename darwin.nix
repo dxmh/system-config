@@ -35,7 +35,7 @@
     mineffect = "scale";
     minimize-to-application = true;
     mru-spaces = false; # Don't automatically rearrange spaces
-    orientation = "bottom";
+    orientation = "right";
     show-process-indicators = false; # Show dots for open applications
     show-recents = false;
     static-only = false; # Show only open applications in the Dock
