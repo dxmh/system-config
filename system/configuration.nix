@@ -1,6 +1,7 @@
 { lib, pkgs, isDarwin, ... }: {
 
   nix.package = pkgs.nixVersions.stable;
+  nix.settings.auto-optimise-store = true;
   nix.extraOptions = ''
     experimental-features = nix-command flakes
     warn-dirty = false
