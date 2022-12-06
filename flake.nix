@@ -20,7 +20,7 @@
         system = "aarch64-darwin";
         specialArgs = { isWork = false; isDarwin = true; };
         modules = [
-          ./darwin.nix
+          ./configuration.nix
           darwin.darwinModules.simple
           home-manager.darwinModules.home-manager
           {
@@ -34,7 +34,7 @@
         system = "x86_64-darwin";
         specialArgs = { isWork = true; isDarwin = true; };
         modules = [
-          ./darwin.nix
+          ./configuration.nix
           darwin.darwinModules.simple
           home-manager.darwinModules.home-manager
           {
