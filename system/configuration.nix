@@ -7,6 +7,7 @@
   '';
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnsupportedSystem = true; # for packages that don't specifically state aarch64 compatibility
 
   home-manager = {
     useGlobalPkgs = true;
