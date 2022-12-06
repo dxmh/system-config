@@ -1,6 +1,10 @@
 { lib, pkgs, isDarwin, ... }: {
 
   nix.package = pkgs.nixVersions.stable;
+  nix.gc = {
+    automatic = true;
+    options = "--delete-older-than 7d";
+  };
   nix.settings.auto-optimise-store = true;
   nix.extraOptions = ''
     experimental-features = nix-command flakes

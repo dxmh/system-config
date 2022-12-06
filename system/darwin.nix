@@ -6,11 +6,6 @@
 
   services.nix-daemon.enable = true;
 
-  nix.gc = {
-    automatic = true;
-    options = "--delete-older-than 7d";
-  };
-
   fonts = {
     fontDir.enable = true;
     fonts = with pkgs; [
