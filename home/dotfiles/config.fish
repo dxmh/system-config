@@ -24,7 +24,9 @@ abbr psg "ps auxwww | grep -i"
 abbr qr "qrencode -t ansi"
 abbr c "z"; # z is not pinky-friendly; c is for "cd"
 abbr tf "terraform"
+
 abbr kssh "kitty +kitten ssh"
+abbr n "kitty +kitten ssh nixos";
 
 abbr "g." "git switch -"
 abbr g "git"
