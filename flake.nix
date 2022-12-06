@@ -14,6 +14,7 @@
   };
 
   outputs = { self, darwin, nixpkgs, home-manager }: {
+
     darwinConfigurations = {
 
       lot = darwin.lib.darwinSystem {
@@ -40,6 +41,24 @@
           {
             home-manager.users."dom.hay" = import ./home/home.nix;
             home-manager.extraSpecialArgs = { isDarwin = true; };
+          }
+        ];
+      };
+
+    };
+
+    nixosConfigurations = {
+
+      parallels-vm = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = { isWork = false; isDarwin = false; };
+        modules = [
+          ./hardware/parallels.nix
+          ./system/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.users."dom" = import ./home/home.nix;
+            home-manager.extraSpecialArgs = { isDarwin = false; };
           }
         ];
       };

@@ -30,9 +30,7 @@
   programs.fish.enable = true;
 
 } // lib.optionalAttrs isDarwin {
-
-  imports = [
-    ./darwin.nix
-  ];
-
+  imports = [ ./darwin.nix ];
+} // lib.optionalAttrs (!isDarwin) {
+  imports = [ ./linux.nix ];
 }
