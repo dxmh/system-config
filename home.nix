@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, isDarwin, ... }: {
 
   home.stateVersion = "22.05";
 
@@ -140,6 +140,7 @@
     source = ./dotfiles/vimrc;
   };
 
+} // lib.optionalAttrs isDarwin {
   imports = [
     ./hammerspoon.nix
     ./kitty.nix

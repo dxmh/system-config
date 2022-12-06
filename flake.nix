@@ -3,7 +3,7 @@
 # - https://rycee.gitlab.io/home-manager/index.html#sec-flakes-nix-darwin-module
 
 {
-  description = "nix-darwin system";
+  description = "System configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
@@ -13,39 +13,38 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, darwin, nixpkgs, home-manager }:
-  let
-    configuration = {
-      nixpkgs.config.allowUnfree = true;
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      imports = [ ./darwin.nix ./brew.nix ];
-    };
-  in {
+  outputs = { self, darwin, nixpkgs, home-manager }: {
     darwinConfigurations = {
 
       lot = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
-        specialArgs = { isWork = false; };
+        specialArgs = { isWork = false; isDarwin = true; };
         modules = [
-          configuration
+          ./darwin.nix
           darwin.darwinModules.simple
           home-manager.darwinModules.home-manager
-          { home-manager.users."dom" = import ./home.nix; }
+          {
+            home-manager.users."dom" = import ./home.nix;
+            home-manager.extraSpecialArgs = { isDarwin = true; };
+          }
         ];
       };
 
       cbd = darwin.lib.darwinSystem {
         system = "x86_64-darwin";
-        specialArgs = { isWork = true; };
+        specialArgs = { isWork = true; isDarwin = true; };
         modules = [
-          configuration
+          ./darwin.nix
           darwin.darwinModules.simple
           home-manager.darwinModules.home-manager
-          { home-manager.users."dom.hay" = import ./home.nix; }
+          {
+            home-manager.users."dom.hay" = import ./home.nix;
+            home-manager.extraSpecialArgs = { isDarwin = true; };
+          }
         ];
       };
 
     };
+
   };
 }

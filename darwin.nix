@@ -1,19 +1,35 @@
-{ pkgs, ... }: {
+{ lib, pkgs, isDarwin, ... }: {
 
   nix.package = pkgs.nixVersions.stable;
   nix.extraOptions = ''
     experimental-features = nix-command flakes
     warn-dirty = false
   '';
+
+  nixpkgs.config.allowUnfree = true;
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+  };
+
+  environment.variables = {
+    EDITOR = "vim";
+  };
+
+  programs.fish.enable = true;
+
+} // lib.optionalAttrs isDarwin {
+
+  imports = [
+    ./brew.nix
+  ];
+
   services.nix-daemon.enable = true;
 
   nix.gc = {
     automatic = true;
     options = "--delete-older-than 7d";
-  };
-
-  environment.variables = {
-    EDITOR = "vim";
   };
 
   fonts = {
@@ -22,8 +38,6 @@
       iosevka
     ];
   };
-
-  programs.fish.enable = true;
 
   security.pam.enableSudoTouchIdAuth = true;
 
