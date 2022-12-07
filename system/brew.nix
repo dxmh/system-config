@@ -19,6 +19,7 @@
     "rectangle"
     "mouse-fix"
   ] ++ lib.optionals (!isWork) [
+    "discord"
     "google-chrome"
     "signal"
     "slack"
