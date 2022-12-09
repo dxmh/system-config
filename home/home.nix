@@ -28,7 +28,7 @@
   programs.bat = {
     enable = true;
     config = {
-      theme = "OneHalfLight";
+      theme = "OneHalfDark";
     };
   };
 

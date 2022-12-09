@@ -11,7 +11,7 @@
       "--title='kitty'"
     ];
     extraConfig = builtins.readFile ./dotfiles/kitty.conf;
-    theme = "One Half Light";
+    theme = "One Half Dark";
   };
 
   home.activation = {

@@ -74,7 +74,7 @@ nnoremap <leader>s 1z=
 
 " Colours
 syntax enable
-colorscheme onehalflight
+colorscheme onehalfdark
 highlight Normal guibg=NONE ctermbg=NONE
 highlight LineNr guibg=NONE ctermbg=NONE
 highlight GitGutterAdd ctermbg=NONE guibg=NONE
