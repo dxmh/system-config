@@ -1,4 +1,4 @@
-{ pkgs, lib, config, isDarwin, ... }: {
+{ pkgs, lib, config, isDarwin, unstable, ... }: {
 
   home.stateVersion = "22.05";
 
@@ -7,6 +7,8 @@
     coreutils
     diceware
     fzf
+    terraform-ls
+    rnix-lsp
     jless
     jq
     qrencode
@@ -69,6 +71,14 @@
     ignores = [
       ".DS_Store"
     ];
+  };
+
+  programs.helix = {
+    enable = true;
+    package = unstable.helix;
+    settings = {
+      theme = "onedark";
+    };
   };
 
   programs.nix-index = {
