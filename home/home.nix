@@ -78,6 +78,12 @@
     package = unstable.helix;
     settings = {
       theme = "onedark";
+      editor = {
+        cursorline = true;
+        auto-save = true;
+        line-number = "relative";
+        cursor-shape.insert = "bar";
+      };
     };
   };
 
