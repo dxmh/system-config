@@ -49,7 +49,7 @@ nix --experimental-features "nix-command flakes" \
 
 Now we can run `nix-darwin` for the first time:
 
-```
+```shell
 ./result/sw/bin/darwin-rebuild switch \
 	--flake github:dxmh/system-config#lot
 ```
