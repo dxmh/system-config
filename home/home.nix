@@ -83,6 +83,7 @@
         auto-save = true;
         line-number = "relative";
         cursor-shape.insert = "bar";
+        color-modes = true;
       };
     };
   };
