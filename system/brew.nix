@@ -20,6 +20,7 @@
     "mouse-fix"
   ] ++ lib.optionals (!isWork) [
     "discord"
+    "element"
     "google-chrome"
     "signal"
     "slack"
