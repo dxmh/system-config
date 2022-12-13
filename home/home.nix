@@ -84,6 +84,7 @@
         line-number = "relative";
         cursor-shape.insert = "bar";
         color-modes = true;
+        file-picker.hidden = false;
       };
     };
   };
