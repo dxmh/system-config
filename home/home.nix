@@ -7,9 +7,9 @@
     coreutils
     diceware
     fzf
+    nil
     ltex-ls
     terraform-ls
-    rnix-lsp
     jless
     jq
     qrencode
