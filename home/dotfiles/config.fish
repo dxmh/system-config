@@ -16,7 +16,7 @@ end
 abbr a "aws"
 abbr d "docker"
 abbr dc "docker-compose"
-abbr e "vim"
+abbr e "$EDITOR"
 abbr l "tree -aFvC -I .git -L 1"
 abbr m "make -s"
 abbr ns "nix-shell"
