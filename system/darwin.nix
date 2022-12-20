@@ -23,10 +23,10 @@
     mineffect = "scale";
     minimize-to-application = true;
     mru-spaces = false; # Don't automatically rearrange spaces
-    orientation = "right";
+    orientation = "left";
     show-process-indicators = false; # Show dots for open applications
-    show-recents = false;
-    static-only = false; # Show only open applications in the Dock
+    show-recents = true;
+    static-only = true; # Show only open applications in the Dock
     tilesize = 47;
   };
 
