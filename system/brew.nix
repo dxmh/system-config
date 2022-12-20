@@ -16,6 +16,7 @@
 
   homebrew.casks = [
     "hammerspoon"
+    "raycast"
     "rectangle"
     "mouse-fix"
   ] ++ lib.optionals (!isWork) [
