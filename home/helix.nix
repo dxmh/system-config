@@ -37,6 +37,7 @@
 
   # Language servers
   home.packages = with pkgs; [
+    nodePackages.bash-language-server
     nil
     ltex-ls
     terraform-ls
