@@ -12,6 +12,16 @@
         cursor-shape.insert = "bar";
         color-modes = true;
         file-picker.hidden = false;
+        whitespace = {
+          render = {
+            space = "none";
+            tab = "none";
+            newline = "all";
+          };
+          characters = {
+            newline = "↲";
+          };
+        };
       };
     };
     languages = [{
