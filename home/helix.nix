@@ -26,20 +26,30 @@
         };
       };
     };
-    languages = [{
-      # Use ltex-ls an an alternative LSP for Markdown, to provide spelling suggestions
-      # https://github.com/helix-editor/helix/wiki/How-to-install-the-default-language-servers#markdown
-      name = "markdown";
-      language-server = { command = "ltex-ls"; };
-      file-types = [ "md" ];
-      scope = "source.markdown";
-      roots = [];
-    }];
+    languages = [
+      {
+        # Use ltex-ls an an alternative LSP for Markdown, to provide spelling suggestions
+        # https://github.com/helix-editor/helix/wiki/How-to-install-the-default-language-servers#markdown
+        name = "markdown";
+        language-server = { command = "ltex-ls"; };
+        file-types = [ "md" ];
+        scope = "source.markdown";
+        roots = [];
+      }
+      {
+        name = "json";
+        language-server = {
+          command = "vscode-json-languageserver";
+          args = ["--stdio"];
+        };
+      }
+    ];
   };
 
   # Language servers
   home.packages = with pkgs; [
     nodePackages.bash-language-server
+    nodePackages.vscode-json-languageserver
     nil
     ltex-ls
     terraform-ls
