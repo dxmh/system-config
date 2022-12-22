@@ -12,7 +12,10 @@
         cursor-shape.insert = "bar";
         color-modes = true;
         file-picker.hidden = false;
-        indent-guides.render = true;
+        indent-guides = {
+          render = true;
+          character = "┊";
+        };
         whitespace = {
           render = {
             space = "none";
