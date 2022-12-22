@@ -12,6 +12,7 @@
         cursor-shape.insert = "bar";
         color-modes = true;
         file-picker.hidden = false;
+        indent-guides.render = true;
         whitespace = {
           render = {
             space = "none";
@@ -19,7 +20,8 @@
             newline = "all";
           };
           characters = {
-            newline = "↲";
+            newline = "🢱";
+            # newline = "↲";
           };
         };
       };
