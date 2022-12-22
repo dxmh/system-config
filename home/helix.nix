@@ -21,7 +21,6 @@
           };
           characters = {
             newline = "🢱";
-            # newline = "↲";
           };
         };
       };
