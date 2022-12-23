@@ -14,7 +14,7 @@
         file-picker.hidden = false;
         indent-guides = {
           render = true;
-          character = "┊";
+          character = "╎";
         };
         whitespace = {
           render = {
