@@ -4,7 +4,7 @@
     enable = true;
     package = unstable.helix;
     settings = {
-      theme = "onedark";
+      theme = "catppuccin_mocha";
       editor = {
         cursorline = true;
         auto-save = true;
