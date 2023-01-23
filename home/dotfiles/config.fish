@@ -38,6 +38,9 @@ abbr gf "git fetch --all"
 abbr gl "git log"
 abbr gs "git status --short --untracked-files --branch"
 abbr gst "git stash"
+
+abbr add "git add"
+abbr fetch "git fetch --all"
 abbr pull "git pull"
 abbr push "git push"
 
