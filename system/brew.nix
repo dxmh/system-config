@@ -23,6 +23,7 @@
     "discord"
     "element"
     "google-chrome"
+    "lulu"
     "signal"
     "slack"
     "zoom"
