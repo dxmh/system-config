@@ -12,9 +12,10 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    helix.url = "github:helix-editor/helix/master";
   };
 
-  outputs = { self, darwin, nixpkgs, nixpkgs-unstable, home-manager }: {
+  outputs = { self, darwin, nixpkgs, nixpkgs-unstable, home-manager, helix }: {
 
     darwinConfigurations = {
 
@@ -29,6 +30,7 @@
             home-manager.extraSpecialArgs = {
               isDarwin = true;
               unstable = nixpkgs-unstable.legacyPackages.${system};
+              helix = helix.packages.${system};
             };
           }
         ];
@@ -45,6 +47,7 @@
             home-manager.extraSpecialArgs = {
               isDarwin = true;
               unstable = nixpkgs-unstable.legacyPackages.${system};
+              helix = helix.packages.${system};
             };
           }
         ];
@@ -66,6 +69,7 @@
             home-manager.extraSpecialArgs = {
               isDarwin = false;
               unstable = nixpkgs-unstable.legacyPackages.${system};
+              helix = helix.packages.${system};
             };
           }
         ];

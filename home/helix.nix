@@ -1,8 +1,8 @@
-{ pkgs, unstable, ... }: {
+{ pkgs, unstable, helix, ... }: {
 
   programs.helix = {
     enable = true;
-    package = unstable.helix;
+    package = helix.default;
     settings = {
       theme = "catppuccin_mocha";
       editor = {
