@@ -4,12 +4,11 @@
     enable = true;
     package = helix.default;
     settings = {
-      theme = "catppuccin_mocha";
+      theme = "custom";
       editor = {
         cursorline = true;
         auto-save = true;
         line-number = "relative";
-        cursor-shape.insert = "bar";
         color-modes = true;
         file-picker.hidden = false;
         indent-guides = {
@@ -26,6 +25,21 @@
             newline = "🢱";
           };
         };
+      };
+    };
+    themes = {
+      custom = {
+        "inherits" = "catppuccin_mocha";
+        "ui.statusline.normal" = { fg = "base"; bg = "lavender"; };
+        "ui.statusline.insert" = { fg = "base"; bg = "green"; };
+        "ui.statusline.select" = { fg = "base"; bg = "yellow"; };
+        "ui.cursor.primary.normal" = { fg = "base"; bg = "lavender"; };
+        "ui.cursor.primary.insert" = { fg = "base"; bg = "green"; };
+        "ui.cursor.primary.select" = { fg = "base"; bg = "yellow"; };
+        # The non-primary cursor colours need to be a dimmed version of the above
+        "ui.cursor.normal" = { fg = "base"; bg = "#A6ADC8"; };
+        "ui.cursor.insert" = { fg = "base"; bg = "#AACCC6"; };
+        "ui.cursor.select" = { fg = "base"; bg = "#B6A98B"; };
       };
     };
     languages = [
