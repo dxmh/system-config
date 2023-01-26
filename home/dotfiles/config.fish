@@ -37,19 +37,24 @@ abbr gd "git diff"
 abbr gf "git fetch --all"
 abbr gl "git log"
 abbr gs "git status --short --untracked-files --branch"
-abbr gst "git stash"
 
 abbr add "git add"
 abbr fetch "git fetch --all"
 abbr pull "git pull"
 abbr push "git push"
+abbr stash "git stash"
+abbr show "git show"
+abbr log "git log"
+abbr co "git checkout"
+abbr c "git commit -vp"
 
 abbr "-" "cd -"
 abbr "." "cd -"
 abbr ".." "cd ../"
 abbr "..." "cd ../../"
 
-alias cat "bat"
+abbr cat "bat"
+abbr vim "hx"
 
 # Theme
 # name: 'Catppuccin mocha'
