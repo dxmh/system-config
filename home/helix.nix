@@ -26,6 +26,12 @@
           };
         };
       };
+      keys.normal = {
+        space.e = ":reflow";
+        space.q = ":q";
+        space.w = ":w";
+        space.x = ":x";
+      };
     };
     themes = {
       custom = {
