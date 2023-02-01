@@ -10,6 +10,10 @@
     };
   };
 
+  homebrew.brews = [
+    "aws-console" # https://github.com/aws/aws-cli/issues/4642#issuecomment-768266541
+  ];
+
   homebrew.taps = [
     "homebrew/cask"
   ];
