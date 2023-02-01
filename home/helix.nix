@@ -17,6 +17,7 @@
         };
         soft-wrap = {
           enable = true;
+          wrap-indicator = "";
         };
         whitespace = {
           render = {
