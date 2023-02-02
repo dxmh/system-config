@@ -35,6 +35,7 @@
         space.q = ":q";
         space.w = ":w";
         space.x = ":x";
+        space.o.w = ":set soft-wrap.enable false";
       };
     };
     themes = {
