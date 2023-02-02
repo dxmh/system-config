@@ -3,7 +3,13 @@ rebuild: check
 	  darwin-rebuild switch --flake .#${FLAKE_TARGET}
 
 upgrade: check
-	darwin-rebuild switch --flake .#${FLAKE_TARGET} --recreate-lock-file --commit-lock-file
+	cachix watch-exec dxmh -- \
+	  darwin-rebuild switch --flake .#${FLAKE_TARGET} --recreate-lock-file --commit-lock-file
+	@# Cache the flake's inputs
+	nix flake archive --json \
+	  | jq -r '.path,(.inputs|to_entries[].value.path)' \
+	  | cachix push dxmh
+	make homebrew
 
 homebrew:
 	/opt/homebrew/bin/brew update
