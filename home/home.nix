@@ -75,9 +75,6 @@
     extraConfig = {
       push.autoSetupRemote = true;
     };
-    difftastic = {
-      enable = true;
-    };
     ignores = [
       ".DS_Store"
     ];
