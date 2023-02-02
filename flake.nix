@@ -78,4 +78,10 @@
     };
 
   };
+
+  nixConfig = {
+    extra-substituters = ["https://dxmh.cachix.org/"];
+    extra-trusted-public-keys = ["dxmh.cachix.org-1:mxvbwbVG4qos714NloY6lzrM1lTEO1lHVcJVF1Ngyic="];
+  };
+
 }
