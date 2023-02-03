@@ -17,7 +17,6 @@
         };
         soft-wrap = {
           enable = true;
-          wrap-indicator = "";
         };
         whitespace = {
           render = {
@@ -26,7 +25,7 @@
             newline = "all";
           };
           characters = {
-            newline = "🢱";
+            newline = "↩";
           };
         };
       };
