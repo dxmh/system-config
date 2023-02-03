@@ -177,9 +177,9 @@
 
   imports = [
     ./helix.nix
-  ] ++ lib.optionalAttrs isDarwin [
+  ] ++ (lib.lists.optionals isDarwin [
     ./hammerspoon.nix
     ./kitty.nix
-  ];
+  ]);
 
 }
