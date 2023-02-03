@@ -35,6 +35,10 @@
         space.w = ":w";
         space.x = ":x";
         space.o.w = ":set soft-wrap.enable false";
+        Z = {
+          d = "half_page_down";
+          u = "half_page_up";
+        };
       };
     };
     themes = {
