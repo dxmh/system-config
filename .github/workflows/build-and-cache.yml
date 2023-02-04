@@ -1,0 +1,35 @@
+name: "Build and cache"
+on:
+  push:
+jobs:
+  build:
+    name: Build ${{ matrix.machine.name }} system
+    continue-on-error: ${{ matrix.machine.continue_on_error }}
+    strategy:
+      matrix:
+        machine:
+          - name: cbd (x86_64-darwin)
+            derivation: darwinConfigurations.cbd.system
+            runs_on: macos-latest
+            continue_on_error: false
+          - name: lot (aarch64-darwin)
+            derivation: darwinConfigurations.lot.system
+            runs_on: macos-latest
+            continue_on_error: true # GHA does not support aarch64 builds
+          - name: parallels-vm (aarch64-linux)
+            derivation: nixosConfigurations.parallels-vm.config.system.build.toplevel
+            runs_on: ubuntu-latest
+            continue_on_error: true # GHA does not support aarch64 builds
+    runs-on: ${{ matrix.machine.runs_on }}
+    steps:
+    - uses: actions/checkout@v3
+    - uses: cachix/install-nix-action@v17
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+    - uses: cachix/cachix-action@v12
+      with:
+        name: dxmh
+        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+    - run: nix build ./#${{ matrix.machine.derivation }}
+      env:
+        NIXPKGS_ALLOW_UNSUPPORTED_SYSTEM: 1
