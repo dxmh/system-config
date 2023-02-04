@@ -12,14 +12,14 @@ jobs:
             derivation: darwinConfigurations.cbd.system
             runs_on: macos-latest
             continue_on_error: false
-          - name: lot (aarch64-darwin)
-            derivation: darwinConfigurations.lot.system
-            runs_on: macos-latest
-            continue_on_error: true # GHA does not support aarch64 builds
-          - name: parallels-vm (aarch64-linux)
-            derivation: nixosConfigurations.parallels-vm.config.system.build.toplevel
-            runs_on: ubuntu-latest
-            continue_on_error: true # GHA does not support aarch64 builds
+          # - name: lot (aarch64-darwin)
+          #   derivation: darwinConfigurations.lot.system
+          #   runs_on: macos-latest
+          #   continue_on_error: true # GHA does not support aarch64 builds
+          # - name: parallels-vm (aarch64-linux)
+          #   derivation: nixosConfigurations.parallels-vm.config.system.build.toplevel
+          #   runs_on: ubuntu-latest
+          #   continue_on_error: true # GHA does not support aarch64 builds
     runs-on: ${{ matrix.machine.runs_on }}
     steps:
     - uses: actions/checkout@v3
