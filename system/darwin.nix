@@ -26,7 +26,7 @@
     orientation = "left";
     show-process-indicators = false; # Show dots for open applications
     show-recents = true;
-    static-only = true; # Show only open applications in the Dock
+    static-only = false; # Whether to show only open applications in the Dock
     tilesize = 47;
   };
 
