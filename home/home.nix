@@ -24,13 +24,11 @@
     FZF_DEFAULT_COMMAND = "rg --files --hidden --glob !.git/";
     FZF_DEFAULT_OPTS = "--color=light";
     MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
+    BAT_THEME = "Catppuccin"; # also used by delta
   };
 
   programs.bat = {
     enable = true;
-    config = {
-      theme = "Catppuccin";
-    };
     themes = {
       Catppuccin = builtins.readFile (pkgs.fetchFromGitHub {
         owner = "catppuccin";
@@ -74,6 +72,12 @@
     enable = true;
     extraConfig = {
       push.autoSetupRemote = true;
+    };
+    delta = {
+      enable = true;
+      options = {
+        side-by-side = true;
+      };
     };
     ignores = [
       ".DS_Store"
