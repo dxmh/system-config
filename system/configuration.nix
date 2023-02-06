@@ -11,6 +11,12 @@
     };
     package = pkgs.nixVersions.stable;
     settings.auto-optimise-store = true;
+
+    # Allow these users to specify additional binary caches:
+    settings.trusted-users = [
+      "@wheel" # Linux
+      "@admin" # macOS
+    ];
   };
 
   nixpkgs.config = {
