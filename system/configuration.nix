@@ -23,6 +23,10 @@
     useUserPackages = true;
   };
 
+  environment.systemPackages = [
+    pkgs.cachix
+  ];
+
   environment.variables = {
     EDITOR = "vim";
   };
