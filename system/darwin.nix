@@ -4,6 +4,10 @@
     ./brew.nix
   ];
 
+  environment.systemPath = [
+    "/opt/homebrew/bin"
+  ];
+
   services.nix-daemon.enable = true;
 
   fonts = {
