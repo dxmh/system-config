@@ -29,6 +29,7 @@
     "element"
     "google-chrome"
     "lulu"
+    "parallels"
     "signal"
     "slack"
     "syncthing"
