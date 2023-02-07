@@ -32,6 +32,10 @@
 
   system.stateVersion = "22.11"; # NixOS version used to setup the system initially
 
+  environment.systemPackages = [
+    pkgs.gnumake
+  ];
+
   time.timeZone = "Europe/London";
 
   users.users.dom = {
