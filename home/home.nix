@@ -2,6 +2,12 @@
 
   home.stateVersion = "22.05";
 
+  home.activation = {
+    updateBatCache = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      ${pkgs.bat}/bin/bat cache --build
+    '';
+  };
+
   home.packages = with pkgs; [
     awscli2
     coreutils
