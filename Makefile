@@ -2,6 +2,10 @@ rebuild: check
 	time cachix watch-exec dxmh -- \
 	  darwin-rebuild switch --flake .#${FLAKE_TARGET}
 
+rebuild-vm:
+	time cachix watch-exec dxmh -- \
+	  sudo nixos-rebuild switch --flake .#parallels-vm
+
 upgrade: check
 	cachix watch-exec dxmh -- \
 	  darwin-rebuild switch --flake .#${FLAKE_TARGET} --recreate-lock-file --commit-lock-file
