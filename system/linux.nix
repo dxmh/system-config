@@ -18,6 +18,7 @@
   };
 
   nix.gc.dates = "weekly";
+  nix.settings.auto-optimise-store = true;
 
   security.sudo.wheelNeedsPassword = false;
 

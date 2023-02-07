@@ -10,7 +10,6 @@
       options = "--delete-older-than 7d";
     };
     package = pkgs.nixVersions.stable;
-    settings.auto-optimise-store = true;
 
     # Allow these users to specify additional binary caches:
     settings.trusted-users = [

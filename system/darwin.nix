@@ -17,6 +17,27 @@
     ];
   };
 
+  # While it’s possible to set `nix.settings.auto-optimise-store`, it sometimes
+  # causes problems on Darwin. So run a job periodically to optimise the store:
+  launchd.daemons."nix-store-optimise".serviceConfig = {
+    ProgramArguments = [
+      "/bin/sh"
+      "-c"
+      ''
+        /bin/wait4path ${pkgs.nix}/bin/nix && \
+          exec ${pkgs.nix}/bin/nix store optimise
+      ''
+    ];
+    StartCalendarInterval = [
+      {
+        Hour = 2;
+        Minute = 30;
+      }
+    ];
+    StandardErrorPath = "/var/log/nix-store.log";
+    StandardOutPath = "/var/log/nix-store.log";
+  };
+
   security.pam.enableSudoTouchIdAuth = true;
 
   system.defaults.dock = {
