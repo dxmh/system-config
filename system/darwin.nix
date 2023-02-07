@@ -42,7 +42,7 @@
 
   system.defaults.dock = {
     appswitcher-all-displays = true;
-    autohide = true;
+    autohide = false;
     autohide-delay = 0.0;
     autohide-time-modifier = 0.2; # Animation duration
     mineffect = "scale";
@@ -52,12 +52,12 @@
     show-process-indicators = false; # Show dots for open applications
     show-recents = true;
     static-only = false; # Whether to show only open applications in the Dock
-    tilesize = 47;
+    tilesize = 30;
   };
 
   system.defaults.finder = {
     AppleShowAllExtensions = true;
-    AppleShowAllFiles = true;
+    AppleShowAllFiles = false;
     FXPreferredViewStyle = "clmv"; # Column view
     QuitMenuItem = true;
     ShowPathbar = true;
@@ -65,15 +65,12 @@
   };
 
   system.defaults.NSGlobalDomain = {
+    AppleICUForce24HourTime = false; # Use 12-hour clock
     NSNavPanelExpandedStateForSaveMode = true; # Use expanded save panel by default
     KeyRepeat = 2; # Fastest repeat
     InitialKeyRepeat = 15; # Shortest delay until repeat
     "com.apple.trackpad.enableSecondaryClick" = true;
     "com.apple.trackpad.scaling" = 3.0; # Slowest is 0, fastest is 3
-  };
-
-  system.defaults.screencapture = {
-    disable-shadow = true;
   };
 
   system.defaults.trackpad = {
