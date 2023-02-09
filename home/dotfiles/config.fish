@@ -47,6 +47,7 @@ abbr show "git show"
 abbr log "git log"
 abbr co "git checkout"
 abbr c "git commit -vp"
+abbr clone "git clone"
 
 abbr "-" "cd -"
 abbr "." "cd -"
