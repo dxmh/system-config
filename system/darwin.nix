@@ -73,6 +73,11 @@
     "com.apple.trackpad.scaling" = 3.0; # Slowest is 0, fastest is 3
   };
 
+  system.defaults.screencapture = {
+    disable-shadow = false;
+    location = "~/Pictures/Screenshots/";
+  };
+
   system.defaults.trackpad = {
     ActuationStrength = 0; # Silent clicking
     Clicking = true; # Tap to click
