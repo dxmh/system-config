@@ -10,7 +10,7 @@ end
 
 # Just show the current directory and command in the title
 function fish_title
-  echo (basename (prompt_pwd)) $argv | cut -d' ' -f1-2
+  echo (basename (prompt_pwd))
 end
 
 abbr a "aws"
