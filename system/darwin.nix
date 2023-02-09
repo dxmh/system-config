@@ -52,7 +52,7 @@
     show-process-indicators = false; # Show dots for open applications
     show-recents = true;
     static-only = false; # Whether to show only open applications in the Dock
-    tilesize = 30;
+    tilesize = 40;
   };
 
   system.defaults.finder = {
