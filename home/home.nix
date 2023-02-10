@@ -131,13 +131,10 @@
       character.error_symbol = "[\\$](bold red)";
       character.success_symbol = "[\\$](bold grey)";
       docker_context.disabled = true;
-      git_branch.truncation_length = 24;
-      git_status.format = "$staged$modified$untracked";
-      git_status.modified = "[∗ ](bold red)";
-      git_status.staged = "[∗ ](bold green)";
-      git_status.untracked = "[∗ ](bold blue)";
+      git_status.disabled = true;
       line_break.disabled = false;
       nodejs.disabled = true;
+      package.disabled = true;
       php.disabled = true;
       python.symbol = " ";
       status.disabled = false;
