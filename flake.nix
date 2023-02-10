@@ -24,6 +24,7 @@
         specialArgs = { isWork = false; isDarwin = true; };
         modules = [
           ./system/configuration.nix
+          ./system/docker-client.nix
           home-manager.darwinModules.home-manager
           {
             home-manager.users."dom" = import ./home/home.nix;
