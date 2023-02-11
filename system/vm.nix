@@ -26,6 +26,7 @@
   virtualisation.vmVariant = {
     virtualisation.graphics = false;
     virtualisation.cores = 4;
+    virtualisation.diskSize = 1024;
     virtualisation.memorySize = 8192;
     virtualisation.forwardPorts = [{
         from = "host";
@@ -37,9 +38,6 @@
     #   source = "/path/on/host";
     #   target = "/path/on/guest";
     # };
-
-    # TODO: Additional VM setup
-    # virtualisation.diskSize
   };
 
   # Open SSH
