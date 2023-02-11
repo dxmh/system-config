@@ -7,7 +7,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
@@ -15,7 +14,7 @@
     helix.url = "github:helix-editor/helix/master";
   };
 
-  outputs = { self, darwin, nixpkgs, nixpkgs-unstable, home-manager, helix }: {
+  outputs = { self, darwin, nixpkgs, home-manager, helix }: {
 
     darwinConfigurations.lot = darwin.lib.darwinSystem rec {
       system = "aarch64-darwin";
@@ -28,7 +27,6 @@
           home-manager.users."dom" = import ./home/home.nix;
           home-manager.extraSpecialArgs = {
             isDarwin = true;
-            unstable = nixpkgs-unstable.legacyPackages.${system};
             helix = helix.packages.${system};
           };
         }
@@ -45,7 +43,6 @@
           home-manager.users."dom.hay" = import ./home/home.nix;
           home-manager.extraSpecialArgs = {
             isDarwin = true;
-            unstable = nixpkgs-unstable.legacyPackages.${system};
             helix = helix.packages.${system};
           };
         }
@@ -63,7 +60,6 @@
           home-manager.users."dom" = import ./home/home.nix;
           home-manager.extraSpecialArgs = {
             isDarwin = false;
-            unstable = nixpkgs-unstable.legacyPackages.${system};
             helix = helix.packages.${system};
           };
         }
@@ -74,7 +70,7 @@
     # This needs to be bootstrapped by building from macOS, using an existing
     # NixOS Linux machine as the builder...
     # nix run .#linuxVM --builders "ssh://me@remote-nixos aarch64-linux" --verbose
-    nixosConfigurations.linuxVM = nixpkgs-unstable.lib.nixosSystem rec {
+    nixosConfigurations.linuxVM = nixpkgs.lib.nixosSystem rec {
       system = "aarch64-linux";
       specialArgs = { isWork = false; isDarwin = false; };
       modules = [
@@ -85,7 +81,6 @@
           home-manager.users."dom" = import ./home/home.nix;
           home-manager.extraSpecialArgs = {
             isDarwin = false;
-            unstable = nixpkgs-unstable.legacyPackages.${system};
             helix = helix.packages.${system};
           };
           virtualisation.vmVariant.virtualisation.host.pkgs = nixpkgs.legacyPackages.aarch64-darwin;

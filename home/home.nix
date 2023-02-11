@@ -1,4 +1,4 @@
-{ pkgs, lib, config, isDarwin, unstable, ... }: {
+{ pkgs, lib, config, isDarwin, ... }: {
 
   home.stateVersion = "22.05";
 

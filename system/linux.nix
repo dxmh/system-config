@@ -17,10 +17,8 @@
 
   services.openssh = {
     enable = true;
-    settings = {
-      passwordAuthentication = false;
-      permitRootLogin = "no";
-    };
+    passwordAuthentication = false;
+    permitRootLogin = "no";
   };
 
   system.stateVersion = "22.11"; # NixOS version used to setup the system initially
