@@ -11,7 +11,7 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    helix.url = "github:helix-editor/helix/master";
+    helix.url = "github:helix-editor/helix/3b301a9d1d832d304ff109aa9f5eee025789b3e8";
   };
 
   outputs = { self, darwin, nixpkgs, home-manager, helix }: {
