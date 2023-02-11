@@ -17,79 +17,71 @@
 
   outputs = { self, darwin, nixpkgs, nixpkgs-unstable, home-manager, helix }: {
 
-    darwinConfigurations = {
-
-      lot = darwin.lib.darwinSystem rec {
-        system = "aarch64-darwin";
-        specialArgs = { isWork = false; isDarwin = true; };
-        modules = [
-          ./system/configuration.nix
-          ./system/docker-client.nix
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.users."dom" = import ./home/home.nix;
-            home-manager.extraSpecialArgs = {
-              isDarwin = true;
-              unstable = nixpkgs-unstable.legacyPackages.${system};
-              helix = helix.packages.${system};
-            };
-          }
-        ];
-      };
-
-      cbd = darwin.lib.darwinSystem rec {
-        system = "x86_64-darwin";
-        specialArgs = { isWork = true; isDarwin = true; };
-        modules = [
-          ./system/configuration.nix
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.users."dom.hay" = import ./home/home.nix;
-            home-manager.extraSpecialArgs = {
-              isDarwin = true;
-              unstable = nixpkgs-unstable.legacyPackages.${system};
-              helix = helix.packages.${system};
-            };
-          }
-        ];
-      };
-
+    darwinConfigurations.lot = darwin.lib.darwinSystem rec {
+      system = "aarch64-darwin";
+      specialArgs = { isWork = false; isDarwin = true; };
+      modules = [
+        ./system/configuration.nix
+        ./system/docker-client.nix
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.users."dom" = import ./home/home.nix;
+          home-manager.extraSpecialArgs = {
+            isDarwin = true;
+            unstable = nixpkgs-unstable.legacyPackages.${system};
+            helix = helix.packages.${system};
+          };
+        }
+      ];
     };
 
-    nixosConfigurations = {
+    darwinConfigurations.cbd = darwin.lib.darwinSystem rec {
+      system = "x86_64-darwin";
+      specialArgs = { isWork = true; isDarwin = true; };
+      modules = [
+        ./system/configuration.nix
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.users."dom.hay" = import ./home/home.nix;
+          home-manager.extraSpecialArgs = {
+            isDarwin = true;
+            unstable = nixpkgs-unstable.legacyPackages.${system};
+            helix = helix.packages.${system};
+          };
+        }
+      ];
+    };
 
-      parallels-vm = nixpkgs.lib.nixosSystem rec {
-        system = "aarch64-linux";
-        specialArgs = { isWork = false; isDarwin = false; };
-        modules = [
-          ./hardware/parallels.nix
-          ./system/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.users."dom" = import ./home/home.nix;
-            home-manager.extraSpecialArgs = {
-              isDarwin = false;
-              unstable = nixpkgs-unstable.legacyPackages.${system};
-              helix = helix.packages.${system};
-            };
-          }
-        ];
-      };
+    nixosConfigurations.parallels-vm = nixpkgs.lib.nixosSystem rec {
+      system = "aarch64-linux";
+      specialArgs = { isWork = false; isDarwin = false; };
+      modules = [
+        ./hardware/parallels.nix
+        ./system/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.users."dom" = import ./home/home.nix;
+          home-manager.extraSpecialArgs = {
+            isDarwin = false;
+            unstable = nixpkgs-unstable.legacyPackages.${system};
+            helix = helix.packages.${system};
+          };
+        }
+      ];
+    };
 
-      # See https://www.tweag.io/blog/2023-02-09-nixos-vm-on-macos/ for info.
-      # This needs to be bootstrapped by building from macOS, using an existing
-      # NixOS Linux machine as the builder...
-      # nix run .#linuxVM --builders "ssh://me@remote-nixos aarch64-linux" --verbose
-      linuxVM = nixpkgs-unstable.lib.nixosSystem {
-        system = "aarch64-linux";
-        modules = [
-          ./system/vm.nix
-          {
-            virtualisation.vmVariant.virtualisation.host.pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          }
-        ];
-      };
-
+    # See https://www.tweag.io/blog/2023-02-09-nixos-vm-on-macos/ for info.
+    # This needs to be bootstrapped by building from macOS, using an existing
+    # NixOS Linux machine as the builder...
+    # nix run .#linuxVM --builders "ssh://me@remote-nixos aarch64-linux" --verbose
+    nixosConfigurations.linuxVM = nixpkgs-unstable.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [
+        ./system/vm.nix
+        {
+          virtualisation.vmVariant.virtualisation.host.pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+        }
+      ];
     };
 
     packages.aarch64-darwin.linuxVM = self.nixosConfigurations.linuxVM.config.system.build.vm;
