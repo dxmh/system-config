@@ -74,11 +74,20 @@
     # This needs to be bootstrapped by building from macOS, using an existing
     # NixOS Linux machine as the builder...
     # nix run .#linuxVM --builders "ssh://me@remote-nixos aarch64-linux" --verbose
-    nixosConfigurations.linuxVM = nixpkgs-unstable.lib.nixosSystem {
+    nixosConfigurations.linuxVM = nixpkgs-unstable.lib.nixosSystem rec {
       system = "aarch64-linux";
+      specialArgs = { isWork = false; isDarwin = false; };
       modules = [
-        ./system/vm.nix
+        ./hardware/qemu.nix
+        ./system/configuration.nix
+        home-manager.nixosModules.home-manager
         {
+          home-manager.users."dom" = import ./home/home.nix;
+          home-manager.extraSpecialArgs = {
+            isDarwin = false;
+            unstable = nixpkgs-unstable.legacyPackages.${system};
+            helix = helix.packages.${system};
+          };
           virtualisation.vmVariant.virtualisation.host.pkgs = nixpkgs.legacyPackages.aarch64-darwin;
         }
       ];

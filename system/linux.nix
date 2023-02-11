@@ -1,19 +1,10 @@
 { pkgs, ... }: {
 
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    systemd-boot = {
-      enable = true;
-      consoleMode = "0"; # Fix "error switching console mode" on boot in Parallels
-    };
-  };
-
   networking = {
     # Disable the firewall since we're in a VM and we want to make it
     # easy to visit stuff in this VM. We only use NAT networking anyways:
     firewall.enable = false;
     hostName = "nixos";
-    interfaces.enp0s5.useDHCP = true;
     useDHCP = false;
   };
 
@@ -26,8 +17,10 @@
 
   services.openssh = {
     enable = true;
-    passwordAuthentication = false;
-    permitRootLogin = "no";
+    settings = {
+      passwordAuthentication = false;
+      permitRootLogin = "no";
+    };
   };
 
   system.stateVersion = "22.11"; # NixOS version used to setup the system initially

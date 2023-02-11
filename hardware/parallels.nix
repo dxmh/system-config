@@ -7,7 +7,16 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  boot.loader.timeout = 1;
+  boot.loader = {
+    timeout = 1;
+    efi.canTouchEfiVariables = true;
+    systemd-boot = {
+      enable = true;
+      consoleMode = "0"; # Fix "error switching console mode" on boot in Parallels
+    };
+  };
+
+  networking.interfaces.enp0s5.useDHCP = true;
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXROOT";
