@@ -90,33 +90,6 @@
     ];
   };
 
-  programs.gitui = {
-    enable = true;
-    theme = ''(
-      selected_tab: Reset,
-      command_fg: White,
-      selection_bg: DarkGray,
-      selection_fg: White,
-      cmdbar_bg: DarkGray,
-      cmdbar_extra_lines_bg: DarkGray,
-      disabled_fg: Gray,
-      diff_line_add: Green,
-      diff_line_delete: Red,
-      diff_file_added: LightGreen,
-      diff_file_removed: LightRed,
-      diff_file_moved: LightMagenta,
-      diff_file_modified: Yellow,
-      commit_hash: Magenta,
-      commit_time: LightCyan,
-      commit_author: Green,
-      danger_fg: Red,
-      push_gauge_bg: DarkGray,
-      push_gauge_fg: Reset,
-      tag_fg: LightMagenta,
-      branch_fg: LightYellow,
-    )'';
-  };
-
   programs.nix-index = {
     enable = true;
     enableFishIntegration = true;
