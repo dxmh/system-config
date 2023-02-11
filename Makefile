@@ -19,6 +19,9 @@ homebrew:
 	/opt/homebrew/bin/brew update
 	/opt/homebrew/bin/brew upgrade
 
+vmlist:
+	pgrep -lf qemu
+
 clean:
 	nix-collect-garbage
 
