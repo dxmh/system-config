@@ -8,7 +8,7 @@
   virtualisation.vmVariant = {
     virtualisation.graphics = false;
     virtualisation.cores = 4;
-    virtualisation.diskSize = 1024;
+    virtualisation.diskSize = 8192;
     virtualisation.memorySize = 8192;
     virtualisation.forwardPorts = [{
         from = "host";
