@@ -17,6 +17,44 @@
 
   outputs = { self, darwin, nixpkgs, nixpkgs-unstable, home-manager, helix }: {
 
+    nixosModules.base = {pkgs, ...}: {
+      system.stateVersion = "22.05";
+
+      # Configure networking
+      networking.useDHCP = false;
+      networking.interfaces.eth0.useDHCP = true;
+
+      # Create user "test"
+      services.getty.autologinUser = "test";
+      users.users.test.isNormalUser = true;
+
+      # Enable passwordless ‘sudo’ for the "test" user
+      users.users.test.extraGroups = ["wheel"];
+      security.sudo.wheelNeedsPassword = false;
+    };
+
+    nixosModules.vm = {...}: {
+      # Make VM output to the terminal instead of a separate window
+      virtualisation.vmVariant.virtualisation.graphics = false;
+    };
+
+    nixosConfigurations.linuxVM = nixpkgs-unstable.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [
+        self.nixosModules.base
+        self.nixosModules.vm
+        {
+          virtualisation.vmVariant.virtualisation.host.pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+        }
+      ];
+    };
+
+    # See https://www.tweag.io/blog/2023-02-09-nixos-vm-on-macos/ for info.
+    # This needs to be bootstrapped by building from macOS, using an existing
+    # NixOS Linux machine as the builder...
+    # nix run .#linuxVM --builders "ssh://me@remote-nixos aarch64-linux" --verbose
+    packages.aarch64-darwin.linuxVM = self.nixosConfigurations.linuxVM.config.system.build.vm;
+
     darwinConfigurations = {
 
       lot = darwin.lib.darwinSystem rec {
