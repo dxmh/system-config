@@ -144,44 +144,6 @@
     };
   };
 
-  programs.neovim = {
-    enable = true;
-    plugins = with pkgs.vimPlugins; [
-      editorconfig-vim
-      fugitive-gitlab-vim
-      onehalf
-      starsearch-vim
-      vim-commentary
-      vim-eunuch
-      vim-fubitive
-      vim-fugitive
-      vim-nix
-      vim-repeat
-      vim-rhubarb
-      vim-rsi
-      vim-sensible
-      vim-shellcheck
-      vim-speeddating
-      vim-surround
-      vim-terraform
-      vim-unimpaired
-      vim-vinegar
-      # neovim specific:
-      gitsigns-nvim
-      plenary-nvim
-      telescope-nvim
-    ];
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-  };
-
-  # Cannot use home.progams.neovim.extraConfig due to this:
-  # https://github.com/nix-community/home-manager/pull/3233#issuecomment-1279914732
-  home.file.".config/nvim/init.vim" = {
-    source = ./dotfiles/vimrc;
-  };
-
   imports = [
     ./helix.nix
   ] ++ (lib.lists.optionals isDarwin [
