@@ -33,6 +33,7 @@
     "signal"
     "slack"
     "syncthing"
+    "utm"
     "zoom"
   ] ++ lib.optionals isWork [
     "docker"
