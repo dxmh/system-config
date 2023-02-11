@@ -33,10 +33,13 @@
         host.port = 2022;
         guest.port = 22;
     }];
+    # virtualisation.sharedDirectories.code= {
+    #   source = "/path/on/host";
+    #   target = "/path/on/guest";
+    # };
 
     # TODO: Additional VM setup
     # virtualisation.diskSize
-    # virtualisation.sharedDirectories
   };
 
   # Open SSH
