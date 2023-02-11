@@ -27,6 +27,12 @@
     virtualisation.graphics = false;
     virtualisation.cores = 4;
     virtualisation.memorySize = 8192;
+    virtualisation.forwardPorts = [{
+        from = "host";
+        host.address = "127.0.0.1";
+        host.port = 2022;
+        guest.port = 22;
+    }];
 
     # TODO: Additional VM setup
     # virtualisation.diskSize
