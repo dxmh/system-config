@@ -6,15 +6,40 @@
   networking.useDHCP = false;
   networking.interfaces.eth0.useDHCP = true;
 
+  # Disable the firewall since we're in a VM and we want to make it
+  # easy to visit stuff in this VM. We only use NAT networking anyways:
+  networking.firewall.enable = false;
+
   # Create user "test"
   services.getty.autologinUser = "test";
   users.users.test.isNormalUser = true;
+  users.users.test.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpIMrPStsNADURgP6ZXp+1PwMrIMOthUwVLWdP11XBd"
+  ];
 
   # Enable passwordless ‘sudo’ for the "test" user
   users.users.test.extraGroups = ["wheel"];
   security.sudo.wheelNeedsPassword = false;
 
-  # Make VM output to the terminal instead of a separate window
-  virtualisation.vmVariant.virtualisation.graphics = false;
+  # Configure the QEMU virtual machine
+  # https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/virtualisation/qemu-vm.nix
+  virtualisation.vmVariant = {
+    virtualisation.graphics = false;
+    virtualisation.cores = 4;
+    virtualisation.memorySize = 8192;
+
+    # TODO: Additional VM setup
+    # virtualisation.diskSize
+    # virtualisation.sharedDirectories
+  };
+
+  # Open SSH
+  services.openssh = {
+    enable = true;
+    settings = {
+      passwordAuthentication = false;
+      permitRootLogin = "no";
+    };
+  };
 
 }
