@@ -73,11 +73,20 @@
           args = ["--stdio"];
         };
       }
+      {
+        name = "nix";
+        formatter = {
+          command = "alejandra";
+          args = ["-"];
+        };
+        auto-format = true;
+      }
     ];
   };
 
   # Language servers
   home.packages = with pkgs; [
+    alejandra
     nodePackages.bash-language-server
     nodePackages.vscode-json-languageserver
     nodePackages.intelephense # for PHP
