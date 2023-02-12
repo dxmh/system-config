@@ -1,8 +1,7 @@
-{ pkgs, helix, ... }: {
+{ pkgs, ... }: {
 
   programs.helix = {
     enable = true;
-    package = helix.default;
     settings = {
       theme = "custom";
       editor = {

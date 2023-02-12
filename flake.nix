@@ -14,7 +14,11 @@
     helix.url = "github:helix-editor/helix/3b301a9d1d832d304ff109aa9f5eee025789b3e8";
   };
 
-  outputs = { self, darwin, nixpkgs, home-manager, helix }: {
+  outputs = { self, darwin, nixpkgs, home-manager, helix }: let
+    overlays = [(final: prev: {
+      helix = helix.packages.${prev.system}.default;
+    })];
+  in {
 
     darwinConfigurations.lot = darwin.lib.darwinSystem rec {
       system = "aarch64-darwin";
@@ -24,10 +28,10 @@
         ./system/docker-client.nix
         home-manager.darwinModules.home-manager
         {
+          nixpkgs.overlays = overlays;
           home-manager.users."dom" = import ./home/home.nix;
           home-manager.extraSpecialArgs = {
             isDarwin = true;
-            helix = helix.packages.${system};
           };
         }
       ];
@@ -40,10 +44,10 @@
         ./system/configuration.nix
         home-manager.darwinModules.home-manager
         {
+          nixpkgs.overlays = overlays;
           home-manager.users."dom.hay" = import ./home/home.nix;
           home-manager.extraSpecialArgs = {
             isDarwin = true;
-            helix = helix.packages.${system};
           };
         }
       ];
@@ -57,10 +61,10 @@
         ./system/configuration.nix
         home-manager.nixosModules.home-manager
         {
+          nixpkgs.overlays = overlays;
           home-manager.users."dom" = import ./home/home.nix;
           home-manager.extraSpecialArgs = {
             isDarwin = false;
-            helix = helix.packages.${system};
           };
         }
       ];
@@ -78,10 +82,10 @@
         ./system/configuration.nix
         home-manager.nixosModules.home-manager
         {
+          nixpkgs.overlays = overlays;
           home-manager.users."dom" = import ./home/home.nix;
           home-manager.extraSpecialArgs = {
             isDarwin = false;
-            helix = helix.packages.${system};
           };
           virtualisation.vmVariant.virtualisation.host.pkgs = nixpkgs.legacyPackages.aarch64-darwin;
         }
