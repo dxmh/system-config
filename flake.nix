@@ -1,6 +1,3 @@
-# This flake is based on the examples below:
-# - https://github.com/LnL7/nix-darwin/blob/master/modules/examples/flake.nix
-# - https://rycee.gitlab.io/home-manager/index.html#sec-flakes-nix-darwin-module
 {
   description = "System configuration";
 
@@ -28,60 +25,31 @@
   in {
     darwinConfigurations.lot = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
-      specialArgs = {
-        isWork = false;
-        isDarwin = true;
-      };
+      specialArgs = {user = "dom";};
       modules = [
-        ./system/configuration.nix
-        ./system/docker-client.nix
+        ./system/lot.nix
         home-manager.darwinModules.home-manager
-        {
-          nixpkgs.overlays = overlays;
-          home-manager.users."dom" = import ./home/home.nix;
-          home-manager.extraSpecialArgs = {
-            isDarwin = true;
-          };
-        }
+        {nixpkgs.overlays = overlays;}
       ];
     };
 
     darwinConfigurations.cbd = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
-      specialArgs = {
-        isWork = true;
-        isDarwin = true;
-      };
+      specialArgs = {user = "dom.hay";};
       modules = [
-        ./system/configuration.nix
+        ./system/cbd.nix
         home-manager.darwinModules.home-manager
-        {
-          nixpkgs.overlays = overlays;
-          home-manager.users."dom.hay" = import ./home/home.nix;
-          home-manager.extraSpecialArgs = {
-            isDarwin = true;
-          };
-        }
+        {nixpkgs.overlays = overlays;}
       ];
     };
 
     nixosConfigurations.parallels-vm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      specialArgs = {
-        isWork = false;
-        isDarwin = false;
-      };
+      specialArgs = {user = "dom";};
       modules = [
-        ./hardware/parallels.nix
-        ./system/configuration.nix
+        ./system/parallels.nix
         home-manager.nixosModules.home-manager
-        {
-          nixpkgs.overlays = overlays;
-          home-manager.users."dom" = import ./home/home.nix;
-          home-manager.extraSpecialArgs = {
-            isDarwin = false;
-          };
-        }
+        {nixpkgs.overlays = overlays;}
       ];
     };
 
@@ -89,30 +57,25 @@
     # This needs to be bootstrapped by building from macOS, using an existing
     # NixOS Linux machine as the builder...
     # nix run .#linuxVM --builders "ssh://me@remote-nixos aarch64-linux" --verbose
-    nixosConfigurations.linuxVM = nixpkgs.lib.nixosSystem rec {
+    nixosConfigurations.linuxVM = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      specialArgs = {
-        isWork = false;
-        isDarwin = false;
-      };
+      specialArgs = {user = "dom";};
       modules = [
-        ./hardware/qemu.nix
-        ./system/configuration.nix
+        ./system/qemu.nix
         home-manager.nixosModules.home-manager
         {
           nixpkgs.overlays = overlays;
-          home-manager.users."dom" = import ./home/home.nix;
-          home-manager.extraSpecialArgs = {
-            isDarwin = false;
-          };
-          virtualisation.vmVariant.virtualisation.host.pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          virtualisation.vmVariant.virtualisation.host.pkgs =
+            nixpkgs.legacyPackages.aarch64-darwin;
         }
       ];
     };
 
-    packages.aarch64-darwin.linuxVM = self.nixosConfigurations.linuxVM.config.system.build.vm;
+    packages.aarch64-darwin.linuxVM =
+      self.nixosConfigurations.linuxVM.config.system.build.vm;
 
-    formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
+    formatter.aarch64-darwin =
+      nixpkgs.legacyPackages.aarch64-darwin.alejandra;
   };
 
   nixConfig = {

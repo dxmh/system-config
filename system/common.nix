@@ -1,10 +1,8 @@
 {
-  lib,
   pkgs,
-  isDarwin,
+  user,
   ...
-}:
-{
+}: {
   nix = {
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -31,6 +29,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    users.${user} = import ../home/home.nix;
   };
 
   environment.systemPackages = [
@@ -43,10 +42,4 @@
   };
 
   programs.fish.enable = true;
-}
-// lib.optionalAttrs isDarwin {
-  imports = [./darwin.nix];
-}
-// lib.optionalAttrs (!isDarwin) {
-  imports = [./linux.nix];
 }

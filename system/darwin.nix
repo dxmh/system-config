@@ -1,7 +1,6 @@
 {pkgs, ...}: {
-  imports = [
-    ./brew.nix
-  ];
+  imports = [./common.nix];
+  home-manager.extraSpecialArgs = {isDarwin = true;};
 
   environment.systemPath = [
     "/opt/homebrew/bin"
@@ -89,5 +88,27 @@
     enableKeyMapping = true;
     nonUS.remapTilde = true;
     remapCapsLockToControl = true;
+  };
+
+  homebrew = {
+    enable = true;
+    global.autoUpdate = false;
+    onActivation = {
+      autoUpdate = false;
+      upgrade = false;
+      cleanup = "zap";
+    };
+    brews = [
+      "aws-console"
+    ];
+    taps = [
+      "homebrew/cask"
+    ];
+    casks = [
+      "hammerspoon"
+      "raycast"
+      "rectangle"
+      "mouse-fix"
+    ];
   };
 }

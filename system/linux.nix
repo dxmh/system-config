@@ -1,4 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  user,
+  ...
+}: {
+  imports = [./common.nix];
+  home-manager.extraSpecialArgs = {isDarwin = false;};
+
   networking = {
     # Disable the firewall since we're in a VM and we want to make it
     # easy to visit stuff in this VM. We only use NAT networking anyways:
@@ -12,7 +19,7 @@
 
   security.sudo.wheelNeedsPassword = false;
 
-  services.getty.autologinUser = "dom"; # Automatically log in after boot:
+  services.getty.autologinUser = user; # Automatically log in after boot:
 
   services.openssh = {
     enable = true;
@@ -24,7 +31,7 @@
 
   time.timeZone = "Europe/London";
 
-  users.users.dom = {
+  users.users.${user} = {
     isNormalUser = true;
     initialPassword = "hunter2";
     extraGroups = ["audio" "wheel" "docker"];
