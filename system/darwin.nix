@@ -1,5 +1,4 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   imports = [
     ./brew.nix
   ];
@@ -91,5 +90,4 @@
     nonUS.remapTilde = true;
     remapCapsLockToControl = true;
   };
-
 }

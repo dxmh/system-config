@@ -1,7 +1,6 @@
 # This flake is based on the examples below:
 # - https://github.com/LnL7/nix-darwin/blob/master/modules/examples/flake.nix
 # - https://rycee.gitlab.io/home-manager/index.html#sec-flakes-nix-darwin-module
-
 {
   description = "System configuration";
 
@@ -14,15 +13,25 @@
     helix.url = "github:helix-editor/helix/3b301a9d1d832d304ff109aa9f5eee025789b3e8";
   };
 
-  outputs = { self, darwin, nixpkgs, home-manager, helix }: let
-    overlays = [(final: prev: {
-      helix = helix.packages.${prev.system}.default;
-    })];
+  outputs = {
+    self,
+    darwin,
+    nixpkgs,
+    home-manager,
+    helix,
+  }: let
+    overlays = [
+      (final: prev: {
+        helix = helix.packages.${prev.system}.default;
+      })
+    ];
   in {
-
     darwinConfigurations.lot = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
-      specialArgs = { isWork = false; isDarwin = true; };
+      specialArgs = {
+        isWork = false;
+        isDarwin = true;
+      };
       modules = [
         ./system/configuration.nix
         ./system/docker-client.nix
@@ -39,7 +48,10 @@
 
     darwinConfigurations.cbd = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
-      specialArgs = { isWork = true; isDarwin = true; };
+      specialArgs = {
+        isWork = true;
+        isDarwin = true;
+      };
       modules = [
         ./system/configuration.nix
         home-manager.darwinModules.home-manager
@@ -55,7 +67,10 @@
 
     nixosConfigurations.parallels-vm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      specialArgs = { isWork = false; isDarwin = false; };
+      specialArgs = {
+        isWork = false;
+        isDarwin = false;
+      };
       modules = [
         ./hardware/parallels.nix
         ./system/configuration.nix
@@ -76,7 +91,10 @@
     # nix run .#linuxVM --builders "ssh://me@remote-nixos aarch64-linux" --verbose
     nixosConfigurations.linuxVM = nixpkgs.lib.nixosSystem rec {
       system = "aarch64-linux";
-      specialArgs = { isWork = false; isDarwin = false; };
+      specialArgs = {
+        isWork = false;
+        isDarwin = false;
+      };
       modules = [
         ./hardware/qemu.nix
         ./system/configuration.nix
@@ -107,5 +125,4 @@
       "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
     ];
   };
-
 }

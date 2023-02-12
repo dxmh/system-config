@@ -1,5 +1,10 @@
-{ lib, pkgs, isDarwin, ... }: {
-
+{
+  lib,
+  pkgs,
+  isDarwin,
+  ...
+}:
+{
   nix = {
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -38,9 +43,10 @@
   };
 
   programs.fish.enable = true;
-
-} // lib.optionalAttrs isDarwin {
-  imports = [ ./darwin.nix ];
-} // lib.optionalAttrs (!isDarwin) {
-  imports = [ ./linux.nix ];
+}
+// lib.optionalAttrs isDarwin {
+  imports = [./darwin.nix];
+}
+// lib.optionalAttrs (!isDarwin) {
+  imports = [./linux.nix];
 }

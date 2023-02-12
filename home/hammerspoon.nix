@@ -1,7 +1,5 @@
 # Home Manager configuration for Hammerspoon
-
 {
-
   home.file.".hammerspoon/init.lua" = {
     source = ./dotfiles/hammerspoon/init.lua;
   };
@@ -16,5 +14,4 @@
       sha256 = "sha256:155f9bk0rbaz9kf1isikmhls20vqyn9z0wikkbn6xraffqqwcc8g";
     };
   };
-
 }

@@ -1,6 +1,8 @@
-{ lib, isWork, ... }:
-
 {
+  lib,
+  isWork,
+  ...
+}: {
   homebrew = {
     enable = true;
     global.autoUpdate = false;
@@ -19,23 +21,26 @@
     "homebrew/cask"
   ];
 
-  homebrew.casks = [
-    "hammerspoon"
-    "raycast"
-    "rectangle"
-    "mouse-fix"
-  ] ++ lib.optionals (!isWork) [
-    "discord"
-    "element"
-    "google-chrome"
-    "lulu"
-    "parallels"
-    "signal"
-    "slack"
-    "syncthing"
-    "utm"
-    "zoom"
-  ] ++ lib.optionals isWork [
-    "docker"
-  ];
+  homebrew.casks =
+    [
+      "hammerspoon"
+      "raycast"
+      "rectangle"
+      "mouse-fix"
+    ]
+    ++ lib.optionals (!isWork) [
+      "discord"
+      "element"
+      "google-chrome"
+      "lulu"
+      "parallels"
+      "signal"
+      "slack"
+      "syncthing"
+      "utm"
+      "zoom"
+    ]
+    ++ lib.optionals isWork [
+      "docker"
+    ];
 }

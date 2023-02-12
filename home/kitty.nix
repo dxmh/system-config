@@ -1,7 +1,9 @@
 # Home Manager configuration for Kitty terminal
-
-{ pkgs, lib, ... }: {
-
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs.kitty = {
     enable = true;
     settings = {
@@ -32,5 +34,4 @@
       sha256 = "sha256:1mk9y8mcrq4yzlfw9jn8j80mm2djzrihglvp71vl0513fdyf8gb1";
     };
   };
-
 }
