@@ -94,6 +94,7 @@
 
     packages.aarch64-darwin.linuxVM = self.nixosConfigurations.linuxVM.config.system.build.vm;
 
+    formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
   };
 
   nixConfig = {
