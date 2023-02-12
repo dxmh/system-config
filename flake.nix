@@ -20,7 +20,7 @@
     })];
   in {
 
-    darwinConfigurations.lot = darwin.lib.darwinSystem rec {
+    darwinConfigurations.lot = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       specialArgs = { isWork = false; isDarwin = true; };
       modules = [
@@ -37,7 +37,7 @@
       ];
     };
 
-    darwinConfigurations.cbd = darwin.lib.darwinSystem rec {
+    darwinConfigurations.cbd = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
       specialArgs = { isWork = true; isDarwin = true; };
       modules = [
@@ -53,7 +53,7 @@
       ];
     };
 
-    nixosConfigurations.parallels-vm = nixpkgs.lib.nixosSystem rec {
+    nixosConfigurations.parallels-vm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = { isWork = false; isDarwin = false; };
       modules = [
