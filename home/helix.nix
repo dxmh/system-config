@@ -32,7 +32,8 @@
         space.q = ":q";
         space.w = ":w";
         space.x = ":x";
-        space.o.w = ":set soft-wrap.enable false";
+        space.o.w = ":toggle-option soft-wrap.enable";
+        space.o.c = ":toggle-option cursorline";
         Z = {
           d = "half_page_down";
           u = "half_page_up";
