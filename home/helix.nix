@@ -116,7 +116,6 @@
     alejandra
     nodePackages.bash-language-server
     nodePackages.vscode-json-languageserver
-    nodePackages.intelephense # for PHP
     nil
     ltex-ls
     terraform-ls
