@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  user,
+  ...
+}: {
   imports = [./linux.nix];
 
   # Configure networking
@@ -19,9 +23,12 @@
         guest.port = 22;
       }
     ];
-    # virtualisation.sharedDirectories.code= {
-    #   source = "/path/on/host";
-    #   target = "/path/on/guest";
-    # };
+    virtualisation.sharedDirectories.code = {
+      source = "/Users/dom/Code/";
+      target = "/home/${user}/code";
+    };
   };
+
+  # Set a UID to match the host user, to make filesharing easier
+  users.users.${user}.uid = 501;
 }
