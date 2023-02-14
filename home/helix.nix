@@ -29,6 +29,7 @@
       };
       keys.normal = {
         space.e = ":reflow";
+        space.space = "goto_last_modified_file";
         space.q = ":q";
         space.w = ":w";
         space.x = ":x";
