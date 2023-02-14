@@ -34,7 +34,7 @@
   users.users.${user} = {
     isNormalUser = true;
     initialPassword = "hunter2";
-    extraGroups = ["audio" "wheel" "docker"];
+    extraGroups = ["wheel" "docker"];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpIMrPStsNADURgP6ZXp+1PwMrIMOthUwVLWdP11XBd"
