@@ -35,6 +35,7 @@
   environment.systemPackages = [
     pkgs.cachix
     pkgs.gnumake
+    pkgs.htop
   ];
 
   environment.variables = {
