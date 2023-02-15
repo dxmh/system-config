@@ -13,9 +13,7 @@
           render = true;
           character = "╎";
         };
-        soft-wrap = {
-          enable = true;
-        };
+        soft-wrap.enable = false;
         whitespace = {
           render = {
             space = "none";
