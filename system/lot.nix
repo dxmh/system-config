@@ -21,4 +21,19 @@
     "utm"
     "zoom"
   ];
+
+  # Configuration for building NixOS VM from macOS
+  nix = {
+    distributedBuilds = true;
+    buildMachines = [
+      {
+        hostName = "nixos-vm"; # Parallels VM
+        system = "aarch64-linux";
+        sshUser = "dom";
+      }
+    ];
+    extraOptions = ''
+      builders-use-substitutes = true
+    '';
+  };
 }

@@ -53,10 +53,6 @@
       ];
     };
 
-    # See https://www.tweag.io/blog/2023-02-09-nixos-vm-on-macos/ for info.
-    # This needs to be bootstrapped by building from macOS, using an existing
-    # NixOS Linux machine as the builder...
-    # nix run .#linuxVM --builders "ssh://me@remote-nixos aarch64-linux" --verbose
     nixosConfigurations.linuxVM = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = {user = "dom";};
