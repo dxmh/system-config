@@ -7,6 +7,8 @@
 }: {
   imports = [./linux.nix];
 
+  networking.hostName = "prl-vm";
+
   boot.initrd.availableKernelModules = ["xhci_pci" "usbhid" "sr_mod"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = [];

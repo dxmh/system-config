@@ -5,6 +5,8 @@
 }: {
   imports = [./linux.nix];
 
+  networking.hostName = "nixos";
+
   # Configure networking
   networking.interfaces.eth0.useDHCP = true;
 

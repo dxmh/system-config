@@ -10,7 +10,7 @@
       pkgs.docker-client
     ];
     variables = {
-      DOCKER_HOST = "ssh://nixos-vm";
+      DOCKER_HOST = "ssh://prl-vm";
     };
   };
 
@@ -32,7 +32,7 @@
     buildMachines = [
       # These machines must be non-interactively accessible to the root user
       {
-        hostName = "nixos-vm"; # Parallels VM
+        hostName = "prl-vm";
         system = "aarch64-linux";
         sshUser = "dom";
         sshKey = "/Users/${user}/.ssh/id_ed25519_nixbuilder";
@@ -59,9 +59,8 @@
         identityFile = "~/.ssh/id_ed25519_thebox";
         user = "dom";
       };
-      "parallels-vm nixos-vm" = {
-        # TODO: Move away from the nixos-vm hostname
-        hostname = "nixos-vm.shared";
+      "parallels-vm" = {
+        hostname = "prl-vm.shared"; # Parallels puts machine name in /etc/hosts
         identityFile = "~/.ssh/id_ed25519";
         user = "dom";
       };
