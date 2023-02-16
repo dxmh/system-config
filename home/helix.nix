@@ -26,6 +26,9 @@
         };
       };
       keys.normal = {
+        # Horrible bodge for toggling spellcheck
+        "[".o.s = ":lang markdown";
+        "]".o.s = [":config-reload" ":lsp-restart"];
         space.e = ":reflow";
         space.space = "goto_last_modified_file";
         space.q = ":q";
