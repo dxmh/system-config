@@ -29,6 +29,7 @@
         # Horrible bodge for toggling spellcheck
         "[".o.s = ":lang markdown";
         "]".o.s = [":config-reload" ":lsp-restart"];
+        "C-l" = ":reload";
         space.e = ":reflow";
         space.space = "goto_last_modified_file";
         space.q = ":q";
