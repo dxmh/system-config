@@ -30,10 +30,12 @@
   nix = {
     distributedBuilds = true;
     buildMachines = [
+      # These machines must be non-interactively accessible to the root user
       {
         hostName = "nixos-vm"; # Parallels VM
         system = "aarch64-linux";
         sshUser = "dom";
+        sshKey = "/Users/${user}/.ssh/id_ed25519_nixbuilder";
       }
     ];
     extraOptions = ''
