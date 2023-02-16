@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  user,
+  ...
+}: {
   imports = [./darwin.nix];
 
   environment = {
@@ -35,5 +39,36 @@
     extraOptions = ''
       builders-use-substitutes = true
     '';
+  };
+
+  # SSH client configuration (~/.ssh/config)
+  home-manager.users.${user}.programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "*" = {
+        extraOptions = {
+          "UseKeychain" = "yes"; # Store passwords in the macOS keychain
+          "AddKeysToAgent" = "no";
+        };
+        identitiesOnly = true;
+      };
+      "thebox b" = {
+        hostname = "thebox.int.hxy.io";
+        identityFile = "~/.ssh/id_ed25519_thebox";
+        user = "dom";
+      };
+      "parallels-vm nixos-vm" = {
+        # TODO: Move away from the nixos-vm hostname
+        hostname = "nixos-vm.shared";
+        identityFile = "~/.ssh/id_ed25519";
+        user = "dom";
+      };
+      "qemu-vm" = {
+        hostname = "127.0.0.1";
+        identityFile = "~/.ssh/id_ed25519";
+        port = 2022;
+        user = "dom";
+      };
+    };
   };
 }
