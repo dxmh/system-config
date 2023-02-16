@@ -36,6 +36,7 @@
     pkgs.cachix
     pkgs.gnumake
     pkgs.htop
+    pkgs.vim
   ];
 
   environment.variables = {
