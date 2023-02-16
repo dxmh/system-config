@@ -18,6 +18,7 @@
     systemd-boot = {
       enable = true;
       consoleMode = "0"; # Fix "error switching console mode" on boot in Parallels
+      configurationLimit = 5; # Prevent infinite generations filling up /boot
     };
   };
 
