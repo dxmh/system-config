@@ -92,10 +92,10 @@
 
   homebrew = {
     enable = true;
-    global.autoUpdate = false;
+    global.autoUpdate = true;
     onActivation = {
-      autoUpdate = false;
-      upgrade = false;
+      autoUpdate = true;
+      upgrade = true;
       cleanup = "zap";
     };
     brews = [
