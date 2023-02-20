@@ -36,6 +36,7 @@ abbr gcp "git commit -v -p"
 abbr gd "git diff"
 abbr gf "git fetch --all"
 abbr gl "git log"
+abbr go "git open"
 abbr gs "git status --short --untracked-files --branch"
 
 abbr add "git add"

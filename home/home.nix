@@ -18,6 +18,7 @@
     coreutils
     diceware
     fzf
+    git-open
     jless
     jq
     qrencode
