@@ -14,6 +14,7 @@ function fish_title
 end
 
 abbr a "aws"
+abbr ao "aws-console -p"
 abbr d "docker"
 abbr dc "docker-compose"
 abbr e "$EDITOR"
