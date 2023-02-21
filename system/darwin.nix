@@ -106,7 +106,6 @@
       "hammerspoon"
       "hyperkey"
       "raycast"
-      "rectangle"
       "mouse-fix"
     ];
   };
