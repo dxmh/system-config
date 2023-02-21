@@ -51,6 +51,10 @@
     show-recents = true;
     static-only = false; # Whether to show only open applications in the Dock
     tilesize = 40;
+    # Trigger mission control via hot corners:
+    wvous-bl-corner = 2;
+    wvous-br-corner = 2;
+    wvous-tl-corner = 2;
   };
 
   system.defaults.finder = {
