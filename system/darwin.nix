@@ -88,12 +88,6 @@
     SecondClickThreshold = 0; # "Light" firmness required
   };
 
-  system.keyboard = {
-    enableKeyMapping = true;
-    nonUS.remapTilde = true;
-    remapCapsLockToControl = true;
-  };
-
   homebrew = {
     enable = true;
     global.autoUpdate = true;
@@ -110,6 +104,7 @@
     ];
     casks = [
       "hammerspoon"
+      "hyperkey"
       "raycast"
       "rectangle"
       "mouse-fix"
