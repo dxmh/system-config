@@ -38,6 +38,7 @@
     pkgs.gnumake
     pkgs.htop
     pkgs.vim
+    pkgs.procps
   ];
 
   environment.variables = {
