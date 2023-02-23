@@ -32,13 +32,13 @@
     users.${user} = import ../home/home.nix;
   };
 
-  environment.systemPackages = [
-    pkgs.cachix
-    pkgs.coreutils
-    pkgs.gnumake
-    pkgs.htop
-    pkgs.vim
-    pkgs.procps
+  environment.systemPackages = with pkgs; [
+    cachix
+    coreutils
+    gnumake
+    htop
+    vim
+    procps
   ];
 
   environment.variables = {
