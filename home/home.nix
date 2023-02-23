@@ -15,7 +15,6 @@
 
   home.packages = with pkgs; [
     awscli2
-    coreutils
     diceware
     fzf
     git-open

@@ -34,6 +34,7 @@
 
   environment.systemPackages = [
     pkgs.cachix
+    pkgs.coreutils
     pkgs.gnumake
     pkgs.htop
     pkgs.vim
