@@ -29,6 +29,9 @@
         # Horrible bodge for toggling spellcheck
         "[".o.s = ":lang markdown";
         "]".o.s = [":config-reload" ":lsp-restart"];
+        "#" = "toggle_comments";
+        "C-C" = "yank_main_selection_to_clipboard";
+        "C-c" = "yank_joined_to_clipboard";
         "C-l" = ":reload";
         space.e = ":reflow";
         space.space = "goto_last_modified_file";
