@@ -1,6 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  user,
+  ...
+}: {
   imports = [./common.nix];
   home-manager.extraSpecialArgs = {isDarwin = true;};
+
+  # Our home directory needs to be set for certain things to work, such as
+  # launchd agents (otherwise it defaults to /var/empty/)
+  users.users.${user}.home = "/Users/${user}";
 
   environment.systemPath = [
     "/opt/homebrew/bin"
