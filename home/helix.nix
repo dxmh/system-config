@@ -33,6 +33,7 @@
         "C-C" = "yank_main_selection_to_clipboard";
         "C-c" = "yank_joined_to_clipboard";
         "C-l" = ":reload";
+        "C-v" = "replace_selections_with_clipboard";
         space.e = ":reflow";
         space.space = "goto_last_modified_file";
         space.q = ":q";
