@@ -43,32 +43,34 @@
     '';
   };
 
-  # SSH client configuration (~/.ssh/config)
-  home-manager.users.${user}.programs.ssh = {
-    enable = true;
-    matchBlocks = {
-      "*" = {
-        extraOptions = {
-          "UseKeychain" = "yes"; # Store passwords in the macOS keychain
-          "AddKeysToAgent" = "no";
+  home-manager.users.${user} = {
+    # SSH client configuration (~/.ssh/config)
+    programs.ssh = {
+      enable = true;
+      matchBlocks = {
+        "*" = {
+          extraOptions = {
+            "UseKeychain" = "yes"; # Store passwords in the macOS keychain
+            "AddKeysToAgent" = "no";
+          };
+          identitiesOnly = true;
         };
-        identitiesOnly = true;
-      };
-      "thebox b" = {
-        hostname = "thebox.int.hxy.io";
-        identityFile = "~/.ssh/id_ed25519_thebox";
-        user = "dom";
-      };
-      "parallels-vm" = {
-        hostname = "prl-vm.shared"; # Parallels puts machine name in /etc/hosts
-        identityFile = "~/.ssh/id_ed25519";
-        user = "dom";
-      };
-      "qemu-vm" = {
-        hostname = "127.0.0.1";
-        identityFile = "~/.ssh/id_ed25519";
-        port = 2022;
-        user = "dom";
+        "thebox b" = {
+          hostname = "thebox.int.hxy.io";
+          identityFile = "~/.ssh/id_ed25519_thebox";
+          user = "dom";
+        };
+        "parallels-vm" = {
+          hostname = "prl-vm.shared"; # Parallels puts machine name in /etc/hosts
+          identityFile = "~/.ssh/id_ed25519";
+          user = "dom";
+        };
+        "qemu-vm" = {
+          hostname = "127.0.0.1";
+          identityFile = "~/.ssh/id_ed25519";
+          port = 2022;
+          user = "dom";
+        };
       };
     };
   };
