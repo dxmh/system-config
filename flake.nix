@@ -8,10 +8,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     helix.url = "github:helix-editor/helix";
-    sf-mono-liga-src = {
-      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
   };
 
   outputs = {
@@ -20,21 +16,10 @@
     nixpkgs,
     home-manager,
     helix,
-    sf-mono-liga-src,
   }: let
     overlays = [
       (final: prev: {
         helix = helix.packages.${prev.system}.default;
-        sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation rec {
-          pname = "sf-mono-liga-bin";
-          version = "dev";
-          src = sf-mono-liga-src;
-          dontConfigure = true;
-          installPhase = ''
-            mkdir -p $out/share/fonts/opentype
-            cp -R $src/*.otf $out/share/fonts/opentype/
-          '';
-        };
       })
     ];
   in {
