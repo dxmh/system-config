@@ -20,6 +20,7 @@
     fontDir.enable = true;
     fonts = with pkgs; [
       iosevka
+      sf-mono-liga-bin
     ];
   };
 
