@@ -60,6 +60,11 @@
     };
   };
 
+  programs.exa = {
+    enable = true;
+    enableAliases = false;
+  };
+
   programs.fish = {
     enable = true;
     shellInit = ''
