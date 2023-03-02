@@ -71,6 +71,11 @@
           port = 2022;
           user = "dom";
         };
+        "utm-vm" = {
+          hostname = "10.211.56.2";
+          identityFile = "~/.ssh/id_ed25519";
+          user = "dom";
+        };
       };
     };
   };
