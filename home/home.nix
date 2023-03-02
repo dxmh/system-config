@@ -99,6 +99,10 @@
     ];
   };
 
+  programs.kitty = {
+    enable = true; # Ensure kitty is always available for kittens over SSH
+  };
+
   programs.nix-index = {
     enable = true;
     enableFishIntegration = true;
