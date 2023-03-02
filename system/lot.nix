@@ -73,16 +73,5 @@
         };
       };
     };
-
-    # Background tasks
-    launchd.agents."tvget" = {
-      enable = true;
-      config = {
-        ProgramArguments = ["${pkgs.nix}/bin/nix" "run" "/Users/${user}/Code/hxy/tvget"];
-        StandardErrorPath = "/Users/${user}/Library/Logs/tvget.log";
-        StandardOutPath = "/Users/${user}/Library/Logs/tvget.log";
-        StartInterval = 1200; # Every 20 minutes
-      };
-    };
   };
 }
