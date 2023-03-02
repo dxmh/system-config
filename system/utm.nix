@@ -3,7 +3,6 @@
   lib,
   pkgs,
   modulesPath,
-  user,
   ...
 }: {
   imports = [
@@ -38,14 +37,6 @@
     device = "/dev/disk/by-label/NIXBOOT";
     fsType = "vfat";
   };
-
-  fileSystems."/code" = {
-    device = "share";
-    fsType = "9p";
-  };
-
-  # Set a UID to match the host user, to make filesharing easier
-  users.users.${user}.uid = 501;
 
   swapDevices = [];
 }
