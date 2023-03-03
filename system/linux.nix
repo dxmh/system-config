@@ -6,6 +6,13 @@
   imports = [./common.nix];
   home-manager.extraSpecialArgs = {isDarwin = false;};
 
+  environment.variables = {
+    # This doesn't get set automatically on (headless) Linux environments,
+    # but it is required for Kitty's awesome shell integration to work:
+    # https://sw.kovidgoyal.net/kitty/shell-integration
+    KITTY_INSTALLATION_DIR = "${pkgs.kitty}/lib/kitty";
+  };
+
   networking = {
     # Disable the firewall since we're in a VM and we want to make it
     # easy to visit stuff in this VM. We only use NAT networking anyways:
