@@ -38,5 +38,10 @@
     fsType = "vfat";
   };
 
+  fileSystems."/code" = {
+    device = "/dev/disk/by-label/code";
+    fsType = "ext4";
+  };
+
   swapDevices = [];
 }
