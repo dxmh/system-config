@@ -21,7 +21,6 @@
     "parallels"
     "signal"
     "slack"
-    "syncthing"
     "utm"
     "zoom"
   ];
