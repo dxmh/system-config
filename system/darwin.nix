@@ -106,9 +106,11 @@
     };
     brews = [
       "aws-console"
+      "zap"
     ];
     taps = [
       "homebrew/cask"
+      "keith/formulae"
     ];
     casks = [
       "hammerspoon"
