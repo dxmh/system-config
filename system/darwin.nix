@@ -117,6 +117,7 @@
       "hyperkey"
       "raycast"
       "mouse-fix"
+      "utm"
     ];
   };
 }

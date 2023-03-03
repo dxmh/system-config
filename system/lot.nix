@@ -20,7 +20,6 @@
     "google-chrome"
     "signal"
     "slack"
-    "utm"
     "zoom"
   ];
 
