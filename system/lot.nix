@@ -18,7 +18,6 @@
     "discord"
     "element"
     "google-chrome"
-    "parallels"
     "signal"
     "slack"
     "utm"
