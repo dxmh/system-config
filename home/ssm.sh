@@ -1,3 +1,6 @@
+#!/bin/bash
+# Small shell script to assist in hopping into a shell on an EC2 instance
+
 profile=${1:-"default"}
 filter=${2:-""}
 

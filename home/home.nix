@@ -25,7 +25,7 @@
     shellcheck
     ssm-session-manager-plugin
     terraform
-    (writeShellScriptBin "ssm" (builtins.readFile ./dotfiles/ssm.sh))
+    (writeShellScriptBin "ssm" (builtins.readFile ./ssm.sh))
   ];
 
   home.sessionVariables = {
