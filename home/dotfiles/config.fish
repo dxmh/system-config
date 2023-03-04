@@ -18,7 +18,6 @@ abbr ao "aws-console -p"
 abbr d "docker"
 abbr dc "docker-compose"
 abbr e "$EDITOR"
-abbr l "tree -aFvC -I .git -L 1"
 abbr m "make -s"
 abbr ns "nix-shell"
 abbr psg "ps auxwww | grep -i"
@@ -58,6 +57,11 @@ abbr "..." "cd ../../"
 
 abbr cat "bat"
 abbr vim "hx"
+
+alias l "exa --git --icons --level 1 --long --no-filesize --no-permissions --no-time --no-user --tree"
+alias ll "l --level 2"
+alias lll "l --level 3"
+alias llll "l --level 999"
 
 # Theme
 # name: 'Catppuccin mocha'
