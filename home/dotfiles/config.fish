@@ -16,46 +16,6 @@ function fish_title
   echo (basename (prompt_pwd))
 end
 
-abbr ao "aws-console -p"
-abbr d "docker"
-abbr dc "docker-compose"
-abbr eo "$EDITOR ."
-abbr m "make -s"
-abbr tfm "terraform"
-
-abbr kssh "kitty +kitten ssh"
-
-abbr "g." "git switch -"
-abbr g "git"
-abbr gc "git commit -v"
-abbr gco "git checkout"
-abbr gcop "git checkout -p"
-abbr gcp "git commit -v -p"
-abbr gd "git diff"
-abbr go "git open"
-abbr gs "git status --short --untracked-files --branch"
-abbr add "git add"
-abbr fetch "git fetch --all"
-abbr pull "git pull"
-abbr push "git push"
-abbr stash "git stash"
-abbr show "git show"
-abbr log "git log"
-abbr co "git checkout"
-abbr clone "git clone"
-
-abbr "-" "cd -"
-abbr "." "cd -"
-abbr ".." "cd ../"
-abbr "..." "cd ../../"
-
-abbr cat "bat"
-abbr vim "hx"
-
-alias l "exa --git --icons --level 1 --long --no-filesize --no-permissions --no-time --no-user --tree"
-alias ll "l --level 2"
-alias lll "l --level 3"
-alias llll "l --level 999"
 
 # Theme
 # name: 'Catppuccin mocha'
