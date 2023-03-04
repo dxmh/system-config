@@ -35,6 +35,7 @@
   environment.systemPackages = with pkgs; [
     cachix
     coreutils
+    findutils
     gnumake
     htop
     vim
