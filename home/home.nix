@@ -138,7 +138,6 @@
       ./helix.nix
     ]
     ++ (lib.lists.optionals isDarwin [
-      ./hammerspoon.nix
       ./kitty.nix
     ]);
 }
