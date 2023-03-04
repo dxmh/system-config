@@ -25,7 +25,6 @@
     shellcheck
     ssm-session-manager-plugin
     terraform
-    tree
     (writeShellScriptBin "ssm" (builtins.readFile ./dotfiles/ssm.sh))
   ];
 
