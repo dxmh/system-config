@@ -23,23 +23,6 @@
     "zoom"
   ];
 
-  # Configuration for building NixOS VM from macOS
-  nix = {
-    distributedBuilds = true;
-    buildMachines = [
-      # These machines must be non-interactively accessible to the root user
-      {
-        hostName = "prl-vm";
-        system = "aarch64-linux";
-        sshUser = "dom";
-        sshKey = "/Users/${user}/.ssh/id_ed25519_nixbuilder";
-      }
-    ];
-    extraOptions = ''
-      builders-use-substitutes = true
-    '';
-  };
-
   home-manager.users.${user} = {
     # SSH client configuration (~/.ssh/config)
     programs.ssh = {
@@ -60,12 +43,6 @@
         "parallels-vm" = {
           hostname = "prl-vm.shared"; # Parallels puts machine name in /etc/hosts
           identityFile = "~/.ssh/id_ed25519";
-          user = "dom";
-        };
-        "qemu-vm" = {
-          hostname = "127.0.0.1";
-          identityFile = "~/.ssh/id_ed25519";
-          port = 2022;
           user = "dom";
         };
         "utm-vm" = {

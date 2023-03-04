@@ -64,23 +64,6 @@
       ];
     };
 
-    nixosConfigurations.qemu-vm = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      specialArgs = {user = "dom";};
-      modules = [
-        ./system/qemu.nix
-        home-manager.nixosModules.home-manager
-        {
-          nixpkgs.overlays = overlays;
-          virtualisation.vmVariant.virtualisation.host.pkgs =
-            nixpkgs.legacyPackages.aarch64-darwin;
-        }
-      ];
-    };
-
-    packages.aarch64-darwin.qemu-vm =
-      self.nixosConfigurations.qemu-vm.config.system.build.vm;
-
     formatter.aarch64-darwin =
       nixpkgs.legacyPackages.aarch64-darwin.alejandra;
   };
