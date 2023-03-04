@@ -5,6 +5,28 @@
 }: {
   programs.fish = {
     enable = true;
+    interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" [
+      ''
+        # Disable welcome message:
+        set fish_greeting
+
+        # Enable z (https://github.com/skywind3000/z.lua):
+        ${pkgs.z-lua}/bin/z --init fish | source; set -gx _ZL_CD cd
+
+        # Enable AWS CLI autocompletion (https://github.com/aws/aws-cli/issues/1079):
+        complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
+
+        # Kitty shell integration (https://sw.kovidgoyal.net/kitty/shell-integration/#manual-shell-integration):
+        if set -q KITTY_INSTALLATION_DIR
+          set --global KITTY_SHELL_INTEGRATION enabled
+          source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"
+          set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
+        end
+      ''
+    ]);
+    functions = {
+      fish_title = "basename (prompt_pwd)";
+    };
     shellAbbrs = {
       "." = "cd -";
       ".." = "cd ../";
@@ -44,13 +66,6 @@
       lll = "l --level 3";
       llll = "l --level 999";
     };
-    interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" [
-      ''
-        # Enable z (https://github.com/skywind3000/z.lua):
-        ${pkgs.z-lua}/bin/z --init fish | source; set -gx _ZL_CD cd
-      ''
-      (builtins.readFile ./dotfiles/config.fish)
-    ]);
   };
 
   # Requires manually running `fish_config theme save "Catppuccin Mocha"` once
