@@ -34,6 +34,7 @@
     FZF_DEFAULT_COMMAND = "rg --files --hidden --glob !.git/";
     FZF_DEFAULT_OPTS = "--color=light";
     MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
+    SHELL = "${pkgs.fish}/bin/fish";
     BAT_THEME = "Catppuccin"; # also used by delta
   };
 
@@ -66,16 +67,12 @@
 
   programs.fish = {
     enable = true;
-    shellInit = ''
-      # Disable welcome message
-      set fish_greeting
-      # Enable z (https://github.com/skywind3000/z.lua)
-      ${pkgs.z-lua}/bin/z --init fish | source
-      set -gx _ZL_CD cd
-    '';
     interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" [
+      ''
+        # Enable z (https://github.com/skywind3000/z.lua):
+        ${pkgs.z-lua}/bin/z --init fish | source; set -gx _ZL_CD cd
+      ''
       (builtins.readFile ./dotfiles/config.fish)
-      "set -g SHELL ${pkgs.fish}/bin/fish"
     ]);
   };
 
