@@ -2,7 +2,7 @@ rebuild: check
 	darwin-rebuild switch --flake .#${FLAKE_TARGET}
 
 rebuild-vm:
-	sudo nixos-rebuild switch --flake .#parallels-vm
+	sudo nixos-rebuild switch --flake .#utm-vm
 
 upgrade: check
 	darwin-rebuild switch --flake .#${FLAKE_TARGET} --recreate-lock-file --commit-lock-file

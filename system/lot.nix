@@ -10,7 +10,7 @@
       pkgs.docker-client
     ];
     variables = {
-      DOCKER_HOST = "ssh://prl-vm";
+      DOCKER_HOST = "ssh://utm-vm";
     };
   };
 
@@ -38,11 +38,6 @@
         "thebox b" = {
           hostname = "thebox.int.hxy.io";
           identityFile = "~/.ssh/id_ed25519_thebox";
-          user = "dom";
-        };
-        "parallels-vm" = {
-          hostname = "prl-vm.shared"; # Parallels puts machine name in /etc/hosts
-          identityFile = "~/.ssh/id_ed25519";
           user = "dom";
         };
         "utm-vm" = {

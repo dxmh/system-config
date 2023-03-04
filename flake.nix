@@ -44,16 +44,6 @@
       ];
     };
 
-    nixosConfigurations.parallels-vm = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      specialArgs = {user = "dom";};
-      modules = [
-        ./system/parallels.nix
-        home-manager.nixosModules.home-manager
-        {nixpkgs.overlays = overlays;}
-      ];
-    };
-
     nixosConfigurations.utm-vm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = {user = "dom";};
