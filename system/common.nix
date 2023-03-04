@@ -39,7 +39,6 @@
     gnumake
     htop
     vim
-    procps
   ];
 
   environment.variables = {
