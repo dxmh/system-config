@@ -52,4 +52,13 @@
       (builtins.readFile ./dotfiles/config.fish)
     ]);
   };
+
+  # Requires manually running `fish_config theme save "Catppuccin Mocha"` once
+  home.file.".config/fish/themes/Catppuccin Mocha.theme" = {
+    source = builtins.fetchurl {
+      name = "CatppuccinMocha.theme"; # paths in nix store cannot contain spaces
+      sha256 = "sha256:0hskfmwk09bchcs3rw9b29x2i30yr2q28mnbf9rjmmv3xdc0qy4d";
+      url = "https://raw.githubusercontent.com/catppuccin/fish/b90966686068b5ebc9f80e5b90fdf8c02ee7a0ba/themes/Catppuccin%20Mocha.theme";
+    };
+  };
 }
