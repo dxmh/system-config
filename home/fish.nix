@@ -24,6 +24,7 @@
       gco = "git checkout";
       gcop = "git checkout -p";
       gcp = "git commit -v -p";
+      gcpa = "git commit -v -p --amend";
       gd = "git diff";
       go = "git open";
       gs = "git status --short --untracked-files --branch";
