@@ -16,32 +16,24 @@ function fish_title
   echo (basename (prompt_pwd))
 end
 
-abbr a "aws"
 abbr ao "aws-console -p"
 abbr d "docker"
 abbr dc "docker-compose"
-abbr e "$EDITOR"
+abbr eo "$EDITOR ."
 abbr m "make -s"
-abbr ns "nix-shell"
-abbr psg "ps auxwww | grep -i"
-abbr qr "qrencode -t ansi"
-abbr c "z"; # z is not pinky-friendly; c is for "cd"
-abbr tf "terraform"
+abbr tfm "terraform"
 
 abbr kssh "kitty +kitten ssh"
-abbr n "kitty +kitten ssh nixos";
 
 abbr "g." "git switch -"
 abbr g "git"
 abbr gc "git commit -v"
 abbr gco "git checkout"
+abbr gcop "git checkout -p"
 abbr gcp "git commit -v -p"
 abbr gd "git diff"
-abbr gf "git fetch --all"
-abbr gl "git log"
 abbr go "git open"
 abbr gs "git status --short --untracked-files --branch"
-
 abbr add "git add"
 abbr fetch "git fetch --all"
 abbr pull "git pull"
@@ -50,7 +42,6 @@ abbr stash "git stash"
 abbr show "git show"
 abbr log "git log"
 abbr co "git checkout"
-abbr c "git commit -vp"
 abbr clone "git clone"
 
 abbr "-" "cd -"
