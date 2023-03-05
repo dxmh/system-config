@@ -12,6 +12,10 @@
 
   networking.hostName = "utm-vm";
 
+  # Disable the firewall since we're in a VM and we want to make it
+  # easy to visit stuff in this VM. We only use NAT networking anyways:
+  networking.firewall.enable = false;
+
   boot.initrd.availableKernelModules = ["xhci_pci" "virtio_pci" "usbhid" "usb_storage" "sr_mod"];
 
   fileSystems."/" = {
