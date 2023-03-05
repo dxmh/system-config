@@ -14,6 +14,11 @@
 
   networking.hostName = "thebox-vm";
 
+  networking.firewall.interfaces."enp0s1".allowedTCPPorts = [
+    143 # IMAP
+    993 # IMAPS
+  ];
+
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/NIXROOT";
@@ -43,5 +48,18 @@
       shell = null;
       uid = 1001;
     };
+    groups.mail = {
+      gid = 12;
+      members = ["dom" "poppy"];
+    };
+  };
+
+  services.dovecot2 = {
+    enable = true;
+    enablePop3 = false;
+    enableImap = true;
+    enableLmtp = false;
+    # TODO: Move to ZFS (may require `mail_privileged_group = mail`)
+    mailLocation = "maildir:/TODO/mail/%u"; # Must be 0770 root:mail
   };
 }
