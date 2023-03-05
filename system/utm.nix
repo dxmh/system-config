@@ -14,8 +14,6 @@
 
   boot.initrd.availableKernelModules = ["xhci_pci" "virtio_pci" "usbhid" "usb_storage" "sr_mod"];
 
-  networking.interfaces.enp0s1.useDHCP = lib.mkDefault true;
-
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXROOT";
     fsType = "ext4";
