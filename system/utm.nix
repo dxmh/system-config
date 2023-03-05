@@ -32,5 +32,10 @@
       fsType = "ext4";
       options = ["defaults" "nofail"];
     };
+    "/share" = {
+      device = "share";
+      fsType = "9p";
+      options = ["defaults" "nofail"];
+    };
   };
 }
