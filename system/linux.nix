@@ -13,6 +13,15 @@
     KITTY_INSTALLATION_DIR = "${pkgs.kitty}/lib/kitty";
   };
 
+  boot.loader = {
+    timeout = 1;
+    efi.canTouchEfiVariables = true;
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 5; # Prevent infinite generations filling up /boot
+    };
+  };
+
   networking = {
     # Disable the firewall since we're in a VM and we want to make it
     # easy to visit stuff in this VM. We only use NAT networking anyways:

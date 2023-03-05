@@ -17,15 +17,6 @@
   boot.kernelModules = [];
   boot.extraModulePackages = [];
 
-  boot.loader = {
-    timeout = 1;
-    efi.canTouchEfiVariables = true;
-    systemd-boot = {
-      enable = true;
-      configurationLimit = 5; # Prevent infinite generations filling up /boot
-    };
-  };
-
   networking.interfaces.enp0s1.useDHCP = lib.mkDefault true;
 
   fileSystems."/" = {
