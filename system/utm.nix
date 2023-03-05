@@ -13,9 +13,6 @@
   networking.hostName = "utm-vm";
 
   boot.initrd.availableKernelModules = ["xhci_pci" "virtio_pci" "usbhid" "usb_storage" "sr_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = [];
-  boot.extraModulePackages = [];
 
   networking.interfaces.enp0s1.useDHCP = lib.mkDefault true;
 
@@ -33,6 +30,4 @@
     device = "/dev/disk/by-label/code";
     fsType = "ext4";
   };
-
-  swapDevices = [];
 }
