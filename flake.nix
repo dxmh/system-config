@@ -54,6 +54,16 @@
       ];
     };
 
+    nixosConfigurations.thebox-vm = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      specialArgs = {user = "dom";};
+      modules = [
+        ./system/thebox.nix
+        home-manager.nixosModules.home-manager
+        {nixpkgs.overlays = overlays;}
+      ];
+    };
+
     formatter.aarch64-darwin =
       nixpkgs.legacyPackages.aarch64-darwin.alejandra;
   };
