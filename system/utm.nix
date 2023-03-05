@@ -30,5 +30,7 @@
     "/code" = {
       device = "/dev/disk/by-label/code";
       fsType = "ext4";
+      options = ["defaults" "nofail"];
+    };
   };
 }
