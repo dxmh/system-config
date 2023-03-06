@@ -28,6 +28,7 @@
   home.sessionVariables = {
     DIRENV_LOG_FORMAT = ""; # https://github.com/direnv/direnv/issues/68
     EDITOR = "${pkgs.helix}/bin/hx";
+    VISUAL = "${pkgs.helix}/bin/hx"; # kitty uses this
     EXA_ICON_SPACING = "2";
     FZF_DEFAULT_COMMAND = "${pkgs.ripgrep}/bin/rg --files --hidden --glob !.git/";
     FZF_DEFAULT_OPTS = "--color=light";
