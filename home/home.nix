@@ -14,7 +14,6 @@
   };
 
   home.packages = with pkgs; [
-    awscli2
     diceware
     fzf
     git-open
@@ -23,9 +22,7 @@
     qrencode
     ripgrep
     shellcheck
-    ssm-session-manager-plugin
     terraform
-    (writeShellScriptBin "ssm" (builtins.readFile ./ssm.sh))
   ];
 
   home.sessionVariables = {

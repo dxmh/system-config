@@ -8,6 +8,7 @@
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
     ./linux.nix
+    ../home/aws.nix
   ];
 
   networking.hostName = "utm-vm";

@@ -13,9 +13,6 @@
         # Enable z (https://github.com/skywind3000/z.lua):
         ${pkgs.z-lua}/bin/z --init fish | source; set -gx _ZL_CD cd
 
-        # Enable AWS CLI autocompletion (https://github.com/aws/aws-cli/issues/1079):
-        complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
-
         # Kitty shell integration (https://sw.kovidgoyal.net/kitty/shell-integration/#manual-shell-integration):
         if set -q KITTY_INSTALLATION_DIR
           set --global KITTY_SHELL_INTEGRATION enabled

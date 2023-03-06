@@ -105,7 +105,6 @@
       cleanup = "zap";
     };
     brews = [
-      "aws-console"
       "zap"
     ];
     taps = [
