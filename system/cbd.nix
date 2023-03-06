@@ -5,7 +5,6 @@
   ];
 
   homebrew.casks = [
-    "aws-console"
     "docker"
   ];
 }

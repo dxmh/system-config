@@ -28,7 +28,6 @@
       "." = "cd -";
       ".." = "cd ../";
       "..." = "cd ../../";
-      ao = "aws-console -p";
       cat = "bat";
       d = "docker";
       dc = "docker-compose";
