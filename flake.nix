@@ -61,7 +61,7 @@
       system = "aarch64-linux";
       specialArgs = {user = "dom";};
       modules = [
-        ./system/thebox.nix
+        ./system/thebox
         home-manager.nixosModules.home-manager
         sops-nix.nixosModules.sops
         {nixpkgs.overlays = overlays;}

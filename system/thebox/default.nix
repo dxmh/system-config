@@ -7,10 +7,10 @@
 }: {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
-    ./linux.nix
+    ../linux.nix
   ];
 
-  sops.defaultSopsFile = ../secrets/example.yaml;
+  sops.defaultSopsFile = ../../secrets/example.yaml;
   sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
   sops.secrets.hello = {};
 
