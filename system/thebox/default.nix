@@ -8,25 +8,17 @@
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
     ../linux.nix
+    ./imap.nix
   ];
 
   sops = {
     age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
     defaultSopsFile = ./secrets.yaml;
-    secrets = {
-      ssl_key = {};
-      ssl_cert = {};
-    };
   };
 
   boot.initrd.availableKernelModules = ["xhci_pci" "virtio_pci" "usbhid" "usb_storage" "sr_mod"];
 
   networking.hostName = "thebox-vm";
-
-  networking.firewall.interfaces."enp0s1".allowedTCPPorts = [
-    143 # IMAP
-    993 # IMAPS
-  ];
 
   fileSystems = {
     "/" = {
@@ -57,21 +49,5 @@
       shell = null;
       uid = 1001;
     };
-    groups.mail = {
-      gid = 12;
-      members = ["dom" "poppy"];
-    };
-  };
-
-  services.dovecot2 = {
-    enable = true;
-    enablePop3 = false;
-    enableImap = true;
-    enableLmtp = false;
-    extraConfig = "ssl = required";
-    # TODO: Move to ZFS (may require `mail_privileged_group = mail`)
-    mailLocation = "maildir:/TODO/mail/%u"; # Must be 0770 root:mail
-    sslServerCert = "/run/secrets/ssl_cert";
-    sslServerKey = "/run/secrets/ssl_key";
   };
 }
