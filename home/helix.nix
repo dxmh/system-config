@@ -47,6 +47,11 @@
           u = "half_page_up";
         };
       };
+      keys.select = {
+        "#" = "toggle_comments";
+        "C-C" = "yank_main_selection_to_clipboard";
+        "C-c" = "yank_joined_to_clipboard";
+      };
     };
     themes = {
       custom = {
