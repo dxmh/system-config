@@ -93,6 +93,7 @@
       scrollback_pager_history_size = 500;
       shell = "${pkgs.fish}/bin/fish";
       shell_integration = "disabled"; # Configured manually via fish.config
+      startup_session = "session"; # filename relative to kitty config dir
       tab_bar_align = "left";
       tab_bar_background = "#181825";
       tab_bar_edge = "bottom";
