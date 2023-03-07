@@ -35,6 +35,7 @@
         "C-l" = ":reload";
         "C-v" = "replace_selections_with_clipboard";
         space.e = ":reflow";
+        space.n = ":new";
         space.space = "goto_last_modified_file";
         space.q = ":q";
         space.w = ":w";
