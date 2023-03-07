@@ -9,6 +9,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     helix.url = "github:helix-editor/helix";
     helix.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -17,6 +19,7 @@
     nixpkgs,
     home-manager,
     helix,
+    sops-nix,
   }: let
     overlays = [
       (final: prev: {
@@ -60,6 +63,7 @@
       modules = [
         ./system/thebox.nix
         home-manager.nixosModules.home-manager
+        sops-nix.nixosModules.sops
         {nixpkgs.overlays = overlays;}
       ];
     };

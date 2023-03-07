@@ -3,7 +3,10 @@
   user,
   ...
 }: {
-  imports = [./darwin.nix];
+  imports = [
+    ./darwin.nix
+    ../home/sops.nix
+  ];
 
   environment = {
     systemPackages = [

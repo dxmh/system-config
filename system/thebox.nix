@@ -10,6 +10,10 @@
     ./linux.nix
   ];
 
+  sops.defaultSopsFile = ../secrets/example.yaml;
+  sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+  sops.secrets.hello = {};
+
   boot.initrd.availableKernelModules = ["xhci_pci" "virtio_pci" "usbhid" "usb_storage" "sr_mod"];
 
   networking.hostName = "thebox-vm";
