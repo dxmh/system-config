@@ -10,9 +10,14 @@
     ../linux.nix
   ];
 
-  sops.defaultSopsFile = ../../secrets/example.yaml;
-  sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-  sops.secrets.hello = {};
+  sops = {
+    age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+    defaultSopsFile = ./secrets.yaml;
+    secrets = {
+      ssl_key = {};
+      ssl_cert = {};
+    };
+  };
 
   boot.initrd.availableKernelModules = ["xhci_pci" "virtio_pci" "usbhid" "usb_storage" "sr_mod"];
 
@@ -63,7 +68,10 @@
     enablePop3 = false;
     enableImap = true;
     enableLmtp = false;
+    extraConfig = "ssl = required";
     # TODO: Move to ZFS (may require `mail_privileged_group = mail`)
     mailLocation = "maildir:/TODO/mail/%u"; # Must be 0770 root:mail
+    sslServerCert = "/run/secrets/ssl_cert";
+    sslServerKey = "/run/secrets/ssl_key";
   };
 }
