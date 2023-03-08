@@ -14,6 +14,8 @@
   sops = {
     age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
     defaultSopsFile = ./secrets.yaml;
+    secrets.dom_password.neededForUsers = true;
+    secrets.poppy_password.neededForUsers = true;
   };
 
   boot.initrd.availableKernelModules = ["xhci_pci" "virtio_pci" "usbhid" "usb_storage" "sr_mod"];
@@ -39,15 +41,15 @@
   users = {
     mutableUsers = false;
     users.dom = {
-      hashedPassword = "$y$j9T$f3NK6qyFlkDxH.Qk/UzFp.$F5jg4/ZBSD5nOOxH53cowSYh6sNJUwxry5lQy2IzNC3";
       uid = 1000;
+      passwordFile = config.sops.secrets.dom_password.path;
     };
     users.poppy = {
       createHome = false;
       isNormalUser = true;
-      hashedPassword = "$y$j9T$tmtrE/Wd/5bXWi6A34zZ.0$Tn0m6bzc5iDAMuY/3qHw9IFdX2OCojPAcFSEkQW0sg1";
       shell = null;
       uid = 1001;
+      passwordFile = config.sops.secrets.poppy_password.path;
     };
   };
 }
