@@ -9,6 +9,7 @@
     (modulesPath + "/profiles/qemu-guest.nix")
     ../linux.nix
     ./imap.nix
+    ./samba.nix
   ];
 
   sops = {
@@ -42,6 +43,7 @@
     mutableUsers = false;
     users.dom = {
       uid = 1000;
+      group = "dom";
       passwordFile = config.sops.secrets.dom_password.path;
     };
     users.poppy = {
@@ -49,7 +51,12 @@
       isNormalUser = true;
       shell = null;
       uid = 1001;
+      group = "poppy";
       passwordFile = config.sops.secrets.poppy_password.path;
+    };
+    groups = {
+      dom.gid = 1000;
+      poppy.gid = 1001;
     };
   };
 }
