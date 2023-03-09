@@ -21,6 +21,12 @@
     overlays = [
       (final: prev: {
         helix = helix.packages.${prev.system}.default;
+        kitty = prev.kitty.overrideAttrs (oldAttrs: {
+          postInstall = ''
+            cp -v /System/Applications/Utilities/Terminal.app/Contents/Resources/Terminal.icns \
+              $out/Applications/kitty.app/Contents/Resources/kitty.icns
+          '';
+        });
       })
     ];
   in {
