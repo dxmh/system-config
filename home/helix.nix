@@ -39,7 +39,7 @@
         space.c.n = "goto_next_change";
         space.e = ":reflow";
         space.n = ":new";
-        space.space = "goto_last_modified_file";
+        space.space = "goto_last_accessed_file";
         space.q = ":q";
         space.w = ":w";
         space.x = ":x";
