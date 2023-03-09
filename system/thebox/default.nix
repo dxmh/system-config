@@ -10,6 +10,7 @@
     ../linux.nix
     ./imap.nix
     ./samba.nix
+    ./zfs.nix
   ];
 
   sops = {
