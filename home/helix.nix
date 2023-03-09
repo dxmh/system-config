@@ -34,6 +34,9 @@
         "C-c" = "yank_joined_to_clipboard";
         "C-l" = ":reload";
         "C-v" = "replace_selections_with_clipboard";
+        space.c.r = ":reset-diff-change";
+        space.c.p = "goto_prev_change";
+        space.c.n = "goto_next_change";
         space.e = ":reflow";
         space.n = ":new";
         space.space = "goto_last_modified_file";
