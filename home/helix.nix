@@ -104,7 +104,7 @@
         file-types = ["md"];
         scope = "source.markdown";
         roots = [];
-        max-line-length = 80;
+        text-width = 80;
       }
       {
         name = "json";
