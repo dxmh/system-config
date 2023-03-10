@@ -10,8 +10,7 @@
     enableImap = true;
     enableLmtp = false;
     extraConfig = "ssl = required";
-    # TODO: Move to ZFS (may require `mail_privileged_group = mail`)
-    mailLocation = "maildir:/TODO/mail/%u"; # Must be 0770 root:mail
+    mailLocation = "maildir:/tank/mail/%u"; # Must be 0770 root:mail
     sslServerCert = "/run/secrets/ssl_cert";
     sslServerKey = "/run/secrets/ssl_key";
   };
