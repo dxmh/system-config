@@ -10,6 +10,7 @@
     ../linux.nix
     ./imap.nix
     ./samba.nix
+    ./smtp.nix
     ./users.nix
     ./zfs.nix
   ];
