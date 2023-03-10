@@ -19,7 +19,12 @@
     defaultSopsFile = ./secrets.yaml;
   };
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "virtio_pci" "usbhid" "usb_storage" "sr_mod"];
+  boot.initrd = {
+    availableKernelModules = ["xhci_pci" "virtio_pci" "usbhid" "usb_storage" "sr_mod"];
+    luks.devices = {
+      cryptroot.device = "/dev/disk/by-uuid/29b528a6-aac9-4b79-ab71-ab78ded2536b";
+    };
+  };
 
   networking.hostName = "thebox-vm";
 
