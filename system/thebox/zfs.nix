@@ -1,5 +1,11 @@
 {...}: {
-  boot.supportedFilesystems = ["zfs"];
+  boot = {
+    supportedFilesystems = ["zfs"];
+    zfs = {
+      extraPools = ["tank"]; # Import tank on boot
+      devNodes = "/dev/mapper/"; # My zpools use `/dev/mapper/` paths
+    };
+  };
 
   # Automatically decrypt LUKS volumes on boot so ZFS can use them
   environment.etc.crypttab = {
