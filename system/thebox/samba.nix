@@ -76,12 +76,12 @@
     sambaUserSetup = {
       text = ''
         for user in dom poppy; do
-          password=$(</run/secrets-for-users/''${user}_password)
+          password=$(</run/secrets/''${user}_password)
           printf '%s\n%s\n' "$password" "$password" \
             | ${pkgs.samba}/bin/smbpasswd -s -a ''${user}
         done
       '';
-      deps = ["setupSecretsForUsers"];
+      deps = ["setupSecrets"];
     };
   };
 }
