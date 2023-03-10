@@ -24,6 +24,10 @@
 
   networking.hostName = "thebox-vm";
 
+  environment.systemPackages = [
+    pkgs.cryptsetup
+  ];
+
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/NIXROOT";
