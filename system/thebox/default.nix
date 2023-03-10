@@ -57,5 +57,9 @@
     extraOptions = [
       "-q never" # Don't error if no physical disks are present (in our VM)
     ];
+    notifications = {
+      mail.enable = true;
+      test = true;
+    };
   };
 }
