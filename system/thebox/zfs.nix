@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   boot = {
     supportedFilesystems = ["zfs"];
     zfs = {
@@ -20,5 +20,17 @@
   services.zfs.autoScrub = {
     interval = "Sat, 02:00";
     enable = true;
+  };
+
+  # Reconfigure ZED so it can send emails.
+  # See /etc/zfs/zed.d/zed.rc for info about these options.
+  services.zfs.zed.settings = {
+    ZED_DEBUG_LOG = "/tmp/zed.debug.log";
+    ZED_EMAIL_ADDR = ["root"];
+    ZED_EMAIL_PROG = "${pkgs.msmtp}/bin/msmtp";
+    ZED_EMAIL_OPTS = "@ADDRESS@";
+    ZED_NOTIFY_INTERVAL_SECS = 3600;
+    ZED_NOTIFY_VERBOSE = false;
+    ZED_SCRUB_AFTER_RESILVER = true;
   };
 }
