@@ -41,6 +41,9 @@
     };
   };
 
+  # Automatically log in after boot:
+  services.getty.autologinUser = user;
+
   # NixOS version used to setup the system initially:
   system.stateVersion = "22.11";
 

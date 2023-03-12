@@ -27,8 +27,6 @@
 
   security.sudo.wheelNeedsPassword = false;
 
-  services.getty.autologinUser = user; # Automatically log in after boot:
-
   services.openssh = {
     enable = true;
     passwordAuthentication = false;
