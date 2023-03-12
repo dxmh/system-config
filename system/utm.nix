@@ -42,6 +42,16 @@
   # Automatically log in after boot:
   services.getty.autologinUser = mainUser;
 
+  # Unlock our git config
+  sops = {
+    age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
+    defaultSopsFile = ./utm/secrets.yaml;
+    secrets.git_config.owner = mainUser;
+  };
+  home-manager.users.${mainUser}.programs.git.includes = [
+    {path = config.sops.secrets.git_config.path;}
+  ];
+
   # NixOS version used to setup the system initially:
   system.stateVersion = "22.11";
 

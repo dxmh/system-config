@@ -56,6 +56,7 @@
       modules = [
         ./system/utm.nix
         home-manager.nixosModules.home-manager
+        sops-nix.nixosModules.sops
         {nixpkgs.overlays = overlays;}
       ];
     };
