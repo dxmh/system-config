@@ -1,9 +1,9 @@
 {
   pkgs,
-  user,
+  mainUser,
   ...
 }: {
-  home-manager.users.${user} = {
+  home-manager.users.${mainUser} = {
     home.packages = with pkgs; [
       awscli2
       ssm-session-manager-plugin

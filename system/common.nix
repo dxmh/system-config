@@ -1,6 +1,6 @@
 {
   pkgs,
-  user,
+  mainUser,
   ...
 }: {
   nix = {
@@ -29,7 +29,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.${user} = import ../home/home.nix;
+    users.${mainUser} = import ../home/home.nix;
   };
 
   environment.systemPackages = with pkgs; [

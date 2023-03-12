@@ -3,7 +3,7 @@
   lib,
   pkgs,
   modulesPath,
-  user,
+  mainUser,
   ...
 }: {
   imports = [
@@ -42,12 +42,12 @@
   };
 
   # Automatically log in after boot:
-  services.getty.autologinUser = user;
+  services.getty.autologinUser = mainUser;
 
   # NixOS version used to setup the system initially:
   system.stateVersion = "22.11";
 
-  users.users.${user}.extraGroups = ["docker"];
+  users.users.${mainUser}.extraGroups = ["docker"];
 
   virtualisation.docker = {
     enable = true;

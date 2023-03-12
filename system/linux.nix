@@ -1,6 +1,6 @@
 {
   pkgs,
-  user,
+  mainUser,
   ...
 }: {
   imports = [./common.nix];
@@ -35,7 +35,7 @@
 
   time.timeZone = "Europe/London";
 
-  users.users.${user} = {
+  users.users.${mainUser} = {
     isNormalUser = true;
     initialPassword = "hunter2";
     extraGroups = ["wheel"];

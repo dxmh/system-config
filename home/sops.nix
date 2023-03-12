@@ -1,9 +1,9 @@
 {
   pkgs,
-  user,
+  mainUser,
   ...
 }: {
-  home-manager.users.${user} = {
+  home-manager.users.${mainUser} = {
     home.packages = [
       pkgs.age
       pkgs.sops

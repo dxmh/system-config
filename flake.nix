@@ -32,7 +32,7 @@
   in {
     darwinConfigurations.lot = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
-      specialArgs = {user = "dom";};
+      specialArgs = {mainUser = "dom";};
       modules = [
         ./system/lot.nix
         home-manager.darwinModules.home-manager
@@ -42,7 +42,7 @@
 
     darwinConfigurations.cbd = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
-      specialArgs = {user = "dom.hay";};
+      specialArgs = {mainUser = "dom.hay";};
       modules = [
         ./system/cbd.nix
         home-manager.darwinModules.home-manager
@@ -52,7 +52,7 @@
 
     nixosConfigurations.utm-vm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      specialArgs = {user = "dom";};
+      specialArgs = {mainUser = "dom";};
       modules = [
         ./system/utm.nix
         home-manager.nixosModules.home-manager
@@ -62,7 +62,7 @@
 
     nixosConfigurations.thebox-vm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      specialArgs = {user = "dom";};
+      specialArgs = {mainUser = "dom";};
       modules = [
         ./system/thebox
         home-manager.nixosModules.home-manager

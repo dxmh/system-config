@@ -1,6 +1,6 @@
 {
   pkgs,
-  user,
+  mainUser,
   ...
 }: {
   imports = [./common.nix];
@@ -8,7 +8,7 @@
 
   # Our home directory needs to be set for certain things to work, such as
   # launchd agents (otherwise it defaults to /var/empty/)
-  users.users.${user}.home = "/Users/${user}";
+  users.users.${mainUser}.home = "/Users/${mainUser}";
 
   environment.systemPath = [
     "/opt/homebrew/bin"

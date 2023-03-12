@@ -1,6 +1,6 @@
 {
   pkgs,
-  user,
+  mainUser,
   ...
 }: {
   imports = [
@@ -26,7 +26,7 @@
     "zoom"
   ];
 
-  home-manager.users.${user} = {
+  home-manager.users.${mainUser} = {
     # SSH client configuration (~/.ssh/config)
     programs.ssh = {
       enable = true;
