@@ -1,9 +1,11 @@
 keys:
   - &dom age18qkf8xr8z8j736dss9y2zpwmszk5gdqdc5snwdd02ud820lyjajsx7e6yg
+  - &thebox age1xprrry0ydd5wpufkuvjgh4gv90ec3f9dl6r6tlnryf7tjpqme9ssknw24u
   - &thebox-vm age106978sahasy3pg0zdv46t0wz5q8fkh67q77gxtu4k4n8hfsr3etq05cnv5
 creation_rules:
   - path_regex: secrets.yaml$
     key_groups:
     - age:
       - *dom
+      - *thebox
       - *thebox-vm
