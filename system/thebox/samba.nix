@@ -72,6 +72,11 @@
     members = ["dom" "poppy"];
   };
 
+  sops.secrets = {
+    dom_password = {};
+    poppy_password = {};
+  };
+
   system.activationScripts = lib.mkIf config.services.samba.enable {
     sambaUserSetup = {
       text = ''

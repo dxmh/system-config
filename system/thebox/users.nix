@@ -1,8 +1,6 @@
 {config, ...}: {
   sops.secrets = {
-    dom_password = {};
     dom_hashedPassword.neededForUsers = true;
-    poppy_password = {};
     poppy_hashedPassword.neededForUsers = true;
   };
 
