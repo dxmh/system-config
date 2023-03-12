@@ -34,20 +34,18 @@
     pkgs.cryptsetup
   ];
 
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/nixos";
-      fsType = "ext4";
-    };
-    "/boot" = {
-      device = "/dev/disk/by-label/nixboot";
-      fsType = "vfat";
-    };
-    "/share" = {
-      device = "share";
-      fsType = "9p";
-      options = ["defaults" "nofail"];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "ext4";
+  };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/nixboot";
+    fsType = "vfat";
+  };
+  fileSystems."/share" = {
+    device = "share";
+    fsType = "9p";
+    options = ["defaults" "nofail"];
   };
 
   services.smartd = {
