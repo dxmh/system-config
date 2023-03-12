@@ -11,7 +11,7 @@
     ./backup.nix
     ./imap.nix
     ./samba.nix
-    ./smtp.nix
+    ./sendmail.nix
     ./users.nix
     ./zfs.nix
   ];
