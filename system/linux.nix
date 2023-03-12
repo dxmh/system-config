@@ -35,8 +35,6 @@
     permitRootLogin = "no";
   };
 
-  system.stateVersion = "22.11"; # NixOS version used to setup the system initially
-
   time.timeZone = "Europe/London";
 
   users.users.${user} = {

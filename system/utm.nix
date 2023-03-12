@@ -41,6 +41,9 @@
     };
   };
 
+  # NixOS version used to setup the system initially:
+  system.stateVersion = "22.11";
+
   users.users.${user}.extraGroups = ["docker"];
 
   virtualisation.docker = {
