@@ -3,6 +3,7 @@
   lib,
   pkgs,
   modulesPath,
+  user,
   ...
 }: {
   imports = [
@@ -38,5 +39,12 @@
       fsType = "9p";
       options = ["defaults" "nofail"];
     };
+  };
+
+  users.users.${user}.extraGroups = ["docker"];
+
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = false; # Start on-demand by socket activation rather than boot
   };
 }

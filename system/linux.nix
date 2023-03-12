@@ -42,16 +42,11 @@
   users.users.${user} = {
     isNormalUser = true;
     initialPassword = "hunter2";
-    extraGroups = ["wheel" "docker"];
+    extraGroups = ["wheel"];
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpIMrPStsNADURgP6ZXp+1PwMrIMOthUwVLWdP11XBd"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMzUZQgaUystKDL7ox1TgV0LJSc4AcDe5MN9bbAURX6S For NixOS building"
     ];
-  };
-
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = false; # Start on-demand by socket activation rather than boot
   };
 }
