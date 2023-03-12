@@ -40,21 +40,21 @@
       ];
     };
 
-    darwinConfigurations.cbd = darwin.lib.darwinSystem {
+    darwinConfigurations.cbd-macbook = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
       specialArgs = {mainUser = "dom.hay";};
       modules = [
-        ./system/cbd.nix
+        ./system/cbd/macbook.nix
         home-manager.darwinModules.home-manager
         {nixpkgs.overlays = overlays;}
       ];
     };
 
-    nixosConfigurations.utm-vm = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.cbd-vm = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       specialArgs = {mainUser = "dom";};
       modules = [
-        ./system/utm.nix
+        ./system/cbd/vm.nix
         home-manager.nixosModules.home-manager
         sops-nix.nixosModules.sops
         {nixpkgs.overlays = overlays;}

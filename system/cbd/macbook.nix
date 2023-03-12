@@ -1,7 +1,7 @@
 {
   imports = [
-    ./darwin.nix
-    ../home/aws.nix
+    ../darwin.nix
+    ../../home/aws.nix
   ];
 
   homebrew.casks = [

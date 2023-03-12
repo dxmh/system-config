@@ -8,11 +8,11 @@
 }: {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
-    ./linux.nix
-    ../home/aws.nix
+    ../linux.nix
+    ../../home/aws.nix
   ];
 
-  networking.hostName = "utm-vm";
+  networking.hostName = "cbd-vm";
 
   # Disable the firewall since we're in a VM and we want to make it
   # easy to visit stuff in this VM. We only use NAT networking anyways:
@@ -45,7 +45,7 @@
   # Unlock our git config
   sops = {
     age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-    defaultSopsFile = ./utm/secrets.yaml;
+    defaultSopsFile = ./secrets.yaml;
     secrets.git_config.owner = mainUser;
   };
   home-manager.users.${mainUser}.programs.git.includes = [
