@@ -8,6 +8,7 @@
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
     ../linux.nix
+    ./backup.nix
     ./imap.nix
     ./samba.nix
     ./smtp.nix
