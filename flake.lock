@@ -261,6 +261,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1678542900,
+        "narHash": "sha256-fM6he1zOnKyCARVr3ZdOWbo6dLwaoEfWdIfBaGXMAVY=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "a0ddd1a5895e710eee2dab7a908832d0ddec8986",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -307,6 +322,7 @@
         "helix": "helix",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable",
         "sops-nix": "sops-nix"
       }
     },

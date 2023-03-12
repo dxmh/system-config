@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
@@ -17,6 +18,7 @@
     self,
     darwin,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     helix,
     sops-nix,
@@ -24,6 +26,7 @@
     overlays = [
       (final: prev: {
         helix = helix.packages.${prev.system}.default;
+        nil = nixpkgs-unstable.legacyPackages.${prev.system}.nil;
       })
     ];
   in {
