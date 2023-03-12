@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.msmtp = {
     enable = true;
   };
@@ -25,4 +29,20 @@
   users.groups.msmtp.members = [
     "dom"
   ];
+
+  # A oneshot systemd service that sends an email about the status of another
+  # systemd unit. I use this to receive email alerts when services fail, with
+  # `OnFailure=systemd-status-email@%n.service`.
+  systemd.services."systemd-status-email@" = {
+    description = "Send email about systemd unit status";
+    serviceConfig.Type = "oneshot";
+    script = ''
+      ${pkgs.msmtp}/bin/msmtp -t <<MAIL
+      To: root
+      Subject: $1 is $(systemctl is-failed "$1")
+      $(systemctl status --full "$1")
+      MAIL
+    '';
+    scriptArgs = "%i";
+  };
 }
