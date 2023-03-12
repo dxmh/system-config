@@ -10,7 +10,7 @@
     '';
     gc = {
       automatic = true;
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 30d";
     };
     package = pkgs.nixVersions.stable;
 
