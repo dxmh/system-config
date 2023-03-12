@@ -14,7 +14,7 @@
     # https://github.com/mozilla/sops#47showing-diffs-in-cleartext-in-git
     programs.git.extraConfig = {
       diff.sopsdiffer = {
-        textconv = "${pkgs.sops}/bin/sops -d";
+        textconv = "${pkgs.sops}/bin/sops --config /dev/null -d";
       };
     };
   };
