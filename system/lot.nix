@@ -8,15 +8,6 @@
     ../home/sops.nix
   ];
 
-  environment = {
-    systemPackages = [
-      pkgs.docker-client
-    ];
-    variables = {
-      DOCKER_HOST = "ssh://utm-vm";
-    };
-  };
-
   homebrew.casks = [
     "discord"
     "element"
