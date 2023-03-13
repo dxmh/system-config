@@ -1,13 +1,11 @@
 {
-  config,
-  lib,
-  pkgs,
   modulesPath,
+  pkgs,
   ...
 }: {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
-    ../linux.nix
+    ../common
     ./backup.nix
     ./imap.nix
     ./samba.nix

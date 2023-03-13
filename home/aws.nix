@@ -1,6 +1,6 @@
 {
-  pkgs,
   mainUser,
+  pkgs,
   ...
 }: {
   home-manager.users.${mainUser} = {

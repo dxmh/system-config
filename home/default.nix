@@ -1,8 +1,7 @@
 {
-  pkgs,
   lib,
-  config,
-  isDarwin,
+  pkgs,
+  platform,
   ...
 }: {
   home.stateVersion = "22.05";
@@ -126,7 +125,7 @@
       ./fish.nix
       ./helix.nix
     ]
-    ++ (lib.lists.optionals isDarwin [
+    ++ (lib.lists.optionals (platform == "darwin") [
       ./kitty.nix
     ]);
 }

@@ -1,11 +1,8 @@
 {
-  pkgs,
   mainUser,
+  pkgs,
   ...
 }: {
-  imports = [./common.nix];
-  home-manager.extraSpecialArgs = {isDarwin = false;};
-
   environment.variables = {
     # This doesn't get set automatically on (headless) Linux environments,
     # but it is required for Kitty's awesome shell integration to work:

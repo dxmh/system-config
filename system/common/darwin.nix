@@ -1,11 +1,8 @@
 {
-  pkgs,
   mainUser,
+  pkgs,
   ...
 }: {
-  imports = [./common.nix];
-  home-manager.extraSpecialArgs = {isDarwin = true;};
-
   # Our home directory needs to be set for certain things to work, such as
   # launchd agents (otherwise it defaults to /var/empty/)
   users.users.${mainUser}.home = "/Users/${mainUser}";

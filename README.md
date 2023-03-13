@@ -43,7 +43,7 @@ Build our flake:
 
 ```shell
 nix --experimental-features "nix-command flakes" \
-	build github:dxmh/system-config#darwinConfigurations.lot.system
+	build github:dxmh/system-config#darwinConfigurations.setze.system
 ```
 
 
@@ -51,5 +51,5 @@ Now we can run `nix-darwin` for the first time:
 
 ```shell
 ./result/sw/bin/darwin-rebuild switch \
-	--flake github:dxmh/system-config#lot
+	--flake github:dxmh/system-config#setze
 ```

@@ -1,6 +1,6 @@
 {
   imports = [
-    ../darwin.nix
+    ../common
     ../../home/aws.nix
   ];
 

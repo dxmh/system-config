@@ -1,8 +1,11 @@
 {
-  pkgs,
   mainUser,
+  pkgs,
+  platform,
   ...
 }: {
+  imports = [./${platform}.nix];
+
   nix = {
     extraOptions = ''
       experimental-features = nix-command flakes
@@ -29,7 +32,8 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.${mainUser} = import ../home/home.nix;
+    users.${mainUser} = import ../../home;
+    extraSpecialArgs = {inherit platform;};
   };
 
   environment.systemPackages = with pkgs; [

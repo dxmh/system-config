@@ -1,11 +1,7 @@
-{
-  pkgs,
-  mainUser,
-  ...
-}: {
+{mainUser, ...}: {
   imports = [
-    ./darwin.nix
-    ../home/sops.nix
+    ../common
+    ../../home/sops.nix
   ];
 
   homebrew.casks = [

@@ -1,14 +1,12 @@
 {
   config,
-  lib,
-  pkgs,
-  modulesPath,
   mainUser,
+  modulesPath,
   ...
 }: {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
-    ../linux.nix
+    ../common
     ../../home/aws.nix
   ];
 

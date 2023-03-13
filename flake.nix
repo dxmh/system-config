@@ -2,27 +2,28 @@
   description = "System configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
     helix.url = "github:helix-editor/helix";
     helix.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
-    self,
     darwin,
+    helix,
+    home-manager,
     nixpkgs,
     nixpkgs-unstable,
-    home-manager,
-    helix,
+    self,
     sops-nix,
   }: let
+    mkSystem = import ./lib/mkSystem.nix;
     overlays = [
       (final: prev: {
         helix = helix.packages.${prev.system}.default;
@@ -30,46 +31,28 @@
       })
     ];
   in {
-    darwinConfigurations.lot = darwin.lib.darwinSystem {
+    darwinConfigurations.setze = mkSystem "setze" {
+      inherit self overlays;
       system = "aarch64-darwin";
-      specialArgs = {mainUser = "dom";};
-      modules = [
-        ./system/lot.nix
-        home-manager.darwinModules.home-manager
-        {nixpkgs.overlays = overlays;}
-      ];
+      mainUser = "dom";
     };
 
-    darwinConfigurations.cbd-macbook = darwin.lib.darwinSystem {
+    darwinConfigurations.cbd-macbook = mkSystem "cbd/macbook.nix" {
+      inherit self overlays;
       system = "x86_64-darwin";
-      specialArgs = {mainUser = "dom.hay";};
-      modules = [
-        ./system/cbd/macbook.nix
-        home-manager.darwinModules.home-manager
-        {nixpkgs.overlays = overlays;}
-      ];
+      mainUser = "dom.hay";
     };
 
-    nixosConfigurations.cbd-vm = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.cbd-vm = mkSystem "cbd/vm.nix" {
+      inherit self overlays;
       system = "aarch64-linux";
-      specialArgs = {mainUser = "dom";};
-      modules = [
-        ./system/cbd/vm.nix
-        home-manager.nixosModules.home-manager
-        sops-nix.nixosModules.sops
-        {nixpkgs.overlays = overlays;}
-      ];
+      mainUser = "dom";
     };
 
-    nixosConfigurations.thebox-vm = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.thebox-vm = mkSystem "thebox" {
+      inherit self overlays;
       system = "aarch64-linux";
-      specialArgs = {mainUser = "dom";};
-      modules = [
-        ./system/thebox
-        home-manager.nixosModules.home-manager
-        sops-nix.nixosModules.sops
-        {nixpkgs.overlays = overlays;}
-      ];
+      mainUser = "dom";
     };
 
     formatter.aarch64-darwin =
