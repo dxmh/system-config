@@ -33,24 +33,32 @@
   in {
     darwinConfigurations.setze = mkSystem "setze" {
       inherit self overlays;
+      stateVersion.home = "22.05";
+      stateVersion.system = 4;
       system = "aarch64-darwin";
       mainUser = "dom";
     };
 
     darwinConfigurations.cbd-macbook = mkSystem "cbd/macbook.nix" {
       inherit self overlays;
+      stateVersion.home = "22.05";
+      stateVersion.system = 4;
       system = "x86_64-darwin";
       mainUser = "dom.hay";
     };
 
     nixosConfigurations.cbd-vm = mkSystem "cbd/vm.nix" {
       inherit self overlays;
+      stateVersion.home = "22.11";
+      stateVersion.system = "22.11";
       system = "aarch64-linux";
       mainUser = "dom";
     };
 
     nixosConfigurations.thebox-vm = mkSystem "thebox" {
       inherit self overlays;
+      stateVersion.home = "22.11";
+      stateVersion.system = "22.11";
       system = "aarch64-linux";
       mainUser = "dom";
     };

@@ -50,9 +50,6 @@
     {path = config.sops.secrets.git_config.path;}
   ];
 
-  # NixOS version used to setup the system initially:
-  system.stateVersion = "22.11";
-
   users.users.${mainUser}.extraGroups = ["docker"];
 
   virtualisation.docker = {

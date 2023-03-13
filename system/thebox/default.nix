@@ -59,7 +59,4 @@
       test = true;
     };
   };
-
-  # NixOS version used to setup the system initially:
-  system.stateVersion = "22.11";
 }

@@ -2,9 +2,10 @@
   lib,
   pkgs,
   platform,
+  stateVersion,
   ...
 }: {
-  home.stateVersion = "22.05";
+  home.stateVersion = stateVersion.home;
 
   home.activation = {
     updateBatCache = lib.hm.dag.entryAfter ["writeBoundary"] ''

@@ -2,6 +2,7 @@ name: {
   mainUser,
   overlays,
   self,
+  stateVersion,
   system,
 }: let
   inherit (self) inputs;
@@ -18,7 +19,11 @@ in
     modules =
       [
         ../system/${name}
-        {nixpkgs.overlays = overlays;}
+        {
+          home-manager.extraSpecialArgs = {inherit stateVersion;};
+          nixpkgs.overlays = overlays;
+          system.stateVersion = stateVersion.system;
+        }
       ]
       ++ (lists.optionals (platform == "darwin") [
         inputs.home-manager.darwinModules.home-manager
