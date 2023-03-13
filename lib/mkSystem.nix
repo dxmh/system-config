@@ -20,7 +20,12 @@ in
       [
         ../system/${name}
         {
-          home-manager.extraSpecialArgs = {inherit stateVersion;};
+          home-manager = {
+            extraSpecialArgs = {inherit platform stateVersion;};
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.${mainUser} = import ../home;
+          };
           nixpkgs.overlays = overlays;
           system.stateVersion = stateVersion.system;
         }

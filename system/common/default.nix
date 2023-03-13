@@ -29,13 +29,6 @@
     allowUnsupportedSystem = true; # for packages that don't specifically state aarch64 compatibility
   };
 
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.${mainUser} = import ../../home;
-    extraSpecialArgs = {inherit platform;};
-  };
-
   environment.systemPackages = with pkgs; [
     cachix
     coreutils
