@@ -5,6 +5,7 @@
   ];
 
   homebrew.casks = [
+    "caffeine"
     "docker"
   ];
 }
