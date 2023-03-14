@@ -14,7 +14,8 @@
       "cmd+t" = "launch --type=tab";
       "cmd+shift+t" = "launch --cwd=current --type=tab --location=neighbor";
       "cmd+shift+n" = "new_os_window_with_cwd";
-      "cmd+enter" = "launch --cwd=current --location=split";
+      "cmd+enter" = "combine : goto_layout splits : launch --cwd=current --location=split";
+
       "cmd+shift+enter" = "launch --location=split";
       "cmd+c" = "copy_and_clear_or_interrupt";
       "cmd+f" = "toggle_layout stack";
