@@ -41,7 +41,9 @@
         space.n = ":new";
         space.space = "goto_last_accessed_file";
         space.q = ":q";
+        space.Q = ":q!";
         space.w = ":w";
+        space.W = ":w!";
         space.x = ":x";
         space.o.w = ":toggle-option soft-wrap.enable";
         space.o.c = ":toggle-option cursorline";
