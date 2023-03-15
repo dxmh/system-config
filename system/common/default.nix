@@ -37,6 +37,7 @@
     fd
     gnumake
     htop
+    prettyping
     vim
   ];
 
