@@ -22,6 +22,9 @@
   nix.gc.dates = "weekly";
   nix.settings.auto-optimise-store = true;
 
+  # Allow these users to specify additional binary caches
+  nix.settings.trusted-users = ["@wheel"];
+
   security.sudo.wheelNeedsPassword = false;
 
   services.openssh = {

@@ -15,12 +15,6 @@
       options = "--delete-older-than 30d";
     };
     package = pkgs.nixVersions.stable;
-
-    # Allow these users to specify additional binary caches:
-    settings.trusted-users = [
-      "@wheel" # Linux
-      "@admin" # macOS
-    ];
   };
 
   nixpkgs.config = {

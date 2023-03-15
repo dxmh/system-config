@@ -116,4 +116,7 @@
       "utm"
     ];
   };
+
+  # Allow these users to specify additional binary caches
+  nix.settings.trusted-users = ["@admin"];
 }
