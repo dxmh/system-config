@@ -38,6 +38,7 @@
     gnumake
     htop
     prettyping
+    tldr
     vim
   ];
 
