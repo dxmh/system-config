@@ -79,13 +79,11 @@
 
   system.activationScripts = lib.mkIf config.services.samba.enable {
     sambaUserSetup = {
-      text = ''
-        for user in dom poppy; do
-          password=$(</run/secrets/''${user}_password)
-          printf '%s\n%s\n' "$password" "$password" \
-            | ${pkgs.samba}/bin/smbpasswd -s -a ''${user}
-        done
-      '';
+      text = lib.strings.concatMapStrings (user: ''
+        password=$(<${config.sops.secrets."${user}_password".path})
+        printf '%s\n%s\n' "$password" "$password" \
+          | ${pkgs.samba}/bin/smbpasswd -s -a ${user}
+      '') ["dom" "poppy"];
       deps = ["setupSecrets"];
     };
   };
