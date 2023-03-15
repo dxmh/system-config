@@ -16,8 +16,8 @@
   };
 
   sops.secrets = {
-    ssl_key = {};
-    ssl_cert = {};
+    ssl_key.reloadUnits = ["dovecot2.service"];
+    ssl_cert.reloadUnits = ["dovecot2.service"];
   };
 
   users.groups.mail = {
