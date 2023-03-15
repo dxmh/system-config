@@ -12,6 +12,25 @@
 
   networking.hostName = "cbd-vm";
 
+  # Work around a DHCP issue with UTM/QEMU/macOS
+  networking.interfaces.enp0s1 = {
+    ipv4.addresses = [
+      {
+        address = "10.211.56.2";
+        prefixLength = 16;
+      }
+    ];
+    ipv4.routes = [
+      {
+        address = "10.211.0.0";
+        prefixLength = 16;
+        via = "10.211.56.1";
+      }
+    ];
+    useDHCP = false;
+  };
+  networking.nameservers = ["10.211.56.1"];
+
   # Disable the firewall since we're in a VM and we want to make it
   # easy to visit stuff in this VM. We only use NAT networking anyways:
   networking.firewall.enable = false;
