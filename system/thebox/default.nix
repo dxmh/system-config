@@ -50,9 +50,6 @@
     autodetect = true; # monitor all devices
     # See https://wiki.archlinux.org/title/S.M.A.R.T.#Complete_smartd.conf_example
     defaults.autodetected = "-a -o on -S on -n standby,q -s (S/../.././02|L/../../6/03)";
-    extraOptions = [
-      "-q never" # Don't error if no physical disks are present (in our VM)
-    ];
     notifications = {
       mail.enable = true;
       test = true;
