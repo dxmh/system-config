@@ -61,6 +61,7 @@
       ll = "l --level 2";
       lll = "l --level 3";
       llll = "l --level 999";
+      pp = "prettyping --nolegend";
     };
   };
 
