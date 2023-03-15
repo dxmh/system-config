@@ -54,6 +54,7 @@
       pull = "git pull";
       push = "git push";
       show = "git show";
+      speedtest = "speedtest-cli --simple";
       stash = "git stash";
     };
     shellAliases = {
