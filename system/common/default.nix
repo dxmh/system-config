@@ -28,6 +28,7 @@
     dig
     exa
     fd
+    git
     gnumake
     htop
     prettyping
