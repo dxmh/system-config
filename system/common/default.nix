@@ -34,7 +34,7 @@
     coreutils
     dig
     exa
-    findutils
+    fd
     gnumake
     htop
     vim
