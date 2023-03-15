@@ -56,6 +56,8 @@
     options = ["defaults" "nofail"];
   };
 
+  security.sudo.wheelNeedsPassword = false;
+
   # Automatically log in after boot:
   services.getty.autologinUser = mainUser;
 

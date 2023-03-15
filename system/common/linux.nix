@@ -25,8 +25,6 @@
   # Allow these users to specify additional binary caches
   nix.settings.trusted-users = ["@wheel"];
 
-  security.sudo.wheelNeedsPassword = false;
-
   services.openssh = {
     enable = true;
     passwordAuthentication = false;
