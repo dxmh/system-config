@@ -1,5 +1,4 @@
 {
-  mainUser,
   pkgs,
   platform,
   ...
