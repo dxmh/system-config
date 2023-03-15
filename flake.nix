@@ -63,11 +63,11 @@
       mainUser = "dom";
     };
 
-    nixosConfigurations.thebox-vm = mkSystem "thebox" {
+    nixosConfigurations.thebox = mkSystem "thebox" {
       inherit self overlays;
       stateVersion.home = "22.11";
       stateVersion.system = "22.11";
-      system = "aarch64-linux";
+      system = "x86_64-linux";
       mainUser = "dom";
     };
 

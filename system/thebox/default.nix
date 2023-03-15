@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    (modulesPath + "/profiles/qemu-guest.nix")
+    (modulesPath + "/installer/scan/not-detected.nix")
     ../common
     ./backup.nix
     ./imap.nix
@@ -20,13 +20,17 @@
   };
 
   boot.initrd = {
-    availableKernelModules = ["xhci_pci" "virtio_pci" "usbhid" "usb_storage" "sr_mod"];
+    availableKernelModules = ["xhci_pci" "ahci" "ehci_pci" "usb_storage" "sd_mod"];
     luks.devices = {
-      cryptroot.device = "/dev/disk/by-uuid/29b528a6-aac9-4b79-ab71-ab78ded2536b";
+      cryptroot.device = "/dev/disk/by-uuid/eee05e8d-cc6f-4e85-9f24-83f28361fdb3";
     };
   };
+  boot.kernelModules = ["kvm-amd"];
 
-  networking.hostName = "thebox-vm";
+  hardware.enableAllFirmware = true;
+  hardware.cpu.amd.updateMicrocode = true;
+
+  networking.hostName = "thebox";
 
   environment.systemPackages = [
     pkgs.cryptsetup
@@ -39,11 +43,6 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/nixboot";
     fsType = "vfat";
-  };
-  fileSystems."/share" = {
-    device = "share";
-    fsType = "9p";
-    options = ["defaults" "nofail"];
   };
 
   services.smartd = {

@@ -1,5 +1,5 @@
 {...}: {
-  networking.firewall.interfaces."enp0s1".allowedTCPPorts = [
+  networking.firewall.interfaces."enp2s0f0".allowedTCPPorts = [
     143 # IMAP
     993 # IMAPS
   ];

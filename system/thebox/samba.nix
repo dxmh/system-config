@@ -9,7 +9,7 @@
     openFirewall = true;
     extraConfig = ''
       # Secure connections
-      hosts allow = 10.211.56.0/24
+      hosts allow = 10.0.10.0/24
       server min protocol = SMB2
       server smb encrypt = required
 
