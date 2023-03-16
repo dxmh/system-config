@@ -34,6 +34,7 @@
       eo = "$EDITOR .";
       kssh = "kitty +kitten ssh";
       m = "make -s";
+      nr = "sudo nixos-rebuild switch";
       tfm = "terraform";
       vim = "hx";
       "g." = "git switch -";
