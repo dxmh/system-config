@@ -27,7 +27,7 @@
         };
         "thebox b" = {
           hostname = "thebox.int.hxy.io";
-          identityFile = "~/.ssh/id_ed25519_thebox";
+          identityFile = "~/.ssh/id_ed25519";
           user = "dom";
         };
       };
