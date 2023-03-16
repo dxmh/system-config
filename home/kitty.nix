@@ -105,7 +105,9 @@
       tab_bar_min_tabs = 1;
       tab_bar_style = "separator";
       tab_separator = "\"  \""; # two blank spaces
-      tab_title_template = "\"{index}╱{title}{sup.num_windows}\"";
+      tab_title_template = ''
+        {index}{layout_name.replace('stack', 'ᐩ').replace('splits', '╱')}{title}
+      '';
       url_color = "#0087BD";
       window_border_width = "0.5pt";
       window_padding_width = "14 15";
