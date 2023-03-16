@@ -10,7 +10,7 @@
     ../../home/aws.nix
   ];
 
-  networking.hostName = "cbd-vm";
+  networking.hostName = "cbd";
 
   # Work around a DHCP issue with UTM/QEMU/macOS
   networking.interfaces.enp0s1 = {
