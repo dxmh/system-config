@@ -12,6 +12,8 @@
 
   environment.systemPackages = with pkgs; [docker-compose];
 
+  environment.etc."nixos/flake.nix".source = "/share/flake.nix";
+
   networking.hostName = "cbd";
   networking.firewall.enable = false;
 
