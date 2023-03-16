@@ -37,18 +37,12 @@
   };
 
   # Work around a DHCP issue with UTM/QEMU/macOS
+  networking.defaultGateway.address = "10.211.56.1";
   networking.interfaces.enp0s1 = {
     ipv4.addresses = [
       {
         address = "10.211.56.2";
         prefixLength = 16;
-      }
-    ];
-    ipv4.routes = [
-      {
-        address = "10.211.0.0";
-        prefixLength = 16;
-        via = "10.211.56.1";
       }
     ];
     useDHCP = false;
