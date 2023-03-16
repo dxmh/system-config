@@ -26,6 +26,10 @@ in
             useUserPackages = true;
             users.${mainUser} = import ../home;
           };
+          nix.registry = {
+            nixpkgs.flake = inputs.nixpkgs;
+            nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
+          };
           nixpkgs.overlays = overlays;
           system.stateVersion = stateVersion.system;
         }
