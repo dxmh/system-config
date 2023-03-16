@@ -2,12 +2,17 @@
   config,
   mainUser,
   modulesPath,
+  pkgs,
   ...
 }: {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
     ../common
     ../../home/aws.nix
+  ];
+
+  environment.systemPackages = with pkgs; [
+    docker-compose
   ];
 
   networking.hostName = "cbd";
