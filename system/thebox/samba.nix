@@ -65,6 +65,21 @@
       "public" = "no";
       "writable" = "yes";
     };
+    timemachine = {
+      "case sensitive" = "true";
+      "create mode" = "0600";
+      "default case" = "lower";
+      "directory mode" = "0700";
+      "force user" = "dom";
+      "fruit:time machine max size" = "2T";
+      "fruit:time machine" = "yes";
+      "path" = "/tank/timemachine";
+      "preserve case" = "no";
+      "public" = "no";
+      "short preserve case" = "no";
+      "valid users" = "dom";
+      "writable" = "yes";
+    };
   };
 
   users.groups.samba-users = {
