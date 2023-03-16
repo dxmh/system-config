@@ -58,6 +58,8 @@
       stash = "git stash";
     };
     shellAliases = {
+      kc = "kitty +kitten ssh cbd-vm";
+      kb = "kitty +kitten ssh thebox";
       l = "exa --git --icons --level 1 --long --no-filesize --no-permissions --no-time --no-user --tree";
       ll = "l --level 2";
       lll = "l --level 3";
