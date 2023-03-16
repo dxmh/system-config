@@ -31,6 +31,12 @@
     permitRootLogin = "no";
   };
 
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = false;
+    flake = "github:dxmh/system-config";
+  };
+
   time.timeZone = "Europe/London";
 
   users.users.${mainUser} = {
