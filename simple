@@ -1,0 +1,51 @@
+#!/run/current-system/sw/bin/bash
+
+# Simple scripts to carry out tedious installation tasks,
+# inspired by https://github.com/wegank/nixos-config/blob/main/naive
+
+set -e
+
+test "$(id -u)" -eq 0 || (echo "Please run as root" && exit 1)
+
+case $1 in
+
+  format-and-mount)
+    test -n "$2" || (echo "Please provide a device to format" && exit 1)
+    device=$2
+    umount ${device}* || true
+    umount -R /mnt || true
+    parted -s ${device} mklabel gpt
+    parted -s ${device} mkpart ESP fat32 1MiB 256MiB
+    parted -s ${device} set 1 esp on
+    parted -s ${device} mkpart primary ext4 256MiB 100%
+    yes | mkfs.fat -F 32 -n nixboot ${device}1
+    yes | mkfs.ext4 -L nixos ${device}2
+    sleep 1
+    mkdir -p /mnt
+    mount ${device}2 /mnt
+    mkdir -p /mnt/boot
+    mount ${device}1 /mnt/boot
+    lsblk ${device} -o name,label,fstype,mountpoint,uuid
+  ;;
+
+  install)
+    nix-shell -p git --run \
+      "yes | nixos-install --no-root-passwd --root /mnt --flake $2"
+  ;;
+
+  ip-fix)
+    gateway=${2:-10.211.56.1}
+    device=${3:-enp0s1}
+    ip address add ${gateway}00/24 dev $device
+    ip route add default via ${gateway}
+  ;;
+
+  hardware-config)
+    nixos-generate-config --root /mnt --show-hardware-config
+  ;;
+
+  *)
+    echo Unknown command 
+  ;;
+
+esac
