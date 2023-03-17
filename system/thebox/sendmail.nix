@@ -39,8 +39,11 @@
     script = ''
       ${pkgs.msmtp}/bin/msmtp -t <<MAIL
       To: root
-      Subject: $1 is $(systemctl is-failed "$1")
+      Subject: $1 $(systemctl is-failed "$1")
+      Content-Type: text/html; charset=UTF-8
+      <pre><code>
       $(systemctl status --full "$1")
+      </pre></code>
       MAIL
     '';
     scriptArgs = "%i";
