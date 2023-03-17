@@ -20,6 +20,24 @@
 
   networking.hostId = "000a020a";
 
+  # Regular backups of ZFS datasets
+  # https://github.com/jimsalterjrs/sanoid/wiki/Sanoid
+  services.sanoid = {
+    enable = true;
+    interval = "*-*-* *:00,15,30,45:00";
+    datasets.tank = {
+      recursive = true;
+      autosnap = true;
+      autoprune = true;
+      frequently = 3;
+      hourly = 23;
+      daily = 6;
+      weekly = 3;
+      monthly = 11;
+      yearly = 5;
+    };
+  };
+
   services.zfs.autoScrub = {
     interval = "Sat, 02:00";
     enable = true;
