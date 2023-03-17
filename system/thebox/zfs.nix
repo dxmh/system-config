@@ -54,4 +54,6 @@
     ZED_NOTIFY_VERBOSE = false;
     ZED_SCRUB_AFTER_RESILVER = true;
   };
+
+  systemd.services.sanoid.onFailure = ["systemd-status-email@%n.service"];
 }
