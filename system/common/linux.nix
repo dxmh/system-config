@@ -37,8 +37,6 @@
     flake = "github:dxmh/system-config";
   };
 
-  systemd.services."nixos-upgrade".onFailure = ["systemd-status-email@%n.service"];
-
   time.timeZone = "Europe/London";
 
   users.users.${mainUser} = {

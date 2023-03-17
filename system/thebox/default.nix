@@ -55,4 +55,6 @@
       test = true;
     };
   };
+
+  systemd.services."nixos-upgrade".onFailure = ["systemd-status-email@%n.service"];
 }
