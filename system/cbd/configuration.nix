@@ -32,6 +32,7 @@
   users.users.${mainUser} = {
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBq0PlWKuCdj/4rj3cWgRMSArd8sMBpldmiVlmg30yF3"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKTN5m5oFLLw4DjcxOniBto8vOG7I+grLcNjCZl4iOPp"
     ];
     extraGroups = ["docker"];
   };
