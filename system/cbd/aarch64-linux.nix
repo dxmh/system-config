@@ -1,10 +1,7 @@
-{
-  mainUser,
-  modulesPath,
-  ...
-}: {
+{modulesPath, ...}: {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
+    ./configuration.nix
   ];
 
   boot.initrd.availableKernelModules = [
@@ -36,6 +33,8 @@
     };
   };
 
+  networking.hostName = "cbda";
+
   # Work around a DHCP issue with UTM/QEMU/macOS
   networking.defaultGateway.address = "10.211.56.1";
   networking.interfaces.enp0s1 = {
@@ -48,6 +47,4 @@
     useDHCP = false;
   };
   networking.nameservers = ["10.211.56.1"];
-
-  services.getty.autologinUser = mainUser;
 }

@@ -39,7 +39,7 @@
       mainUser = "dom";
     };
 
-    darwinConfigurations.cbd-darwin = mkSystem "cbd/darwin.nix" {
+    darwinConfigurations.cbdd = mkSystem "cbd/x86_64-darwin.nix" {
       inherit self overlays;
       stateVersion.home = "22.05";
       stateVersion.system = 4;
@@ -47,11 +47,19 @@
       mainUser = "dom.hay";
     };
 
-    nixosConfigurations.cbd = mkSystem "cbd" {
+    nixosConfigurations.cbda = mkSystem "cbd/aarch64-linux.nix" {
       inherit self overlays;
       stateVersion.home = "22.11";
       stateVersion.system = "22.11";
       system = "aarch64-linux";
+      mainUser = "dom";
+    };
+
+    nixosConfigurations.cbdx = mkSystem "cbd/x86_64-linux.nix" {
+      inherit self overlays;
+      stateVersion.home = "22.11";
+      stateVersion.system = "22.11";
+      system = "x86_64-linux";
       mainUser = "dom";
     };
 

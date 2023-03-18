@@ -1,7 +1,9 @@
 keys:
   - &dom age18qkf8xr8z8j736dss9y2zpwmszk5gdqdc5snwdd02ud820lyjajsx7e6yg
   - &thebox age1xprrry0ydd5wpufkuvjgh4gv90ec3f9dl6r6tlnryf7tjpqme9ssknw24u
-  - &cbd age1mktee5y3zz8ha7d77f6fj3wq7taap6chsqqv8zre80g2x8xjdu6sjphkqu
+  - &cbda age1mktee5y3zz8ha7d77f6fj3wq7taap6chsqqv8zre80g2x8xjdu6sjphkqu
+  - &cbdd age1esmzf0aqldumcchj3cyq5h5jxymr8h75h7vnhcrrck4jq8qxp4fqr8zq67
+  - &cbdx age1q3f27jef23mlq0jffcfq5p8m665pegf06czvt052ym70y62xrs0qyrppwx
 creation_rules:
   - path_regex: system/thebox/secrets.yaml$
     key_groups:
@@ -12,4 +14,6 @@ creation_rules:
     key_groups:
     - age:
       - *dom
-      - *cbd
+      - *cbda
+      - *cbdd
+      - *cbdx
