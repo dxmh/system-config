@@ -2,7 +2,7 @@
   systemd.services.backup-tank = {
     description = "Backup of tank ZFS pool";
     startAt = "22:00:00";
-    path = with pkgs; [cryptsetup rsync zfs];
+    path = with pkgs; [cryptsetup rsync zfs util-linux];
     onFailure = ["systemd-status-email@%n.service"];
     script = ''
       set -euxo pipefail
