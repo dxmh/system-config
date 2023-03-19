@@ -7,6 +7,7 @@
   imports = [
     ../common
     ../../home/aws.nix
+    ./samba.nix
   ];
 
   boot.kernel.sysctl."net.ipv4.conf.all.forwarding" = true;
