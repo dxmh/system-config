@@ -31,7 +31,7 @@
       })
     ];
   in {
-    darwinConfigurations.setze = mkSystem "setze" {
+    darwinConfigurations.setze = mkSystem "setze/darwin.nix" {
       inherit self overlays;
       stateVersion.home = "22.05";
       stateVersion.system = 4;
@@ -60,6 +60,14 @@
       stateVersion.home = "22.11";
       stateVersion.system = "22.11";
       system = "x86_64-linux";
+      mainUser = "dom";
+    };
+
+    nixosConfigurations.nixos-setze = mkSystem "setze/configuration.nix" {
+      inherit self overlays;
+      stateVersion.home = "22.11";
+      stateVersion.system = "22.11";
+      system = "aarch64-linux";
       mainUser = "dom";
     };
 
