@@ -9,6 +9,8 @@
     ../../home/aws.nix
   ];
 
+  boot.kernel.sysctl."net.ipv4.conf.all.forwarding" = true;
+
   environment.systemPackages = with pkgs; [docker-compose];
 
   environment.etc."nixos/flake.nix".source = "/share/flake.nix";
