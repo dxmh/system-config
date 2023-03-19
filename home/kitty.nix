@@ -126,4 +126,7 @@
       sha256 = "sha256:0p6x51gf4m2r61w894cvzhy6cmvzmadz0jbvvj0clcvq1vh9kc63";
     };
   };
+
+  # When `$SSH_ASKPASS` is unset, kitty's askpass implementation breaks...
+  home.sessionVariables.SSH_ASKPASS = "false";
 }
