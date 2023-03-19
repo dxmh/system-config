@@ -8,7 +8,7 @@
 
   environment.etc."nixos/flake.nix".source = "/share/flake.nix";
 
-  networking.hostName = "nixos-setze";
+  networking.hostName = "setze-vm";
   networking.firewall.enable = false;
 
   security.sudo.wheelNeedsPassword = false;

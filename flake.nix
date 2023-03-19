@@ -63,7 +63,7 @@
       mainUser = "dom";
     };
 
-    nixosConfigurations.nixos-setze = mkSystem "setze/configuration.nix" {
+    nixosConfigurations.setze-vm = mkSystem "setze/configuration.nix" {
       inherit self overlays;
       stateVersion.home = "22.11";
       stateVersion.system = "22.11";
