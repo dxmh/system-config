@@ -71,7 +71,7 @@
       mainUser = "dom";
     };
 
-    nixosConfigurations.thebox = mkSystem "thebox" {
+    nixosConfigurations.thebox = mkSystem "thebox/configuration.nix" {
       inherit self;
       overlays = [];
       stateVersion.home = "22.11";
