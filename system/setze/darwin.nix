@@ -19,13 +19,19 @@
       enable = true;
       matchBlocks = {
         "*" = {
-          extraOptions = {
-            "UseKeychain" = "yes"; # Store passwords in the macOS keychain
-            "AddKeysToAgent" = "no";
-          };
+          extraOptions.UseKeychain = "yes";
           identitiesOnly = true;
         };
+        "setze-vm s" = {
+          extraOptions.AddKeysToAgent = "yes";
+          forwardAgent = true;
+          hostname = "setze-vm";
+          identityFile = "~/.ssh/id_ed25519";
+          user = "dom";
+        };
         "thebox b" = {
+          extraOptions.AddKeysToAgent = "no";
+          forwardAgent = false;
           hostname = "thebox.int.hxy.io";
           identityFile = "~/.ssh/id_ed25519";
           user = "dom";
