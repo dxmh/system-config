@@ -22,7 +22,7 @@
 
   services.getty.autologinUser = mainUser;
 
-  services.syncthing.enable = true;
+  services.syncthing.enable = false;
   services.syncthing.guiAddress = "0.0.0.0:8384";
   services.syncthing.user = mainUser;
   services.syncthing.group = "users";
