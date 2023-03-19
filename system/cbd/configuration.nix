@@ -22,6 +22,12 @@
 
   services.getty.autologinUser = mainUser;
 
+  services.syncthing.enable = true;
+  services.syncthing.guiAddress = "0.0.0.0:8384";
+  services.syncthing.user = mainUser;
+  services.syncthing.group = "users";
+  services.syncthing.dataDir= "/home/${mainUser}/";
+
   services.tailscale.enable = true;
 
   sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
