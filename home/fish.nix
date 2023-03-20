@@ -12,13 +12,6 @@
 
         # Enable z (https://github.com/skywind3000/z.lua):
         ${pkgs.z-lua}/bin/z --init fish | source; set -gx _ZL_CD cd
-
-        # Kitty shell integration (https://sw.kovidgoyal.net/kitty/shell-integration/#manual-shell-integration):
-        if set -q KITTY_INSTALLATION_DIR
-          set --global KITTY_SHELL_INTEGRATION enabled
-          source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"
-          set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
-        end
       ''
     ]);
     functions = {
@@ -32,7 +25,6 @@
       d = "docker";
       dc = "docker-compose";
       eo = "$EDITOR .";
-      kssh = "kitty +kitten ssh";
       m = "make -s";
       nr = "sudo nixos-rebuild switch";
       tfm = "terraform";
@@ -59,10 +51,6 @@
       stash = "git stash";
     };
     shellAliases = {
-      kca = "kitty +kitten ssh cbda";
-      kcx = "kitty +kitten ssh cbdx";
-      kb = "kitty +kitten ssh thebox";
-      ks = "kitty +kitten ssh setze-vm";
       l = "exa --git --icons --level 1 --long --no-filesize --no-permissions --no-time --no-user --tree";
       ll = "l --level 2";
       lll = "l --level 3";

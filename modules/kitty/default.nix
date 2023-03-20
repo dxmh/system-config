@@ -1,0 +1,68 @@
+{
+  lib,
+  config,
+  platform,
+  pkgs,
+  mainUser,
+  ...
+}: {
+  options.hxy.kitty = {
+    enable = lib.mkEnableOption "Enable kitty terminal";
+    graphical = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Set up kitty for use in a graphical environment";
+    };
+  };
+
+  config = lib.mkIf config.hxy.kitty.enable {
+    # Enable shell integration and enhance "truly convenient SSH" functionality
+    # by ensuring kitty libs are available when accessing hosts remotely:
+    environment.variables = lib.mkIf (platform == "linux") {
+      KITTY_INSTALLATION_DIR = "${pkgs.kitty}/lib/kitty";
+    };
+
+    home-manager.users.${mainUser} = {
+      home.sessionVariables = lib.mkIf config.hxy.kitty.graphical {
+        VISUAL = "${pkgs.helix}/bin/hx"; # Otherwise kitty uses system-wide $EDITOR
+        SSH_ASKPASS = "false"; # If unset, kitty's askpass implementation breaks
+      };
+
+      # Scroll the terminal or the pager:
+      home.file = lib.mkIf config.hxy.kitty.graphical {
+        ".config/kitty/smart_scroll.py".source = builtins.fetchurl {
+          url = "https://raw.githubusercontent.com/yurikhan/kitty-smart-scroll/8aaa91/smart_scroll.py";
+          sha256 = "sha256:0p6x51gf4m2r61w894cvzhy6cmvzmadz0jbvvj0clcvq1vh9kc63";
+        };
+      };
+
+      # Configure kitty itself
+      programs.kitty = lib.mkIf config.hxy.kitty.graphical {
+        enable = true;
+        darwinLaunchOptions = lib.mkIf (platform == "darwin") ["--title='kitty'"];
+        keybindings = import ./keybindings.nix;
+        settings = import ./settings.nix;
+        theme = "Catppuccin-Mocha";
+      };
+
+      # https://sw.kovidgoyal.net/kitty/shell-integration/#manual-shell-integration
+      programs.fish.interactiveShellInit = ''
+        set --global KITTY_SHELL_INTEGRATION enabled
+        source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"
+        set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
+      '';
+
+      # kitty related shell aliases
+      programs.fish.shellAliases = lib.mkIf config.hxy.kitty.graphical {
+        k = "kitty +kitten ssh";
+      };
+    };
+
+    # Reload kitty configuration after nixos-rebuild
+    system.activationScripts = lib.mkIf config.hxy.kitty.graphical {
+      postActivation.text = ''
+        killall -SIGUSR1 kitty
+      '';
+    };
+  };
+}

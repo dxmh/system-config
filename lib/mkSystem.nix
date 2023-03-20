@@ -19,6 +19,7 @@ in
     modules =
       [
         ../system/${name}
+        ../modules
         {
           home-manager = {
             extraSpecialArgs = {inherit platform stateVersion;};

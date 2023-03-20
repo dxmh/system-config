@@ -7,6 +7,8 @@
   # launchd agents (otherwise it defaults to /var/empty/)
   users.users.${mainUser}.home = "/Users/${mainUser}";
 
+  hxy.kitty.graphical = true;
+
   environment.systemPath = [
     "/opt/homebrew/bin"
   ];

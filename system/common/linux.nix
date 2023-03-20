@@ -3,13 +3,6 @@
   pkgs,
   ...
 }: {
-  environment.variables = {
-    # This doesn't get set automatically on (headless) Linux environments,
-    # but it is required for Kitty's awesome shell integration to work:
-    # https://sw.kovidgoyal.net/kitty/shell-integration
-    KITTY_INSTALLATION_DIR = "${pkgs.kitty}/lib/kitty";
-  };
-
   boot.loader = {
     timeout = 1;
     efi.canTouchEfiVariables = true;

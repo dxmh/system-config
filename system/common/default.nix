@@ -22,6 +22,8 @@
     allowUnsupportedSystem = true; # for packages that don't specifically state aarch64 compatibility
   };
 
+  hxy.kitty.enable = true;
+
   environment.systemPackages = with pkgs; [
     cachix
     coreutils
