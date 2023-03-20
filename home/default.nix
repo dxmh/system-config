@@ -9,7 +9,7 @@
 
   home.activation = {
     updateBatCache = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      ${pkgs.bat}/bin/bat cache --build
+      ${pkgs.bat}/bin/bat cache --build >/dev/null
     '';
   };
 
