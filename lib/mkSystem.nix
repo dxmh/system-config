@@ -24,7 +24,12 @@ in
             extraSpecialArgs = {inherit platform stateVersion;};
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.${mainUser} = import ../home;
+            users.${mainUser} = {
+              imports = [
+                ../home
+                inputs.nix-index-database.hmModules.nix-index
+              ];
+            };
           };
           nix.registry = {
             nixpkgs.flake = inputs.nixpkgs;

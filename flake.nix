@@ -8,6 +8,8 @@
     helix.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-22.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database.url = "github:Mic92/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
@@ -18,6 +20,7 @@
     darwin,
     helix,
     home-manager,
+    nix-index-database,
     nixpkgs,
     nixpkgs-unstable,
     self,
