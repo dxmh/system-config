@@ -1,6 +1,7 @@
 {
   action_alias = "showhints kitten hints --hints-offset 0 --alphabet tnseriaoplfuwydhcx --hints-background-color black --hints-foreground-color white --hints-text-color blue";
   active_border_color = "#5c6370";
+  active_tab_background = "#010409";
   active_tab_font_style = "normal";
   confirm_os_window_close = "-1";
   draw_minimal_borders = "yes";
