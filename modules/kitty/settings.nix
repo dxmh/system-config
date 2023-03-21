@@ -7,13 +7,12 @@
   draw_minimal_borders = "yes";
   enable_audio_bell = false;
   enabled_layouts = "splits, stack";
-  hide_window_decorations = "titlebar-only";
   inactive_border_color = "#313640";
   inactive_text_alpha = "0.65";
   macos_option_as_alt = true;
   macos_quit_when_last_window_closed = false;
   macos_show_window_title_in = "window";
-  macos_titlebar_color = "background";
+  macos_titlebar_color = "#010409";
   mouse_map = "right press ungrabbed mouse_select_command_output";
   placement_strategy = "top-left";
   remote_kitty = "no";
