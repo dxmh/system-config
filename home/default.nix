@@ -27,25 +27,16 @@
   home.sessionVariables = {
     DIRENV_LOG_FORMAT = ""; # https://github.com/direnv/direnv/issues/68
     EDITOR = "${pkgs.helix}/bin/hx";
-    EXA_ICON_SPACING = "2";
+    EXA_ICON_SPACING = "1";
     FZF_DEFAULT_COMMAND = "${pkgs.ripgrep}/bin/rg --files --hidden --glob !.git/";
     FZF_DEFAULT_OPTS = "--color=light";
     MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
     SHELL = "${pkgs.fish}/bin/fish";
-    BAT_THEME = "Catppuccin"; # also used by delta
+    BAT_THEME = "Visual Studio Dark+"; # also used by delta; see `bat --list-themes`
   };
 
   programs.bat = {
     enable = true;
-    themes = {
-      Catppuccin = builtins.readFile (pkgs.fetchFromGitHub {
-          owner = "catppuccin";
-          repo = "bat";
-          rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
-          sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
-        }
-        + "/Catppuccin-mocha.tmTheme");
-    };
   };
 
   programs.direnv = {

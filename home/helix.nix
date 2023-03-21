@@ -2,7 +2,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "custom";
+      theme = "github_dark";
       editor = {
         cursorline = true;
         auto-save = true;
