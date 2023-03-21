@@ -1,10 +1,8 @@
 {
-  imports = [
-    ../../home/sops.nix
-  ];
-
   homebrew.casks = [
     "caffeine"
     "docker"
   ];
+
+  hxy.sops-tools.enable = true;
 }

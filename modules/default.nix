@@ -3,5 +3,6 @@
     ./aws
     ./base
     ./kitty
+    ./sops
   ];
 }

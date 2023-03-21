@@ -1,8 +1,4 @@
 {mainUser, ...}: {
-  imports = [
-    ../../home/sops.nix
-  ];
-
   homebrew.casks = [
     "discord"
     "element"
@@ -38,4 +34,6 @@
       };
     };
   };
+
+  hxy.sops-tools.enable = true;
 }
