@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./base
     ./kitty
   ];
 }

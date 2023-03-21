@@ -1,6 +1,5 @@
 {mainUser, ...}: {
   imports = [
-    ../common
     ../../home/sops.nix
   ];
 

@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    ../common
     ../../home/aws.nix
     ./samba.nix
   ];
@@ -26,7 +25,7 @@
   services.syncthing.guiAddress = "0.0.0.0:8384";
   services.syncthing.user = mainUser;
   services.syncthing.group = "users";
-  services.syncthing.dataDir= "/home/${mainUser}/";
+  services.syncthing.dataDir = "/home/${mainUser}/";
 
   services.tailscale.enable = true;
 

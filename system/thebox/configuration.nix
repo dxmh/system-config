@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    ../common
     ./backup.nix
     ./hardware-configuration.nix
     ./imap.nix
