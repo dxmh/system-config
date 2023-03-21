@@ -1,6 +1,5 @@
 {
   imports = [
-    ../../home/aws.nix
     ../../home/sops.nix
   ];
 
