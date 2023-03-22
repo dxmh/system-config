@@ -40,7 +40,7 @@
   ];
 
   environment.variables = {
-    EDITOR = "vim";
+    EDITOR = "${pkgs.helix}/bin/hx";
   };
 
   programs.fish.enable = true;
