@@ -9,7 +9,7 @@
 
   config = lib.mkIf config.hxy.fish.enable {
     programs.fish.enable = true;
-    home-manager.users.${mainUser} = {
+    home-manager.users.${mainUser} = {lib, ...}: {
       programs.fish = {
         enable = true;
         interactiveShellInit = lib.strings.concatStrings (lib.strings.intersperse "\n" [
