@@ -107,7 +107,6 @@
   };
 
   imports = [
-    ./fish.nix
     ./helix.nix
   ];
 }

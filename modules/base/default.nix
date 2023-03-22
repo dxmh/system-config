@@ -43,5 +43,5 @@
     EDITOR = "${pkgs.helix}/bin/hx";
   };
 
-  programs.fish.enable = true;
+  hxy.fish.enable = true;
 }
