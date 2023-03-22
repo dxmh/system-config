@@ -41,7 +41,7 @@
         enable = true;
         darwinLaunchOptions = lib.mkIf (platform == "darwin") ["--title='kitty'"];
         keybindings = import ./keybindings.nix;
-        settings = import ./settings.nix;
+        settings = import ./settings.nix {inherit pkgs lib config;};
         theme = "GitHub Dark"; # Run `kitty +kitten themes` for themes list
         # Font configuration (run `kitty list-fonts --psnames` for font names)
         extraConfig = ''
@@ -53,16 +53,18 @@
         '';
       };
 
-      # https://sw.kovidgoyal.net/kitty/shell-integration/#manual-shell-integration
-      programs.fish.interactiveShellInit = ''
-        set --global KITTY_SHELL_INTEGRATION enabled
-        source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"
-        set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
-      '';
+      programs.fish = lib.mkIf config.hxy.fish.enable {
+        # https://sw.kovidgoyal.net/kitty/shell-integration/#manual-shell-integration
+        interactiveShellInit = ''
+          set --global KITTY_SHELL_INTEGRATION enabled
+          source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"
+          set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
+        '';
 
-      # kitty related shell aliases
-      programs.fish.shellAliases = lib.mkIf config.hxy.kitty.graphical {
-        k = "kitty +kitten ssh";
+        # kitty related shell aliases
+        shellAliases = lib.mkIf config.hxy.kitty.graphical {
+          k = "kitty +kitten ssh";
+        };
       };
     };
 

@@ -1,4 +1,9 @@
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   action_alias = "showhints kitten hints --hints-offset 0 --alphabet tnseriaoplfuwydhcx --hints-background-color black --hints-foreground-color white --hints-text-color blue";
   active_border_color = "#5c6370";
   active_tab_background = "#010409";
@@ -18,8 +23,9 @@
   remote_kitty = "no";
   scrollback_lines = 5000;
   scrollback_pager_history_size = 500;
-  shell = "/run/current-system/sw/bin/fish";
-  shell_integration = "disabled"; # Configured manually via fish.config
+  shell = lib.mkIf config.hxy.fish.enable "${pkgs.fish}/bin/fish";
+  # Disable automatic shell integration to configure manualy in fish.config:
+  shell_integration = lib.mkIf config.hxy.fish.enable "disabled";
   startup_session = "session"; # Filename relative to kitty config dir
   tab_bar_align = "left";
   tab_bar_edge = "bottom";

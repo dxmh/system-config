@@ -31,7 +31,6 @@
     FZF_DEFAULT_COMMAND = "${pkgs.ripgrep}/bin/rg --files --hidden --glob !.git/";
     FZF_DEFAULT_OPTS = "--color=light";
     MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
-    SHELL = "${pkgs.fish}/bin/fish";
     BAT_THEME = "Visual Studio Dark+"; # also used by delta; see `bat --list-themes`
   };
 
@@ -56,6 +55,7 @@
   programs.fzf = {
     enable = true;
     enableFishIntegration = true;
+    # enableFishIntegration = config.hxy.fish.enable; # TODO
   };
 
   programs.git = {
@@ -75,11 +75,13 @@
   programs.nix-index = {
     enable = true;
     enableFishIntegration = true;
+    # enableFishIntegration = config.hxy.fish.enable; # TODO
   };
 
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
+    # enableFishIntegration = config.hxy.fish.enable; # TODO
     settings = {
       add_newline = false;
       aws.disabled = true;

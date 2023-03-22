@@ -27,7 +27,7 @@
         })
       ];
 
-      programs.fish = {
+      programs.fish = lib.mkIf config.hxy.fish.enable {
         # Enable AWS CLI autocompletion (https://github.com/aws/aws-cli/issues/1079):
         interactiveShellInit = ''
           complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'

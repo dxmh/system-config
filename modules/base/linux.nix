@@ -1,4 +1,6 @@
 {
+  config,
+  lib,
   mainUser,
   pkgs,
   ...
@@ -36,7 +38,7 @@
     isNormalUser = true;
     initialPassword = "hunter2";
     extraGroups = ["wheel"];
-    shell = pkgs.fish;
+    shell = lib.mkIf config.hxy.fish.enable pkgs.fish;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpIMrPStsNADURgP6ZXp+1PwMrIMOthUwVLWdP11XBd"
     ];
