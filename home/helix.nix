@@ -58,48 +58,6 @@
         "C-c" = "yank_joined_to_clipboard";
       };
     };
-    themes = {
-      custom = {
-        "inherits" = "catppuccin_mocha";
-        "ui.statusline.normal" = {
-          fg = "base";
-          bg = "lavender";
-        };
-        "ui.statusline.insert" = {
-          fg = "base";
-          bg = "green";
-        };
-        "ui.statusline.select" = {
-          fg = "base";
-          bg = "yellow";
-        };
-        "ui.cursor.primary.normal" = {
-          fg = "base";
-          bg = "lavender";
-        };
-        "ui.cursor.primary.insert" = {
-          fg = "base";
-          bg = "green";
-        };
-        "ui.cursor.primary.select" = {
-          fg = "base";
-          bg = "yellow";
-        };
-        # The non-primary cursor colours need to be a dimmed version of the above
-        "ui.cursor.normal" = {
-          fg = "base";
-          bg = "#A6ADC8";
-        };
-        "ui.cursor.insert" = {
-          fg = "base";
-          bg = "#AACCC6";
-        };
-        "ui.cursor.select" = {
-          fg = "base";
-          bg = "#B6A98B";
-        };
-      };
-    };
     languages = [
       {
         # Use ltex-ls an an alternative LSP for Markdown, to provide spelling suggestions
