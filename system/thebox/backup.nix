@@ -61,7 +61,6 @@
       # Clean up
       zpool export $zfs_pool
       cryptsetup close $cryptsetup_name
-      eject $device
       echo Complete
     '';
   };
