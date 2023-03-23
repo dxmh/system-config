@@ -40,6 +40,7 @@
     {index}{layout_name.replace('stack', 'ᐩ').replace('splits', '╱')}{title}
   '';
   url_color = "#0087BD";
+  url_excluded_characters = "↩";
   window_border_width = "0.5pt";
   window_padding_width = "14 15";
 }
