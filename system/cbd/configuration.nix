@@ -12,8 +12,6 @@
 
   environment.systemPackages = with pkgs; [docker-compose];
 
-  environment.etc."nixos/flake.nix".source = "/share/flake.nix";
-
   hxy.aws-tools.enable = true;
 
   networking.firewall.enable = false;
