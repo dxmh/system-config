@@ -16,6 +16,13 @@
   };
 
   config = lib.mkIf config.hxy.kitty.enable {
+    # Commands to use clipboard via kitty (useful for accessing host clipboard
+    # from a remote machine over SSH), like macOS's `pbcopy` and `pbpaste`.
+    environment.systemPackages = [
+      (pkgs.writeShellScriptBin "kccopy" "${pkgs.kitty}/bin/kitty +kitten clipboard")
+      (pkgs.writeShellScriptBin "kcpaste" "${pkgs.kitty}/bin/kitty +kitten clipboard --get-clipboard")
+    ];
+
     # Enable shell integration and enhance "truly convenient SSH" functionality
     # by ensuring kitty libs are available when accessing hosts remotely:
     environment.variables = lib.mkIf (platform == "linux") {
