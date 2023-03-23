@@ -102,6 +102,7 @@
       php.disabled = true;
       python.symbol = " ";
       status.disabled = false;
+      status.symbol = "⨯";
       time.disabled = true;
       username.disabled = true;
       vagrant.disabled = true;
