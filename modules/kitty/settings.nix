@@ -26,6 +26,7 @@
   shell = lib.mkIf config.hxy.fish.enable "${pkgs.fish}/bin/fish";
   # Disable automatic shell integration to configure manualy in fish.config:
   shell_integration = lib.mkIf config.hxy.fish.enable "disabled";
+  show_hyperlink_targets = "yes";
   startup_session = "session"; # Filename relative to kitty config dir
   tab_bar_align = "left";
   tab_bar_edge = "bottom";
