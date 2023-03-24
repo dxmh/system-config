@@ -14,15 +14,13 @@
           character = "╎";
         };
         soft-wrap.enable = false;
-        whitespace = {
-          render = {
-            space = "none";
-            tab = "none";
-            newline = "all";
-          };
-          characters = {
-            newline = "↩";
-          };
+        whitespace.render = {
+          space = "none";
+          tab = "none";
+          newline = "all";
+        };
+        whitespace.characters = {
+          newline = "↩";
         };
       };
       keys.normal = {
