@@ -35,5 +35,6 @@
     };
   };
 
+  hxy.helix.enable = true;
   hxy.sops-tools.enable = true;
 }

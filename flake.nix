@@ -75,8 +75,7 @@
     };
 
     nixosConfigurations.thebox = mkSystem "thebox/configuration.nix" {
-      inherit self;
-      overlays = [];
+      inherit self overlays;
       stateVersion.home = "22.11";
       stateVersion.system = "22.11";
       system = "x86_64-linux";

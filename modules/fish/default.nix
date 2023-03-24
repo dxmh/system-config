@@ -47,7 +47,7 @@
         m = "make -s";
         nr = "sudo nixos-rebuild switch";
         tfm = "terraform";
-        vim = "hx";
+        vim = lib.mkIf config.hxy.helix.enable "hx";
         "g." = "git switch -";
         g = "git";
         gc = "git commit -v";

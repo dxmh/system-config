@@ -31,7 +31,6 @@
 
     home-manager.users.${mainUser} = {
       home.sessionVariables = lib.mkIf config.hxy.kitty.graphical {
-        VISUAL = "${pkgs.helix}/bin/hx"; # Otherwise kitty uses system-wide $EDITOR
         SSH_ASKPASS = "false"; # If unset, kitty's askpass implementation breaks
       };
 

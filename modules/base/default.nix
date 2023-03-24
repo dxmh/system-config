@@ -22,8 +22,6 @@
     allowUnsupportedSystem = true; # for packages that don't specifically state aarch64 compatibility
   };
 
-  hxy.kitty.enable = true;
-
   environment.systemPackages = with pkgs; [
     cachix
     coreutils
@@ -39,9 +37,6 @@
     vim
   ];
 
-  environment.variables = {
-    EDITOR = "${pkgs.helix}/bin/hx";
-  };
-
   hxy.fish.enable = true;
+  hxy.kitty.enable = true;
 }

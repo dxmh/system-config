@@ -26,7 +26,6 @@
 
   home.sessionVariables = {
     DIRENV_LOG_FORMAT = ""; # https://github.com/direnv/direnv/issues/68
-    EDITOR = "${pkgs.helix}/bin/hx";
     EXA_ICON_SPACING = "1";
     FZF_DEFAULT_COMMAND = "${pkgs.ripgrep}/bin/rg --files --hidden --glob !.git/";
     FZF_DEFAULT_OPTS = "--color=light";
@@ -108,8 +107,4 @@
       vagrant.disabled = true;
     };
   };
-
-  imports = [
-    ./helix.nix
-  ];
 }
