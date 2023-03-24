@@ -56,6 +56,7 @@
         gcp = "git commit -v -p";
         gcpa = "git commit -v -p --amend";
         gd = "git diff";
+        gr = "git rebase -i";
         go = "git open";
         gs = "git status --short --untracked-files --branch";
         add = "git add";
@@ -68,6 +69,12 @@
         show = "git show";
         speedtest = "speedtest-cli --simple";
         stash = "git stash";
+        start = "sudo systemctl start";
+        stop = "sudo systemctl stop";
+        restart = "sudo systemctl restart";
+        status = "sudo systemctl status";
+        enable = "sudo systemctl enable";
+        disable = "sudo systemctl disable";
       };
 
       programs.fish.shellAliases = {
