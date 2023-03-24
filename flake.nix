@@ -29,6 +29,7 @@
     mkSystem = import ./lib/mkSystem.nix;
     overlays = [
       (final: prev: {
+        git-open = nixpkgs-unstable.legacyPackages.${prev.system}.git-open;
         helix = helix.packages.${prev.system}.default;
         nil = nixpkgs-unstable.legacyPackages.${prev.system}.nil;
       })
