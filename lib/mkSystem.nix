@@ -16,7 +16,7 @@ in
     specialArgs = {inherit platform;};
     modules =
       [
-        ../system/${name}
+        ../hosts/${name}/configuration.nix
         ../modules
         {
           nix.registry.nixpkgs.flake = inputs.nixpkgs;

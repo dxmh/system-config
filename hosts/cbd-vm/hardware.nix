@@ -1,7 +1,6 @@
 {modulesPath, ...}: {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
-    ./configuration.nix
   ];
 
   boot.initrd.availableKernelModules = [

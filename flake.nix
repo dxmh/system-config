@@ -33,27 +33,27 @@
       })
     ];
   in {
-    darwinConfigurations.setze = mkSystem "setze/darwin.nix" {
+    darwinConfigurations.setze = mkSystem "setze" {
       inherit self overlays;
       system = "aarch64-darwin";
     };
 
-    darwinConfigurations.cbdd = mkSystem "cbd/x86_64-darwin.nix" {
+    darwinConfigurations.cbd = mkSystem "cbd" {
       inherit self overlays;
       system = "x86_64-darwin";
     };
 
-    nixosConfigurations.cbdx = mkSystem "cbd/x86_64-linux.nix" {
+    nixosConfigurations.cbd-vm = mkSystem "cbd-vm" {
       inherit self overlays;
       system = "x86_64-linux";
     };
 
-    nixosConfigurations.setze-vm = mkSystem "setze/configuration.nix" {
+    nixosConfigurations.setze-vm = mkSystem "setze-vm" {
       inherit self overlays;
       system = "aarch64-linux";
     };
 
-    nixosConfigurations.thebox = mkSystem "thebox/configuration.nix" {
+    nixosConfigurations.thebox = mkSystem "thebox" {
       inherit self overlays;
       system = "x86_64-linux";
     };

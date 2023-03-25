@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./backup.nix
-    ./hardware-configuration.nix
+    ./hardware.nix
     ./imap.nix
     ./samba.nix
     ./sendmail.nix
