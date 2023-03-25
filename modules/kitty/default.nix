@@ -27,6 +27,7 @@
     # by ensuring kitty libs are available when accessing hosts remotely:
     environment.variables = lib.mkIf (platform == "linux") {
       KITTY_INSTALLATION_DIR = "${pkgs.kitty}/lib/kitty";
+      EXA_ICON_SPACING = "1";
     };
 
     home-manager.users.${mainUser} = {

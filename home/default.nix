@@ -14,7 +14,6 @@
 
   home.sessionVariables = {
     DIRENV_LOG_FORMAT = ""; # https://github.com/direnv/direnv/issues/68
-    EXA_ICON_SPACING = "1";
     MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
   };
 
@@ -25,11 +24,6 @@
         disable_stdin = true;
       };
     };
-  };
-
-  programs.exa = {
-    enable = true;
-    enableAliases = false;
   };
 
   programs.fzf.enable = true;
