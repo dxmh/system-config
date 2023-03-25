@@ -40,6 +40,7 @@
     coreutils
     diceware
     dig
+    direnv
     exa
     fd
     fzf
@@ -59,6 +60,7 @@
 
   environment.variables = {
     BAT_THEME = "Visual Studio Dark+"; # also used by delta; see `bat --list-themes`
+    DIRENV_LOG_FORMAT = ""; # https://github.com/direnv/direnv/issues/68
     MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
   };
 
