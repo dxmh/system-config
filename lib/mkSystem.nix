@@ -19,15 +19,8 @@ in
         ../system/${name}
         ../modules
         {
-          home-manager = {
-            extraSpecialArgs = {inherit platform;};
-            useGlobalPkgs = true;
-            useUserPackages = true;
-          };
-          nix.registry = {
-            nixpkgs.flake = inputs.nixpkgs;
-            nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
-          };
+          nix.registry.nixpkgs.flake = inputs.nixpkgs;
+          nix.registry.nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
           nixpkgs.overlays = overlays;
         }
       ]

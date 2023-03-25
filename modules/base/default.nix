@@ -99,9 +99,13 @@
     hxy.fish.enable = true;
     hxy.kitty.enable = true;
 
-    # Configure the state version
-    home-manager.users.${config.hxy.base.mainUser} = {
-      home.stateVersion = config.hxy.base.stateVersion.home-manager;
+    home-manager = {
+      extraSpecialArgs = {inherit platform;};
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      users.${config.hxy.base.mainUser} = {
+        home.stateVersion = config.hxy.base.stateVersion.home-manager;
+      };
     };
   };
 }
