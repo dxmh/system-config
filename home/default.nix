@@ -33,8 +33,6 @@
     ];
   };
 
-  programs.nix-index.enable = true;
-
   # http://starship.rs/config/
   programs.starship = {
     enable = true;

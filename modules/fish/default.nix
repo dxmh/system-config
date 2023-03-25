@@ -86,7 +86,6 @@
         pp = "prettyping --nolegend";
       };
 
-      programs.nix-index.enableFishIntegration = true;
       programs.starship.enableFishIntegration = true;
       programs.fzf = {
         enable = true;

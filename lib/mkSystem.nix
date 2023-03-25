@@ -28,7 +28,6 @@ in
             users.${mainUser} = {
               imports = [
                 ../home
-                inputs.nix-index-database.hmModules.nix-index
               ];
             };
           };
