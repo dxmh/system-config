@@ -78,6 +78,7 @@
       docker_context.disabled = true;
       format = "\$all\$hostname\$status\$character";
       git_status.disabled = true;
+      git_branch.symbol = " ";
       hostname = {
         ssh_only = false;
         ssh_symbol = "";
