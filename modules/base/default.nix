@@ -100,7 +100,6 @@
     hxy.kitty.enable = true;
 
     home-manager = {
-      extraSpecialArgs = {inherit platform;};
       useGlobalPkgs = true;
       useUserPackages = true;
       users.${config.hxy.base.mainUser} = {
