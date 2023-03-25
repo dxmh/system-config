@@ -49,11 +49,7 @@
     enableAliases = false;
   };
 
-  programs.fzf = {
-    enable = true;
-    enableFishIntegration = true;
-    # enableFishIntegration = config.hxy.fish.enable; # TODO
-  };
+  programs.fzf.enable = true;
 
   programs.git = {
     enable = true;
@@ -69,16 +65,10 @@
     ];
   };
 
-  programs.nix-index = {
-    enable = true;
-    enableFishIntegration = true;
-    # enableFishIntegration = config.hxy.fish.enable; # TODO
-  };
+  programs.nix-index.enable = true;
 
   programs.starship = {
     enable = true;
-    enableFishIntegration = true;
-    # enableFishIntegration = config.hxy.fish.enable; # TODO
     settings = {
       add_newline = false;
       aws.disabled = true;

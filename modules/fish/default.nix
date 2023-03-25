@@ -85,6 +85,10 @@
         llll = "l --level 999";
         pp = "prettyping --nolegend";
       };
+
+      programs.nix-index.enableFishIntegration = true;
+      programs.starship.enableFishIntegration = true;
+      programs.fzf.enableFishIntegration = true;
     };
   };
 }
