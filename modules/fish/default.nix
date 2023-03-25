@@ -30,6 +30,9 @@
 
         # Enable z (https://github.com/skywind3000/z.lua):
         ${pkgs.z-lua}/bin/z --init fish | source; set -gx _ZL_CD cd
+
+        # Abbreviations that nix isn't yet capable of configuring
+        abbr -ag --set-cursor -- nr "sudo nixos-rebuild switch % &| nom"
       '';
 
       programs.fish.functions = {
@@ -45,7 +48,6 @@
         dc = "docker-compose";
         eo = "$EDITOR .";
         m = "make -s";
-        nr = "sudo nixos-rebuild switch";
         vim = lib.mkIf config.hxy.helix.enable "hx";
         "g." = "git switch -";
         g = "git";
