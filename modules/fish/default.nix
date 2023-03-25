@@ -79,7 +79,7 @@
       };
 
       programs.fish.shellAliases = {
-        l = "exa --git --icons --level 1 --long --no-filesize --no-permissions --no-time --no-user --tree";
+        l = "exa --git --icons --level 1 --long --no-filesize --no-permissions --no-time --no-user --tree --group-directories-first";
         ll = "l --level 2";
         lll = "l --level 3";
         llll = "l --level 999";
