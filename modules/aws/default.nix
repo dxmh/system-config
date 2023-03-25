@@ -12,6 +12,7 @@
       home.packages = with pkgs; [
         awscli2
         ssm-session-manager-plugin
+        terraform
         (writeShellScriptBin "ssm" (builtins.readFile ./ssm.sh))
         (buildGoModule rec {
           pname = "aws-console";
@@ -34,6 +35,7 @@
         '';
         shellAbbrs = {
           ao = "aws-console -p";
+          tfm = "terraform";
         };
       };
     };

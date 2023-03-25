@@ -46,7 +46,6 @@
         eo = "$EDITOR .";
         m = "make -s";
         nr = "sudo nixos-rebuild switch";
-        tfm = "terraform";
         vim = lib.mkIf config.hxy.helix.enable "hx";
         "g." = "git switch -";
         g = "git";

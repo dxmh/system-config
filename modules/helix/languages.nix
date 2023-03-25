@@ -1,4 +1,10 @@
-{pkgs, ...}: [
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+[
   {
     # Use ltex-ls an an alternative LSP for Markdown, to provide spelling suggestions
     # https://github.com/helix-editor/helix/wiki/How-to-install-the-default-language-servers#markdown
@@ -27,6 +33,8 @@
     language-server.command = "${pkgs.nodePackages.bash-language-server}/bin/bash-language-server";
     language-server.args = ["start"];
   }
+]
+++ (lib.lists.optionals config.hxy.aws-tools.enable [
   {
     name = "hcl";
     auto-format = true;
@@ -41,4 +49,4 @@
     language-server.args = ["serve"];
     language-server.language-id = "terraform-vars";
   }
-]
+])

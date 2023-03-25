@@ -17,7 +17,7 @@
         settings.theme = "github_dark";
         settings.editor = import ./editor.nix;
         settings.keys = import ./keys.nix;
-        languages = import ./languages.nix {inherit pkgs;};
+        languages = import ./languages.nix {inherit config lib pkgs;};
       };
     };
   };

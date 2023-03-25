@@ -21,7 +21,6 @@
     qrencode
     ripgrep
     shellcheck
-    terraform
   ];
 
   home.sessionVariables = {
