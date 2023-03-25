@@ -22,10 +22,11 @@ in
         ../modules
         {
           home-manager = {
-            extraSpecialArgs = {inherit platform stateVersion;};
+            extraSpecialArgs = {inherit platform;};
             useGlobalPkgs = true;
             useUserPackages = true;
             users.${mainUser} = {
+              home.stateVersion = stateVersion.home;
               imports = [
                 ../home
               ];

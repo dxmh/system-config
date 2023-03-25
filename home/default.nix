@@ -1,6 +1,4 @@
-{stateVersion, ...}: {
-  home.stateVersion = stateVersion.home;
-
+{}: {
   programs.git = {
     enable = true;
     extraConfig = {
