@@ -35,7 +35,13 @@
     };
   };
 
-  hxy.base.enable = true;
+  hxy.base = {
+    enable = true;
+    stateVersion = {
+      home-manager = "22.05";
+      nix-darwin = 4;
+    };
+  };
   hxy.git.enable = true;
   hxy.helix.enable = true;
   hxy.sops-tools.enable = true;

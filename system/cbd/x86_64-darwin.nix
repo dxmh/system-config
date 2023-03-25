@@ -4,9 +4,15 @@
     "docker"
   ];
 
-  hxy.base.enable = true;
-  hxy.base.flakeUri = "/share/";
-  hxy.base.mainUser = "dom.hay";
+  hxy.base = {
+    enable = true;
+    flakeUri = "/share/";
+    mainUser = "dom.hay";
+    stateVersion = {
+      home-manager = "22.05";
+      nix-darwin = 4;
+    };
+  };
 
   hxy.git.enable = true;
   hxy.helix.enable = true;

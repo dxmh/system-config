@@ -12,7 +12,13 @@
   environment.systemPackages = with pkgs; [docker-compose];
 
   hxy.aws-tools.enable = true;
-  hxy.base.enable = true;
+  hxy.base = {
+    enable = true;
+    stateVersion = {
+      home-manager = "22.11";
+      nixos = "22.11";
+    };
+  };
   hxy.git.enable = true;
   hxy.helix.enable = true;
 

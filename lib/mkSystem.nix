@@ -1,7 +1,6 @@
 name: {
   overlays,
   self,
-  stateVersion,
   system,
 }: let
   inherit (self) inputs;
@@ -14,14 +13,14 @@ name: {
 in
   systemBuilder {
     inherit system;
-    specialArgs = {inherit platform stateVersion;};
+    specialArgs = {inherit platform;};
     modules =
       [
         ../system/${name}
         ../modules
         {
           home-manager = {
-            extraSpecialArgs = {inherit platform stateVersion;};
+            extraSpecialArgs = {inherit platform;};
             useGlobalPkgs = true;
             useUserPackages = true;
           };
@@ -30,7 +29,6 @@ in
             nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
           };
           nixpkgs.overlays = overlays;
-          system.stateVersion = stateVersion.system;
         }
       ]
       ++ (lists.optionals (platform == "darwin") [

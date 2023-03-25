@@ -5,8 +5,14 @@
 
   environment.systemPackages = [];
 
-  hxy.base.enable = true;
-  hxy.base.flakeUri = "/share/";
+  hxy.base = {
+    enable = true;
+    flakeUri = "/share/";
+    stateVersion = {
+      home-manager = "22.11";
+      nixos = "22.11";
+    };
+  };
 
   hxy.git.enable = true;
   hxy.helix.enable = true;

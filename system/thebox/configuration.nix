@@ -9,7 +9,14 @@
     ./zfs.nix
   ];
 
-  hxy.base.enable = true;
+  hxy.base = {
+    enable = true;
+    stateVersion = {
+      home-manager = "22.11";
+      nixos = "22.11";
+    };
+  };
+
   hxy.helix.enable = false;
 
   sops = {

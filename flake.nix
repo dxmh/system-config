@@ -35,43 +35,31 @@
   in {
     darwinConfigurations.setze = mkSystem "setze/darwin.nix" {
       inherit self overlays;
-      stateVersion.home = "22.05";
-      stateVersion.system = 4;
       system = "aarch64-darwin";
     };
 
     darwinConfigurations.cbdd = mkSystem "cbd/x86_64-darwin.nix" {
       inherit self overlays;
-      stateVersion.home = "22.05";
-      stateVersion.system = 4;
       system = "x86_64-darwin";
     };
 
     nixosConfigurations.cbda = mkSystem "cbd/aarch64-linux.nix" {
       inherit self overlays;
-      stateVersion.home = "22.11";
-      stateVersion.system = "22.11";
       system = "aarch64-linux";
     };
 
     nixosConfigurations.cbdx = mkSystem "cbd/x86_64-linux.nix" {
       inherit self overlays;
-      stateVersion.home = "22.11";
-      stateVersion.system = "22.11";
       system = "x86_64-linux";
     };
 
     nixosConfigurations.setze-vm = mkSystem "setze/configuration.nix" {
       inherit self overlays;
-      stateVersion.home = "22.11";
-      stateVersion.system = "22.11";
       system = "aarch64-linux";
     };
 
     nixosConfigurations.thebox = mkSystem "thebox/configuration.nix" {
       inherit self overlays;
-      stateVersion.home = "22.11";
-      stateVersion.system = "22.11";
       system = "x86_64-linux";
     };
 

@@ -5,6 +5,8 @@
   ...
 }: {
   config = lib.mkIf config.hxy.base.enable {
+    system.stateVersion = config.hxy.base.stateVersion.nix-darwin;
+
     # Our home directory needs to be set for certain things to work, such as
     # launchd agents (otherwise it defaults to /var/empty/)
     users.users.${config.hxy.base.mainUser}.home = "/Users/${config.hxy.base.mainUser}";

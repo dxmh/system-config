@@ -3,7 +3,6 @@
   lib,
   config,
   platform,
-  stateVersion,
   ...
 }: {
   imports = [./${platform}.nix];
@@ -19,6 +18,23 @@
       type = lib.types.str;
       default = "github.com:dxmh/system-config";
       description = "Default NixOS flake to use";
+    };
+    stateVersion = {
+      home-manager = lib.mkOption {
+        # See https://nix-community.github.io/home-manager/release-notes.html
+        type = lib.types.str;
+        description = "Home Manager state version for this system";
+      };
+      nixos = lib.mkOption {
+        # See https://github.com/NixOS/nixpkgs/blob/970402e6147c49603f4d06defe44d27fe51884ce/nixos/modules/misc/version.nix#L91C5-L92
+        type = lib.types.str;
+        description = "NixOS system state version for this system";
+      };
+      nix-darwin = lib.mkOption {
+        # See https://github.com/LnL7/nix-darwin/blob/3db1d870b04b13411f56ab1a50cd32b001f56433/modules/system/version.nix#L35-L36
+        type = lib.types.int;
+        description = "nix-darwin system state version for this system";
+      };
     };
   };
 
@@ -85,7 +101,7 @@
 
     # Configure the state version
     home-manager.users.${config.hxy.base.mainUser} = {
-      home.stateVersion = stateVersion.home;
+      home.stateVersion = config.hxy.base.stateVersion.home-manager;
     };
   };
 }

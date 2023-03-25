@@ -32,6 +32,8 @@
       flake = config.hxy.base.flakeUri;
     };
 
+    system.stateVersion = config.hxy.base.stateVersion.nixos;
+
     time.timeZone = "Europe/London";
 
     users.users.${config.hxy.base.mainUser} = {
