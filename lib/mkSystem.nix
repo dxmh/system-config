@@ -25,12 +25,7 @@ in
             extraSpecialArgs = {inherit platform;};
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.${mainUser} = {
-              home.stateVersion = stateVersion.home;
-              imports = [
-                ../home
-              ];
-            };
+            users.${mainUser}.home.stateVersion = stateVersion.home;
           };
           nix.registry = {
             nixpkgs.flake = inputs.nixpkgs;

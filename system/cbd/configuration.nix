@@ -13,6 +13,7 @@
   environment.systemPackages = with pkgs; [docker-compose];
 
   hxy.aws-tools.enable = true;
+  hxy.git.enable = true;
   hxy.helix.enable = true;
 
   networking.firewall.enable = false;
