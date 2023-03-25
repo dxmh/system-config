@@ -20,7 +20,6 @@
     jq
     qrencode
     ripgrep
-    shellcheck
   ];
 
   home.sessionVariables = {
