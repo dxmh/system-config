@@ -16,7 +16,7 @@
     };
     flakeUri = lib.mkOption {
       type = lib.types.str;
-      default = "github.com:dxmh/system-config";
+      default = "github:dxmh/system-config";
       description = "Default NixOS flake to use";
     };
     stateVersion = {
