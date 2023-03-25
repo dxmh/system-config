@@ -44,8 +44,6 @@
     exa
     fd
     fzf
-    git
-    git-open
     gnumake
     htop
     jless

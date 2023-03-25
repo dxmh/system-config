@@ -2,6 +2,7 @@
   config,
   lib,
   mainUser,
+  pkgs,
   ...
 }: {
   options.hxy.git = {
@@ -18,8 +19,12 @@
     };
   };
 
-  config = lib.mkIf config.hxy.git.enable {
-    home-manager.users.${mainUser}.programs.git = {
+  config = {
+    environment.systemPackages = [
+      pkgs.gitMinimal
+      pkgs.git-open
+    ];
+    home-manager.users.${mainUser}.programs.git = lib.mkIf config.hxy.git.enable {
       enable = true;
       extraConfig = {
         push.autoSetupRemote = true;
