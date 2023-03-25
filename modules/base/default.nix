@@ -43,6 +43,7 @@
     git
     gnumake
     htop
+    nix-output-monitor
     prettyping
     speedtest-cli
     tldr
