@@ -32,6 +32,7 @@
         git-open = nixpkgs-unstable.legacyPackages.${prev.system}.git-open;
         helix = helix.packages.${prev.system}.default;
         nil = nixpkgs-unstable.legacyPackages.${prev.system}.nil;
+        fish = nixpkgs-unstable.legacyPackages.${prev.system}.fish;
       })
     ];
   in {
