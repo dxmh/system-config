@@ -6,12 +6,6 @@
 }: {
   home.stateVersion = stateVersion.home;
 
-  home.activation = {
-    updateBatCache = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      ${pkgs.bat}/bin/bat cache --build >/dev/null
-    '';
-  };
-
   home.sessionVariables = {
     DIRENV_LOG_FORMAT = ""; # https://github.com/direnv/direnv/issues/68
     MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
