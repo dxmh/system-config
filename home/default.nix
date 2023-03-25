@@ -8,7 +8,6 @@
 
   home.sessionVariables = {
     DIRENV_LOG_FORMAT = ""; # https://github.com/direnv/direnv/issues/68
-    MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
   };
 
   programs.direnv = {

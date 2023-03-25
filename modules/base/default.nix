@@ -59,6 +59,7 @@
 
   environment.variables = {
     BAT_THEME = "Visual Studio Dark+"; # also used by delta; see `bat --list-themes`
+    MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
   };
 
   hxy.fish.enable = true;
