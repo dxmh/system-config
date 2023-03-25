@@ -18,7 +18,6 @@
     git-open
     jless
     jq
-    qrencode
     ripgrep
   ];
 
