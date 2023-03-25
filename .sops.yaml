@@ -4,12 +4,12 @@ keys:
   - &cbd age1esmzf0aqldumcchj3cyq5h5jxymr8h75h7vnhcrrck4jq8qxp4fqr8zq67
   - &cbd-vm age1q3f27jef23mlq0jffcfq5p8m665pegf06czvt052ym70y62xrs0qyrppwx
 creation_rules:
-  - path_regex: system/thebox/secrets.yaml$
+  - path_regex: hosts/thebox/secrets.yaml$
     key_groups:
     - age:
       - *dom
       - *thebox
-  - path_regex: system/cbd-vm/secrets.yaml$
+  - path_regex: hosts/cbd-vm/secrets.yaml$
     key_groups:
     - age:
       - *dom
