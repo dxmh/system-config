@@ -43,11 +43,6 @@
       system = "x86_64-darwin";
     };
 
-    nixosConfigurations.cbda = mkSystem "cbd/aarch64-linux.nix" {
-      inherit self overlays;
-      system = "aarch64-linux";
-    };
-
     nixosConfigurations.cbdx = mkSystem "cbd/x86_64-linux.nix" {
       inherit self overlays;
       system = "x86_64-linux";
