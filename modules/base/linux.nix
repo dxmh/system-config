@@ -30,7 +30,7 @@
     system.autoUpgrade = {
       enable = true;
       allowReboot = false;
-      flake = "github:dxmh/system-config";
+      flake = config.hxy.base.flakeUri;
     };
 
     time.timeZone = "Europe/London";

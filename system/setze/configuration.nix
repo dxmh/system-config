@@ -5,9 +5,9 @@
 
   environment.systemPackages = [];
 
-  environment.etc."nixos/flake.nix".source = "/share/flake.nix";
-
   hxy.base.enable = true;
+  hxy.base.flakeUri = "/share/";
+
   hxy.git.enable = true;
   hxy.helix.enable = true;
 

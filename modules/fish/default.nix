@@ -32,7 +32,8 @@
         ${pkgs.z-lua}/bin/z --init fish | source; set -gx _ZL_CD cd
 
         # Abbreviations that nix isn't yet capable of configuring
-        abbr -ag --set-cursor -- nr "sudo nixos-rebuild switch % &| nom"
+        abbr -ag --set-cursor -- nr \
+          "sudo nixos-rebuild switch --flake ${config.hxy.base.flakeUri}% &| nom"
       '';
 
       programs.fish.functions = {

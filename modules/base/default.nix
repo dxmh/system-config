@@ -9,6 +9,11 @@
 
   options.hxy.base = {
     enable = lib.mkEnableOption "Enable base system configuration";
+    flakeUri = lib.mkOption {
+      type = lib.types.str;
+      default = "github.com:dxmh/system-config";
+      description = "Default NixOS flake to use";
+    };
   };
 
   config = lib.mkIf config.hxy.base.enable {
