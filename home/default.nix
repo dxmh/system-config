@@ -1,9 +1,4 @@
-{
-  lib,
-  pkgs,
-  stateVersion,
-  ...
-}: {
+{stateVersion, ...}: {
   home.stateVersion = stateVersion.home;
 
   home.sessionVariables = {
