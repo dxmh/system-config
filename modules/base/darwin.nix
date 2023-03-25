@@ -15,13 +15,6 @@
 
   services.nix-daemon.enable = true;
 
-  fonts = {
-    fontDir.enable = true;
-    fonts = with pkgs; [
-      iosevka
-    ];
-  };
-
   # While it’s possible to set `nix.settings.auto-optimise-store`, it sometimes
   # causes problems on Darwin. So run a job periodically to optimise the store:
   launchd.daemons."nix-store-optimise".serviceConfig = {
