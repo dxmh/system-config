@@ -16,11 +16,6 @@
     DIRENV_LOG_FORMAT = ""; # https://github.com/direnv/direnv/issues/68
     EXA_ICON_SPACING = "1";
     MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
-    BAT_THEME = "Visual Studio Dark+"; # also used by delta; see `bat --list-themes`
-  };
-
-  programs.bat = {
-    enable = true;
   };
 
   programs.direnv = {

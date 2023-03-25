@@ -35,6 +35,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    bat
     cachix
     coreutils
     diceware
@@ -55,6 +56,10 @@
     tldr
     vim
   ];
+
+  environment.variables = {
+    BAT_THEME = "Visual Studio Dark+"; # also used by delta; see `bat --list-themes`
+  };
 
   hxy.fish.enable = true;
   hxy.kitty.enable = true;
