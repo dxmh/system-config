@@ -1,14 +1,13 @@
 {
   config,
   lib,
-  mainUser,
   pkgs,
   ...
 }: {
   config = lib.mkIf config.hxy.base.enable {
     # Our home directory needs to be set for certain things to work, such as
     # launchd agents (otherwise it defaults to /var/empty/)
-    users.users.${mainUser}.home = "/Users/${mainUser}";
+    users.users.${config.hxy.base.mainUser}.home = "/Users/${config.hxy.base.mainUser}";
 
     hxy.kitty.graphical = true;
 

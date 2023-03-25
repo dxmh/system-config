@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  mainUser,
   ...
 }: {
   options.hxy.fish.enable = lib.mkEnableOption "Enable fish shell";
@@ -11,7 +10,7 @@
     # Let the system know that fish is an available shell:
     programs.fish.enable = true;
 
-    home-manager.users.${mainUser} = {lib, ...}: {
+    home-manager.users.${config.hxy.base.mainUser} = {lib, ...}: {
       home.sessionVariables = {
         SHELL = "${pkgs.fish}/bin/fish";
       };

@@ -1,4 +1,4 @@
-{mainUser, ...}: {
+{config, ...}: {
   homebrew.casks = [
     "discord"
     "element"
@@ -8,7 +8,7 @@
     "zoom"
   ];
 
-  home-manager.users.${mainUser} = {
+  home-manager.users.${config.hxy.base.mainUser} = {
     # SSH client configuration (~/.ssh/config)
     programs.ssh = {
       enable = true;

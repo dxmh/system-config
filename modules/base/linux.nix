@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  mainUser,
   pkgs,
   ...
 }: {
@@ -35,7 +34,7 @@
 
     time.timeZone = "Europe/London";
 
-    users.users.${mainUser} = {
+    users.users.${config.hxy.base.mainUser} = {
       isNormalUser = true;
       initialPassword = "hunter2";
       extraGroups = ["wheel"];

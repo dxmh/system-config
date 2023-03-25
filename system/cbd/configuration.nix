@@ -1,6 +1,5 @@
 {
   config,
-  mainUser,
   pkgs,
   ...
 }: {
@@ -21,13 +20,13 @@
 
   security.sudo.wheelNeedsPassword = false;
 
-  services.getty.autologinUser = mainUser;
+  services.getty.autologinUser = config.hxy.base.mainUser;
 
   services.syncthing.enable = false;
   services.syncthing.guiAddress = "0.0.0.0:8384";
-  services.syncthing.user = mainUser;
+  services.syncthing.user = config.hxy.base.mainUser;
   services.syncthing.group = "users";
-  services.syncthing.dataDir = "/home/${mainUser}/";
+  services.syncthing.dataDir = "/home/${config.hxy.base.mainUser}/";
 
   services.tailscale.enable = true;
 
@@ -36,12 +35,12 @@
   sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
   sops.defaultSopsFile = ./secrets.yaml;
 
-  sops.secrets.git_config.owner = mainUser;
-  home-manager.users.${mainUser}.programs.git.includes = [
+  sops.secrets.git_config.owner = config.hxy.base.mainUser;
+  home-manager.users.${config.hxy.base.mainUser}.programs.git.includes = [
     {path = config.sops.secrets.git_config.path;}
   ];
 
-  users.users.${mainUser} = {
+  users.users.${config.hxy.base.mainUser} = {
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBq0PlWKuCdj/4rj3cWgRMSArd8sMBpldmiVlmg30yF3"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKTN5m5oFLLw4DjcxOniBto8vOG7I+grLcNjCZl4iOPp"

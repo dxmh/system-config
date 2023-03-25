@@ -1,14 +1,13 @@
 {
   config,
   lib,
-  mainUser,
   pkgs,
   ...
 }: {
   options.hxy.aws-tools.enable = lib.mkEnableOption "Enable tools for working with AWS";
 
   config = lib.mkIf config.hxy.aws-tools.enable {
-    home-manager.users.${mainUser} = {
+    home-manager.users.${config.hxy.base.mainUser} = {
       home.packages = with pkgs; [
         awscli2
         ssm-session-manager-plugin

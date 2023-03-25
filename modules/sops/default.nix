@@ -1,13 +1,12 @@
 {
   config,
   lib,
-  mainUser,
   pkgs,
   ...
 }: {
   options.hxy.sops-tools.enable = lib.mkEnableOption "Enable tools for working with sops";
   config = lib.mkIf config.hxy.sops-tools.enable {
-    home-manager.users.${mainUser} = {
+    home-manager.users.${config.hxy.base.mainUser} = {
       home.packages = [
         pkgs.age
         pkgs.sops

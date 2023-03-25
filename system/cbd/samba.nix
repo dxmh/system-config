@@ -1,6 +1,5 @@
 {
   config,
-  mainUser,
   pkgs,
   ...
 }: {
@@ -36,9 +35,9 @@
     shares.${config.networking.hostName} = {
       "create mode" = "0640";
       "directory mode" = "0740";
-      "force user" = mainUser;
+      "force user" = config.hxy.base.mainUser;
       "path" = "/srv/share";
-      "valid users" = mainUser;
+      "valid users" = config.hxy.base.mainUser;
       "public" = "no";
       "writable" = "yes";
     };
@@ -52,10 +51,10 @@
     sambaUserSetup = {
       text = ''
         mkdir -pv /srv/share
-        chown -c ${mainUser}:users /srv/share
+        chown -c ${config.hxy.base.mainUser}:users /srv/share
         password=$(<${config.sops.secrets.samba_password.path})
         printf '%s\n%s\n' "$password" "$password" \
-          | ${pkgs.samba}/bin/smbpasswd -s -a ${mainUser}
+          | ${pkgs.samba}/bin/smbpasswd -s -a ${config.hxy.base.mainUser}
       '';
       deps = ["setupSecrets"];
     };

@@ -3,12 +3,18 @@
   lib,
   config,
   platform,
+  stateVersion,
   ...
 }: {
   imports = [./${platform}.nix];
 
   options.hxy.base = {
     enable = lib.mkEnableOption "Enable base system configuration";
+    mainUser = lib.mkOption {
+      type = lib.types.str;
+      default = "dom";
+      description = "The primary user of the system";
+    };
     flakeUri = lib.mkOption {
       type = lib.types.str;
       default = "github.com:dxmh/system-config";
@@ -76,5 +82,10 @@
 
     hxy.fish.enable = true;
     hxy.kitty.enable = true;
+
+    # Configure the state version
+    home-manager.users.${config.hxy.base.mainUser} = {
+      home.stateVersion = stateVersion.home;
+    };
   };
 }

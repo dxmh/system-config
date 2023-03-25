@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  mainUser,
   pkgs,
   ...
 }: {
@@ -11,7 +10,7 @@
     environment.variables = {
       EDITOR = "${pkgs.helix}/bin/hx";
     };
-    home-manager.users.${mainUser} = {
+    home-manager.users.${config.hxy.base.mainUser} = {
       programs.helix = {
         enable = true;
         settings.theme = "github_dark";

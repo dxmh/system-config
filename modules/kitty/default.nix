@@ -3,7 +3,6 @@
   config,
   platform,
   pkgs,
-  mainUser,
   ...
 }: {
   options.hxy.kitty = {
@@ -30,7 +29,7 @@
       EXA_ICON_SPACING = "1";
     };
 
-    home-manager.users.${mainUser} = {
+    home-manager.users.${config.hxy.base.mainUser} = {
       home.sessionVariables = lib.mkIf config.hxy.kitty.graphical {
         SSH_ASKPASS = "false"; # If unset, kitty's askpass implementation breaks
       };

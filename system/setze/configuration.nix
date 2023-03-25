@@ -1,4 +1,4 @@
-{mainUser, ...}: {
+{config, ...}: {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -16,7 +16,7 @@
 
   security.sudo.wheelNeedsPassword = false;
 
-  users.users.${mainUser}.extraGroups = ["docker"];
+  users.users.${config.hxy.base.mainUser}.extraGroups = ["docker"];
   virtualisation.docker.enable = true;
   virtualisation.docker.enableOnBoot = false; # Start on-demand by socket activation rather than boot
 }

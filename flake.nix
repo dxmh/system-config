@@ -38,7 +38,6 @@
       stateVersion.home = "22.05";
       stateVersion.system = 4;
       system = "aarch64-darwin";
-      mainUser = "dom";
     };
 
     darwinConfigurations.cbdd = mkSystem "cbd/x86_64-darwin.nix" {
@@ -46,7 +45,6 @@
       stateVersion.home = "22.05";
       stateVersion.system = 4;
       system = "x86_64-darwin";
-      mainUser = "dom.hay";
     };
 
     nixosConfigurations.cbda = mkSystem "cbd/aarch64-linux.nix" {
@@ -54,7 +52,6 @@
       stateVersion.home = "22.11";
       stateVersion.system = "22.11";
       system = "aarch64-linux";
-      mainUser = "dom";
     };
 
     nixosConfigurations.cbdx = mkSystem "cbd/x86_64-linux.nix" {
@@ -62,7 +59,6 @@
       stateVersion.home = "22.11";
       stateVersion.system = "22.11";
       system = "x86_64-linux";
-      mainUser = "dom";
     };
 
     nixosConfigurations.setze-vm = mkSystem "setze/configuration.nix" {
@@ -70,7 +66,6 @@
       stateVersion.home = "22.11";
       stateVersion.system = "22.11";
       system = "aarch64-linux";
-      mainUser = "dom";
     };
 
     nixosConfigurations.thebox = mkSystem "thebox/configuration.nix" {
@@ -78,7 +73,6 @@
       stateVersion.home = "22.11";
       stateVersion.system = "22.11";
       system = "x86_64-linux";
-      mainUser = "dom";
     };
 
     formatter.aarch64-darwin =

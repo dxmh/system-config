@@ -1,5 +1,5 @@
 {
-  mainUser,
+  config,
   modulesPath,
   ...
 }: {
@@ -49,5 +49,5 @@
   };
   networking.nameservers = ["10.211.56.1"];
 
-  services.getty.autologinUser = mainUser;
+  services.getty.autologinUser = config.hxy.base.mainUser;
 }

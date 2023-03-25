@@ -1,5 +1,4 @@
 name: {
-  mainUser,
   overlays,
   self,
   stateVersion,
@@ -15,17 +14,16 @@ name: {
 in
   systemBuilder {
     inherit system;
-    specialArgs = {inherit mainUser platform;};
+    specialArgs = {inherit platform stateVersion;};
     modules =
       [
         ../system/${name}
         ../modules
         {
           home-manager = {
-            extraSpecialArgs = {inherit platform;};
+            extraSpecialArgs = {inherit platform stateVersion;};
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.${mainUser}.home.stateVersion = stateVersion.home;
           };
           nix.registry = {
             nixpkgs.flake = inputs.nixpkgs;
