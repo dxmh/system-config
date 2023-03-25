@@ -37,14 +37,20 @@
   environment.systemPackages = with pkgs; [
     cachix
     coreutils
+    diceware
     dig
     exa
     fd
+    fzf
     git
+    git-open
     gnumake
     htop
+    jless
+    jq
     nix-output-monitor
     prettyping
+    ripgrep
     speedtest-cli
     tldr
     vim
