@@ -9,6 +9,7 @@
     ./zfs.nix
   ];
 
+  hxy.base.enable = true;
   hxy.helix.enable = false;
 
   sops = {
