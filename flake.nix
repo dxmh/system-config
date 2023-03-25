@@ -86,15 +86,4 @@
     formatter.aarch64-darwin =
       nixpkgs.legacyPackages.aarch64-darwin.alejandra;
   };
-
-  nixConfig = {
-    extra-substituters = [
-      "https://dxmh.cachix.org/"
-      "https://helix.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "dxmh.cachix.org-1:mxvbwbVG4qos714NloY6lzrM1lTEO1lHVcJVF1Ngyic="
-      "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-    ];
-  };
 }

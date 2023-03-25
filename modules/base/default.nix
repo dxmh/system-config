@@ -15,6 +15,16 @@
       options = "--delete-older-than 30d";
     };
     package = pkgs.nixVersions.stable;
+    settings = {
+      substituters = [
+        "https://dxmh.cachix.org/"
+        "https://helix.cachix.org"
+      ];
+      trusted-public-keys = [
+        "dxmh.cachix.org-1:mxvbwbVG4qos714NloY6lzrM1lTEO1lHVcJVF1Ngyic="
+        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+      ];
+    };
   };
 
   nixpkgs.config = {
