@@ -34,5 +34,5 @@
     };
   };
 
-  networking.hostName = "cbdx";
+  networking.hostName = "cbd-vm";
 }
