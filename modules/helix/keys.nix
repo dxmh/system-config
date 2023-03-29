@@ -29,6 +29,9 @@
   normal."[".o.s = ":lang markdown";
   normal."]".o.s = [":config-reload" ":lsp-restart"];
 
+  normal."A-z" = "undo";
+  normal."A-Z" = "redo";
+
   select."#" = "toggle_comments";
   select."C-C" = "yank_main_selection_to_clipboard";
   select."C-c" = "yank_joined_to_clipboard";

@@ -51,4 +51,6 @@
   "alt+down" = "kitten smart_scroll.py scroll_page_down ctrl+d";
   "cmd+u" = "showhints --type url";
   "cmd+p" = "showhints --type path --program -";
+  "cmd+z" = "send_text all \\x1bz"; # alt+z, used for undo
+  "cmd+shift+z" = "send_text all \\x1bZ"; # alt+shift+z, used for redo
 }
