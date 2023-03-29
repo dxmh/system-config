@@ -5,8 +5,8 @@
   "cmd+enter" = "combine : goto_layout splits : launch --cwd=current --location=split";
   "cmd+shift+enter" = "launch --location=split";
   "cmd+c" = "copy_and_clear_or_interrupt";
-  "cmd+f" = "toggle_layout stack";
-  "cmd+r" = "layout_action rotate";
+  "cmd+alt+f" = "toggle_layout stack";
+  "cmd+alt+r" = "layout_action rotate";
   "cmd+w" = "close_window";
   "cmd+alt+w" = "close_other_windows_in_tab";
   "cmd+up" = "previous_window";
@@ -50,7 +50,17 @@
   "alt+up" = "kitten smart_scroll.py scroll_page_up ctrl+u";
   "alt+down" = "kitten smart_scroll.py scroll_page_down ctrl+d";
   "cmd+u" = "showhints --type url";
-  "cmd+p" = "showhints --type path --program -";
+  "cmd+alt+p" = "showhints --type path --program -";
+
   "cmd+z" = "send_text all \\x1bz"; # alt+z, used for undo
   "cmd+shift+z" = "send_text all \\x1bZ"; # alt+shift+z, used for redo
+
+  # remap frequent ctrl+keys to cmd
+  # use `kitty +kitten show_key` to find `send_text` value
+  "cmd+d" = "send_text all \\x04";
+  "cmd+f" = "send_text all \\x06";
+  "cmd+l" = "send_text all \\x0c";
+  "cmd+n" = "send_text all \\x0e";
+  "cmd+p" = "send_text all \\x10";
+  "cmd+r" = "send_text all \\x12";
 }
