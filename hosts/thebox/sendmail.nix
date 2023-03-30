@@ -28,6 +28,7 @@
   # So we use a group to permit access to this file.
   users.groups.msmtp.members = [
     "dom"
+    "rss2email"
   ];
 
   # A oneshot systemd service that sends an email about the status of another
