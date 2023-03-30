@@ -2,6 +2,8 @@
   services.rss2email = {
     enable = true;
     config = {
+      from = "dom@hxy.io";
+      force-from = true;
       html-mail = true;
     };
     feeds = {
