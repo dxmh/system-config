@@ -3,6 +3,7 @@
     ./backup.nix
     ./hardware.nix
     ./imap.nix
+    ./rss.nix
     ./samba.nix
     ./sendmail.nix
     ./users.nix
