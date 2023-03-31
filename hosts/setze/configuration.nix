@@ -2,10 +2,7 @@
   homebrew.casks = [
     "discord"
     "element"
-    "google-chrome"
     "signal"
-    "slack"
-    "zoom"
   ];
 
   home-manager.users.${config.hxy.base.mainUser} = {
