@@ -17,4 +17,15 @@
   whitespace.characters = {
     newline = "↩";
   };
+  statusline = {
+    right = [
+      "diagnostics"
+      "selections"
+      "position"
+      "file-encoding"
+      "spacer"
+      "version-control"
+      "spacer"
+    ];
+  };
 }
