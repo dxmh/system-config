@@ -35,16 +35,6 @@
       system = "aarch64-darwin";
     };
 
-    darwinConfigurations.cbd = mkSystem "cbd" {
-      inherit self overlays;
-      system = "x86_64-darwin";
-    };
-
-    nixosConfigurations.cbd-vm = mkSystem "cbd-vm" {
-      inherit self overlays;
-      system = "x86_64-linux";
-    };
-
     nixosConfigurations.setze-vm = mkSystem "setze-vm" {
       inherit self overlays;
       system = "aarch64-linux";
