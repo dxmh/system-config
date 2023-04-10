@@ -9,6 +9,7 @@
       html-mail = true;
     };
     feeds = {
+      lobsters.url = "https://lobste.rs/rss";
       nixos.url = "https://nixos.org/news-rss.xml";
     };
     interval = "*-*-* 05:20:00";
