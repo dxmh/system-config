@@ -2,8 +2,6 @@
   services.rss2email = {
     enable = true;
     config = {
-      digest = true;
-      digest-type = "multipart/mixed";
       from = "dom@hxy.io";
       force-from = true;
       html-mail = true;
