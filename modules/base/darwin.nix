@@ -114,7 +114,6 @@
         "keith/formulae"
       ];
       casks = [
-        "hammerspoon"
         "raycast"
         "mouse-fix"
         "utm"
