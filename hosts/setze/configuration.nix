@@ -3,6 +3,7 @@
     "discord"
     "element"
     "signal"
+    "zoom"
   ];
 
   home-manager.users.${config.hxy.base.mainUser} = {
