@@ -45,6 +45,11 @@
       system = "x86_64-linux";
     };
 
+    darwinConfigurations.cbd = mkSystem "cbd" {
+      inherit self overlays;
+      system = "aarch64-darwin";
+    };
+
     formatter.aarch64-darwin =
       nixpkgs.legacyPackages.aarch64-darwin.alejandra;
   };
