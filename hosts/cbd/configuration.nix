@@ -1,6 +1,7 @@
 {...}: {
   homebrew.casks = [
     "caffeine"
+    "docker"
   ];
 
   hxy.base = {
@@ -11,4 +12,8 @@
       nix-darwin = 4;
     };
   };
+
+  hxy.aws-tools.enable = true;
+  hxy.git.enable = true;
+  hxy.helix.enable = true;
 }
