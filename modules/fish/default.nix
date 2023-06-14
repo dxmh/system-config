@@ -37,6 +37,10 @@
         # Undo/redo
         bind \ez undo
         bind \eZ redo
+
+        # Remap alt-up/down to shift-up/down:
+        bind -k sr history-token-search-backward
+        bind -k sf history-token-search-forward
       '';
 
       programs.fish.functions = {
