@@ -113,7 +113,7 @@
           git_status.disabled = true;
           git_branch.symbol = " ";
           hostname = {
-            ssh_only = false;
+            ssh_only = true;
             ssh_symbol = "";
             format = "[\$ssh_symbol\$hostname](\$style) ";
             style = "dimmed white";
