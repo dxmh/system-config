@@ -14,6 +14,10 @@
   };
 
   hxy.aws-tools.enable = true;
-  hxy.git.enable = true;
   hxy.helix.enable = true;
+  hxy.git = {
+    enable = true;
+    userName = "Dom H";
+    userEmail = "dom.hay@cyber-duck.co.uk";
+  };
 }
