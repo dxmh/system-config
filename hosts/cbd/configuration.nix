@@ -1,8 +1,18 @@
-{...}: {
+{config, ...}: {
   homebrew.casks = [
     "caffeine"
     "docker"
   ];
+
+  home-manager.users.${config.hxy.base.mainUser}.programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "*" = {
+        extraOptions.UseKeychain = "yes";
+        identitiesOnly = true;
+      };
+    };
+  };
 
   hxy.base = {
     enable = true;
