@@ -54,7 +54,7 @@
       show-process-indicators = false; # Show dots for open applications
       show-recents = false;
       static-only = false; # Whether to show only open applications in the Dock
-      tilesize = 40;
+      tilesize = 44;
       # Trigger mission control via hot corners:
       wvous-bl-corner = 2;
       wvous-br-corner = 2;
