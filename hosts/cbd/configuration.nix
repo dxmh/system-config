@@ -1,7 +1,11 @@
 {config, ...}: {
   homebrew.casks = [
+    "bike"
     "caffeine"
+    "clickup"
     "docker"
+    "dozer"
+    "hazeover"
   ];
 
   home-manager.users.${config.hxy.base.mainUser}.programs.ssh = {
