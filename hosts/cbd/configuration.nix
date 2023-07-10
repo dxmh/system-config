@@ -42,7 +42,7 @@
     extraBookmarks = [
       {
         name = "AWS console";
-        url = "https://console.aws.amazon.com";
+        url = "https://eu-west-2.console.aws.amazon.com";
       }
       {
         name = "Harvest timesheets";
