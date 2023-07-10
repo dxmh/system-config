@@ -21,25 +21,4 @@
       }
     ];
   }
-  {
-    name = "CBD";
-    bookmarks = [
-      {
-        name = "AWS console";
-        url = "https://console.aws.amazon.com";
-      }
-      {
-        name = "Harvest timesheets";
-        url = "https://harvestapp.com";
-      }
-      {
-        name = "Notion wiki";
-        url = "https://www.notion.so/";
-      }
-      {
-        name = "Buddy CI/CD";
-        url = "https://app.buddy.works/";
-      }
-    ];
-  }
 ]

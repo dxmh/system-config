@@ -10,6 +10,11 @@
       default = [];
       description = "Extra Firefox addons to be installed";
     };
+    extraBookmarks = lib.mkOption {
+      type = lib.types.listOf lib.types.attrs;
+      default = [];
+      description = "Extra Firefox bookmarks to be installed";
+    };
   };
 
   config = lib.mkIf config.hxy.firefox.enable {
@@ -43,7 +48,9 @@
           force = true;
         };
         settings = import ./settings.nix;
-        bookmarks = import ./bookmarks.nix;
+        bookmarks =
+          config.hxy.firefox.extraBookmarks
+          ++ import ./bookmarks.nix;
       };
     };
   };
