@@ -34,4 +34,5 @@
     userName = "Dom H";
     userEmail = "dom.hay@cyber-duck.co.uk";
   };
+  hxy.firefox.enable = true;
 }
