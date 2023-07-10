@@ -18,6 +18,7 @@ in
       [
         ../hosts/${name}/configuration.nix
         ../modules
+        inputs.nur.nixosModules.nur
         {
           nix.registry.nixpkgs.flake = inputs.nixpkgs;
           nix.registry.nixpkgs-unstable.flake = inputs.nixpkgs-unstable;
