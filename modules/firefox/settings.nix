@@ -3,6 +3,8 @@
   "browser.toolbars.bookmarks.visibility" = "never";
   "browser.search.region" = "GB";
   "browser.warnOnQuitShortcut" = false;
+  "browser.newtabpage.pinned" = "[]";
+  "browser.newtabpage.activity-stream.feeds.topsites" = false;
 
   #############################################################################
   #
