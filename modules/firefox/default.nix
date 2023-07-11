@@ -29,9 +29,9 @@
         ++ [
           config.nur.repos.rycee.firefox-addons.amp2html
           config.nur.repos.rycee.firefox-addons.clearurls
-          config.nur.repos.rycee.firefox-addons.consent-o-matic
           config.nur.repos.rycee.firefox-addons.cookie-autodelete
           config.nur.repos.rycee.firefox-addons.df-youtube
+          config.nur.repos.rycee.firefox-addons.istilldontcareaboutcookies
           config.nur.repos.rycee.firefox-addons.old-reddit-redirect
           config.nur.repos.rycee.firefox-addons.reddit-enhancement-suite
           config.nur.repos.rycee.firefox-addons.tab-reloader
