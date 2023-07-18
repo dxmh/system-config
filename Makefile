@@ -1,4 +1,5 @@
 rebuild: check
+	sudo whoami
 	darwin-rebuild switch --flake .#${FLAKE_TARGET} 2>&1 | nom
 
 update:
