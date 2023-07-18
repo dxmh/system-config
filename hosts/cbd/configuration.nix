@@ -6,6 +6,7 @@
     "docker"
     "dozer"
     "hazeover"
+    "soulver"
   ];
 
   home-manager.users.${config.hxy.base.mainUser}.programs.ssh = {
