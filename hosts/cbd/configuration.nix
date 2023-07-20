@@ -1,4 +1,12 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [
+    cloudfoundry-cli
+  ];
+
   homebrew.casks = [
     "bike"
     "caffeine"
