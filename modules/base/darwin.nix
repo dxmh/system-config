@@ -115,6 +115,7 @@
         "keith/formulae"
       ];
       casks = [
+        "amethyst"
         "bluesnooze"
         "raycast"
         "mouse-fix"
