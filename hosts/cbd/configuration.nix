@@ -49,28 +49,4 @@
     userName = "Dom H";
     userEmail = "dom.hay@cyber-duck.co.uk";
   };
-  hxy.firefox = {
-    enable = true;
-    extraAddons = [
-      config.nur.repos.rycee.firefox-addons.onepassword-password-manager
-    ];
-    extraBookmarks = [
-      {
-        name = "AWS console";
-        url = "https://eu-west-2.console.aws.amazon.com";
-      }
-      {
-        name = "Harvest timesheets";
-        url = "https://harvestapp.com";
-      }
-      {
-        name = "Notion wiki";
-        url = "https://www.notion.so/";
-      }
-      {
-        name = "Buddy CI/CD";
-        url = "https://app.buddy.works/";
-      }
-    ];
-  };
 }
