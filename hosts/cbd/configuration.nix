@@ -8,7 +8,6 @@
   ];
 
   homebrew.casks = [
-    "bike"
     "caffeine"
     "clickup"
     "docker"
