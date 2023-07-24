@@ -7,7 +7,12 @@
     cloudfoundry-cli
   ];
 
+  homebrew.taps = [
+    "1password/tap"
+  ];
+
   homebrew.casks = [
+    "1password-cli"
     "amethyst"
     "caffeine"
     "clickup"
