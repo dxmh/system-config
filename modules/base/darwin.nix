@@ -120,6 +120,11 @@
         "mouse-fix"
         "utm"
       ];
+      masApps = {
+        "StopTheMadness" = 1376402589;
+        "Vimari" = 1480933944;
+        "wipr" = 1320666476;
+      };
     };
 
     # Allow these users to specify additional binary caches
