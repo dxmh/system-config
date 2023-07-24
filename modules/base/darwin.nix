@@ -121,6 +121,7 @@
         "utm"
       ];
       masApps = {
+        "hush-nag-blocker" = 1544743900;
         "StopTheMadness" = 1376402589;
         "Vimari" = 1480933944;
         "wipr" = 1320666476;
