@@ -8,6 +8,7 @@
   ];
 
   homebrew.casks = [
+    "amethyst"
     "caffeine"
     "clickup"
     "docker"
