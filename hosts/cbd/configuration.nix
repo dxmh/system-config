@@ -17,10 +17,13 @@
     "caffeine"
     "clickup"
     "docker"
-    "dozer"
     "hazeover"
     "soulver"
   ];
+
+  homebrew.masApps = {
+    "hidden-bar" = 1452453066;
+  };
 
   home-manager.users.${config.hxy.base.mainUser}.programs.ssh = {
     enable = true;
