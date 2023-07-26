@@ -35,7 +35,6 @@
   "cmd+equal" = "change_font_size all +1.0";
   "cmd+minus" = "change_font_size all -1.0";
   "cmd+plus" = "change_font_size all +1.0";
-  "alt+backspace" = "send_text all \\x17";
   "alt+delete" = "send_text all \\x1B\\x64";
   "alt+left" = "send_text all \\x1B\\x62";
   "alt+right" = "send_text all \\x1B\\x66";
