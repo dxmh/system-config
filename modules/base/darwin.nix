@@ -55,7 +55,7 @@
       show-recents = false;
       static-only = true; # Whether to show only open applications in the Dock
       showhidden = true; # Whether to dim hidden applications in the Dock
-      tilesize = 24;
+      tilesize = 34;
       # Trigger mission control via hot corners:
       wvous-bl-corner = 2;
       wvous-br-corner = 2;
