@@ -24,6 +24,7 @@
           "two-pane"
           "fullscreen"
           "tall"
+          "floating"
         ];
         shrink-main = {
           mod = "mod2";
@@ -56,6 +57,10 @@
         swap-main = {
           mod = "mod1";
           key = "enter";
+        };
+        select-floating-layout = {
+          mod = "mod1";
+          key = "0";
         };
         select-fullscreen-layout = {
           mod = "mod1";
