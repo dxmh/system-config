@@ -48,11 +48,11 @@
         darwinLaunchOptions = lib.mkIf (platform == "darwin") ["--title='kitty'"];
         keybindings = import ./keybindings.nix;
         settings = import ./settings.nix {inherit pkgs lib config;};
-        theme = "GitHub Dark"; # Run `kitty +kitten themes` for themes list
+        theme = "Ayu Light"; # Run `kitty +kitten themes` for themes list
         # Font configuration (run `kitty list-fonts --psnames` for font names)
         extraConfig = ''
           font_family SF Mono
-          font_size 15
+          font_size 13
           macos_thicken_font 0.5
           modify_font cell_height 7px
           modify_font cell_width 97%

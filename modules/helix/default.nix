@@ -13,7 +13,7 @@
     home-manager.users.${config.hxy.base.mainUser} = {
       programs.helix = {
         enable = true;
-        settings.theme = "github_dark";
+        settings.theme = "ayu_light";
         settings.editor = import ./editor.nix;
         settings.keys = import ./keys.nix;
         languages = import ./languages.nix {inherit config lib pkgs;};

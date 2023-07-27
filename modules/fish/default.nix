@@ -17,7 +17,7 @@
 
       home.activation = {
         setFishTheme = lib.hm.dag.entryAfter ["writeBoundary"] ''
-          ${pkgs.fish}/bin/fish -c 'yes | fish_config theme save "fish default"'
+          ${pkgs.fish}/bin/fish -c 'yes | fish_config theme save "ayu Light"'
         '';
       };
 
@@ -107,7 +107,7 @@
           add_newline = false;
           aws.disabled = true;
           character.error_symbol = "[\⟩](red)";
-          character.success_symbol = "[\⟩](dimmed white)";
+          character.success_symbol = "[\⟩](dimmed black)";
           docker_context.disabled = true;
           format = "\$all\$hostname\$status\$character";
           git_status.disabled = true;
@@ -116,7 +116,7 @@
             ssh_only = true;
             ssh_symbol = "";
             format = "[\$ssh_symbol\$hostname](\$style) ";
-            style = "dimmed white";
+            style = "dimmed black";
           };
           line_break.disabled = false;
           nodejs.disabled = true;
