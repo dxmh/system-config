@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./amethyst
     ./aws
     ./base
     ./fish
