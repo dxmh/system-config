@@ -85,9 +85,9 @@
         mouse-resizes-windows = true;
         floating = [
           "com.apple.systempreferences"
-          # Ideally only the "ClickUp Command Bar" window would float,
-          # see https://github.com/ianyh/Amethyst/issues/1334
-          "com.clickup.desktop-app"
+          # Ideally only the "ClickUp Command Bar" window would float (not all
+          # ClickUp windows), see https://github.com/ianyh/Amethyst/issues/1334
+          # "com.clickup.desktop-app"
           "com.raycast.macos"
         ];
       };
