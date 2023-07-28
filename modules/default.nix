@@ -1,12 +1,19 @@
-{...}: {
-  imports = [
-    ./amethyst
-    ./aws
-    ./base
-    ./fish
-    ./git
-    ./helix
-    ./kitty
-    ./sops
-  ];
+{
+  lib,
+  platform,
+  ...
+}: {
+  imports =
+    [
+      ./aws
+      ./base
+      ./fish
+      ./git
+      ./helix
+      ./kitty
+      ./sops
+    ]
+    ++ (lib.lists.optionals (platform == "darwin") [
+      ./amethyst
+    ]);
 }
