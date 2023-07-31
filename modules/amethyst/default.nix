@@ -79,7 +79,7 @@
           key = "escape";
         };
         window-margins = true;
-        window-margin-size = 30;
+        window-margin-size = 20;
         mouse-follows-focus = true;
         mouse-swaps-windows = true;
         mouse-resizes-windows = true;
@@ -91,6 +91,7 @@
           "com.raycast.macos"
         ];
         new-windows-to-main = true;
+        enables-layout-hud-on-space-change = false;
       };
     };
   };

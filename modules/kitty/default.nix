@@ -45,14 +45,13 @@
       # Configure kitty itself
       programs.kitty = lib.mkIf config.hxy.kitty.graphical {
         enable = true;
-        darwinLaunchOptions = lib.mkIf (platform == "darwin") ["--title='kitty'"];
         keybindings = import ./keybindings.nix;
         settings = import ./settings.nix {inherit pkgs lib config;};
         theme = "Ayu Light"; # Run `kitty +kitten themes` for themes list
         # Font configuration (run `kitty list-fonts --psnames` for font names)
         extraConfig = ''
           font_family SF Mono
-          font_size 13
+          font_size 14
           macos_thicken_font 0.5
           modify_font cell_height 7px
           modify_font cell_width 97%

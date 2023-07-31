@@ -18,7 +18,6 @@ in {
   inactive_border_color = tab_bg;
   inactive_tab_background = tab_bg;
   inactive_tab_foreground = "#828c9a";
-  inactive_text_alpha = "0.50";
   macos_option_as_alt = true;
   macos_quit_when_last_window_closed = false;
   macos_show_window_title_in = "window";
@@ -41,7 +40,7 @@ in {
   tab_bar_margin_color = tab_bg;
   tab_bar_margin_height = "6 4";
   tab_bar_margin_width = 14;
-  tab_bar_min_tabs = 1;
+  tab_bar_min_tabs = 2;
   tab_bar_style = "separator";
   tab_separator = "\"  \""; # Two blank spaces
   tab_title_template = ''
