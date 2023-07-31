@@ -19,7 +19,7 @@
     "clickup"
     "docker"
     "hazeover"
-    "soulver"
+    "numi"
   ];
 
   homebrew.masApps = {
