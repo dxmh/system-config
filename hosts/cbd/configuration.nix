@@ -5,6 +5,7 @@
 }: {
   environment.systemPackages = with pkgs; [
     cloudfoundry-cli
+    mysql
   ];
 
   homebrew.taps = [
