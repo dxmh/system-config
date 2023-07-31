@@ -90,6 +90,7 @@
           # "com.clickup.desktop-app"
           "com.raycast.macos"
         ];
+        new-windows-to-main = true;
       };
     };
   };
