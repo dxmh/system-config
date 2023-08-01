@@ -41,6 +41,13 @@
         # Remap alt-up/down to shift-up/down:
         bind -k sr history-token-search-backward
         bind -k sf history-token-search-forward
+
+        # Configure transient prompt
+        # https://starship.rs/advanced-config/#transientprompt-and-transientrightprompt-in-cmd
+        function starship_transient_prompt_func
+          echo "$(starship module time) $(starship module character)"
+        end
+        enable_transience
       '';
 
       programs.fish.functions = {
@@ -105,29 +112,34 @@
         enableFishIntegration = true;
         settings = {
           add_newline = false;
-          aws.disabled = true;
-          character.error_symbol = "[\⟩](red)";
-          character.success_symbol = "[\⟩](dimmed black)";
-          docker_context.disabled = true;
-          format = "\$all\$hostname\$status\$character";
-          git_status.disabled = true;
+          character = {
+            error_symbol = "[\\$](red)";
+            success_symbol = "[\\$](dimmed)";
+          };
+          fill = {
+            symbol = " ";
+            style = "none";
+          };
+          format = ''
+            $username$directory$git_branch$git_state$git_metrics$terraform$vagrant$nix_shell$cmd_duration
+            $hostname$status$character
+          '';
           git_branch.symbol = " ";
           hostname = {
             ssh_only = true;
             ssh_symbol = "";
             format = "[\$ssh_symbol\$hostname](\$style) ";
-            style = "dimmed black";
+            style = "dimmed";
           };
-          line_break.disabled = false;
-          nodejs.disabled = true;
-          package.disabled = true;
-          php.disabled = true;
-          python.symbol = " ";
-          status.disabled = false;
-          status.symbol = "⨯";
-          time.disabled = true;
-          username.disabled = true;
-          vagrant.disabled = true;
+          status = {
+            disabled = false;
+            symbol = "⨯";
+          };
+          time = {
+            format = "[\$time](\$style)";
+            style = "dimmed";
+            disabled = false;
+          };
         };
       };
     };
