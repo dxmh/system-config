@@ -121,8 +121,8 @@
             style = "none";
           };
           format = ''
-            $username$directory$git_branch$git_state$terraform$vagrant$nix_shell$cmd_duration
-            $hostname$status$character
+            $username$directory$git_branch$git_state$terraform$vagrant$nix_shell$cmd_duration$status
+            $hostname$character
           '';
           git_branch.symbol = " ";
           hostname = {
@@ -133,7 +133,12 @@
           };
           status = {
             disabled = false;
-            symbol = "⨯";
+            format = "[$symbol$status]($style)";
+            pipestatus = true;
+            pipestatus_format = "[$pipestatus]($style)";
+            pipestatus_separator = "[|]($style)";
+            style = "bold red";
+            symbol = "☠ ";
           };
           time = {
             format = "[\$time](\$style)";
