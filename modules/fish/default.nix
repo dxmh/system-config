@@ -116,10 +116,6 @@
             error_symbol = "[\\$](red)";
             success_symbol = "[\\$](dimmed)";
           };
-          fill = {
-            symbol = " ";
-            style = "none";
-          };
           format = ''
             $username$directory$git_branch$git_state$terraform$vagrant$nix_shell$cmd_duration$status
             $hostname$character
