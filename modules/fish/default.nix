@@ -121,7 +121,7 @@
             style = "none";
           };
           format = ''
-            $username$directory$git_branch$git_state$git_metrics$terraform$vagrant$nix_shell$cmd_duration
+            $username$directory$git_branch$git_state$terraform$vagrant$nix_shell$cmd_duration
             $hostname$status$character
           '';
           git_branch.symbol = " ";
