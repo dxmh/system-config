@@ -78,6 +78,14 @@
           mod = "mod1";
           key = "escape";
         };
+        increase-main = {
+          mod = "mod1";
+          key = "=";
+        };
+        decrease-main = {
+          mod = "mod1";
+          key = "-";
+        };
         window-margins = true;
         window-margin-size = 20;
         mouse-follows-focus = true;
