@@ -21,9 +21,9 @@
           "command"
         ];
         layouts = [
+          "tall"
           "two-pane"
           "fullscreen"
-          "tall"
           "floating"
         ];
         shrink-main = {
