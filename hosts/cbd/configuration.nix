@@ -20,6 +20,7 @@
     "docker"
     "hazeover"
     "numi"
+    "spaceid"
   ];
 
   homebrew.masApps = {
