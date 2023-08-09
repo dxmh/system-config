@@ -36,15 +36,15 @@ in {
   startup_session = "session"; # Filename relative to kitty config dir
   tab_bar_align = "left";
   tab_bar_background = tab_bg;
-  tab_bar_edge = "bottom";
+  tab_bar_edge = "top";
   tab_bar_margin_color = tab_bg;
   tab_bar_margin_height = "6 4";
   tab_bar_margin_width = 14;
   tab_bar_min_tabs = 2;
   tab_bar_style = "separator";
-  tab_separator = "\"  \""; # Two blank spaces
+  tab_separator = "' │ '";
   tab_title_template = ''
-    {index}{layout_name.replace('stack', 'ᐩ').replace('splits', '╱')}{title}
+    {title}{layout_name.replace("stack", " ⤢").replace("splits", "")}
   '';
   url_color = "#0087BD";
   url_excluded_characters = "↩";
