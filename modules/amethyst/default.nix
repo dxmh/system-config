@@ -76,7 +76,7 @@
         };
         relaunch-amethyst = {
           mod = "mod1";
-          key = "escape";
+          key = "'";
         };
         increase-main = {
           mod = "mod1";
