@@ -11,7 +11,7 @@
     # launchd agents (otherwise it defaults to /var/empty/)
     users.users.${config.hxy.base.mainUser}.home = "/Users/${config.hxy.base.mainUser}";
 
-    hxy.amethyst.enable = true;
+    hxy.yabai.enable = true;
     hxy.kitty.graphical = true;
 
     environment.systemPath = [
