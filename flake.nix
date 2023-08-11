@@ -4,6 +4,7 @@
   inputs = {
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+    helix.url = "github:helix-editor/helix";
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
@@ -15,6 +16,7 @@
 
   outputs = {
     darwin,
+    helix,
     home-manager,
     nixpkgs,
     nixpkgs-unstable,
@@ -26,7 +28,7 @@
     overlays = [
       (final: prev: {
         git-open = nixpkgs-unstable.legacyPackages.${prev.system}.git-open;
-        helix = nixpkgs-unstable.legacyPackages.${prev.system}.helix;
+        helix = helix.packages.${prev.system}.default;
         nil = nixpkgs-unstable.legacyPackages.${prev.system}.nil;
         fish = nixpkgs-unstable.legacyPackages.${prev.system}.fish;
       })
