@@ -11,6 +11,7 @@ in {
   active_tab_background = tab_bg;
   active_tab_foreground = "#5c6166";
   active_tab_font_style = "normal";
+  allow_remote_control = "yes";
   confirm_os_window_close = "-1";
   draw_minimal_borders = "yes";
   enable_audio_bell = false;

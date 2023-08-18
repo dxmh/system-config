@@ -45,6 +45,10 @@
       # Configure kitty itself
       programs.kitty = lib.mkIf config.hxy.kitty.graphical {
         enable = true;
+        darwinLaunchOptions = [
+          "--single-instance"
+          "--listen-on=unix:/tmp/kitty.sock"
+        ];
         keybindings = import ./keybindings.nix;
         settings = import ./settings.nix {inherit pkgs lib config;};
         theme = "Ayu Light"; # Run `kitty +kitten themes` for themes list
