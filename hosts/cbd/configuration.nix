@@ -20,12 +20,7 @@
     "docker"
     "hazeover"
     "numi"
-    "spaceid"
   ];
-
-  homebrew.masApps = {
-    "hidden-bar" = 1452453066;
-  };
 
   home-manager.users.${config.hxy.base.mainUser}.programs.ssh = {
     enable = true;
