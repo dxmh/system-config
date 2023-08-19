@@ -6,7 +6,20 @@ color=0xcc000000
 font=medium
 
 # Get the next event in the format "12:34 My Event"
-next_event=$(icalBuddy -ea -b "" -npn -nc -iep "datetime,title" -ps "| |" -po "datetime,title" -tf "%H:%M" -eed -li 1 -n eventsToday)
+next_event=$(
+  icalBuddy \
+    --bullet "" \
+    --excludeAllDayEvents \
+    --excludeEndDates \
+    --includeOnlyEventsFromNowOn \
+    --limitItems 1 \
+    --noCalendarNames \
+    --noPropNames \
+    --propertyOrder "datetime,title" \
+    --propertySeparators "| |" \
+    --timeFormat "%H:%M" \
+    eventsToday
+)
 
 if [ ! "$next_event" ]; then
   result="No upcoming events"
