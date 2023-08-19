@@ -15,6 +15,6 @@
     ]
     ++ (lib.lists.optionals (platform == "darwin") [
       ./amethyst
-      ./yabai
+      ./window-management
     ]);
 }

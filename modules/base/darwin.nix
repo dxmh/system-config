@@ -11,7 +11,7 @@
     # launchd agents (otherwise it defaults to /var/empty/)
     users.users.${config.hxy.base.mainUser}.home = "/Users/${config.hxy.base.mainUser}";
 
-    hxy.yabai.enable = true;
+    hxy.window-management.enable = true;
     hxy.kitty.graphical = true;
 
     environment.systemPath = [
@@ -44,12 +44,12 @@
     security.pam.enableSudoTouchIdAuth = true;
 
     system.defaults.dock = {
-      appswitcher-all-displays = true;
+      appswitcher-all-displays = false;
       autohide = false;
       autohide-delay = 0.0;
       autohide-time-modifier = 0.2; # Animation duration
       mineffect = "scale";
-      minimize-to-application = true;
+      minimize-to-application = false;
       mru-spaces = false; # Don't automatically rearrange spaces
       orientation = "bottom";
       show-process-indicators = false; # Show dots for open applications
@@ -57,6 +57,7 @@
       static-only = true; # Whether to show only open applications in the Dock
       showhidden = true; # Whether to dim hidden applications in the Dock
       tilesize = 34;
+      largesize = 48;
       # Trigger mission control via hot corners:
       wvous-bl-corner = 2;
       wvous-br-corner = 2;
@@ -73,6 +74,7 @@
     };
 
     system.defaults.NSGlobalDomain = {
+      _HIHideMenuBar = false; # Don't hide menubar
       AppleICUForce24HourTime = false; # Use 12-hour clock
       NSNavPanelExpandedStateForSaveMode = true; # Use expanded save panel by default
       KeyRepeat = 2; # Fastest repeat
@@ -118,6 +120,7 @@
       casks = [
         "bluesnooze"
         "raycast"
+        "sf-symbols"
         "mouse-fix"
         "utm"
       ];
