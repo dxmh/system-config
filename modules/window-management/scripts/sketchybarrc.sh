@@ -7,7 +7,6 @@ sketchybar --default icon.font="SF Compact Display:Medium:14.0" icon.color=0xcc0
 
 # Mission Control Space indicators
 declare -A spaceicons=( [1]=􀟛 [2]=􀌨 [3]=􀐫 [4]=􀩼 [5]=􀩼 [6]=􀩼 [7]=􀩼 [8]=􀩼 [9]=􀩼 )
-declare -A keycodes=( [1]=18 [2]=19 [3]=20 [4]=21 [5]=23 [6]=22 [7]=26 [8]=28 [9]=25 )
 for i in 1 2 3 4 5 6 7 8 9; do sketchybar \
   --add space space.$i left \
   --set space.$i associated_space=$i \
@@ -24,10 +23,7 @@ for i in 1 2 3 4 5 6 7 8 9; do sketchybar \
     label.padding_right=10 \
     label="$i" \
     script=space.sh \
-    # We can't switch spaces with yabai, so instead we put something
-    # together based on the solution at https://superuser.com/a/1200775
-    click_script="osascript -e 'tell application \"System Events\" to \
-      key code ${keycodes[$i]} using control down'"
+    click_script="SID=$i space-click.sh"
 done
 
 # Add some custom events to trigger updates

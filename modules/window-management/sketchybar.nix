@@ -7,6 +7,7 @@
     (writeShellScriptBin "mail.sh" ./scripts/mail.sh)
     (writeShellScriptBin "slack.sh" ./scripts/slack.sh)
     (writeShellScriptBin "space.sh" ./scripts/space.sh)
+    (writeShellScriptBin "space-click.sh" ./scripts/space-click.sh)
     (writeShellScriptBin "yabai-app-name.sh" ./scripts/yabai-app-name.sh)
     (writeShellScriptBin "yabai-layout-click.sh" ./scripts/yabai-layout-click.sh)
     (writeShellScriptBin "yabai-layout.sh" ./scripts/yabai-layout.sh)
