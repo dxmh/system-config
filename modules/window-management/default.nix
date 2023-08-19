@@ -23,10 +23,14 @@
     homebrew.brews = ["ical-buddy"];
 
     # Hide macOS menubar and Dock
-    system.defaults = {
-      NSGlobalDomain._HIHideMenuBar = lib.mkForce true;
-      dock.autohide = lib.mkForce true;
-    };
+    system.defaults.NSGlobalDomain._HIHideMenuBar = lib.mkForce true;
+    system.defaults.dock.autohide = lib.mkForce true;
+
+    # Disable macOS Mission Control hot corners
+    system.defaults.dock.wvous-bl-corner = lib.mkForce 1;
+    system.defaults.dock.wvous-br-corner = lib.mkForce 1;
+    system.defaults.dock.wvous-tl-corner = lib.mkForce 1;
+    system.defaults.dock.wvous-tr-corner = lib.mkForce 1;
 
     # Hide kitty's titlebar
     home-manager.users.${config.hxy.base.mainUser}.programs = lib.mkIf config.hxy.kitty.graphical {
