@@ -6,7 +6,7 @@ color=0xcc000000
 font=medium
 
 # Get the next event in the format "12:34 My Event"
-next_event=$(
+nextEvent=$(
   icalBuddy \
     --bullet "" \
     --excludeAllDayEvents \
@@ -21,53 +21,54 @@ next_event=$(
     eventsToday
 )
 
-if [ ! "$next_event" ]; then
+inHours() {
+  # Output the time in hours, using half-up rounding
+  echo "$(( ( $1 + 60 / 2 ) / 60 ))"
+}
+
+if [ ! "$nextEvent" ]; then
   result="No upcoming events"
 else
 
-  event_date=$(cut -f1 -d' ' <<< "$next_event")
-  event_title="${next_event/$event_date /}"
+  startTime=$(cut -f1 -d' ' <<< "$nextEvent")
+  eventTitle="${nextEvent/$startTime /}"
 
-  event_date_epoch=$(date +%s -d "$event_date")
-  now_epoch=$(date +%s)
-  mins_until=$(( ( event_date_epoch - now_epoch ) / 60 ))
+  epochStartTime=$(date +%s -d "$startTime")
+  epochNow=$(date +%s)
+  relativeStartTimeInMinutes=$(( ( epochStartTime - epochNow ) / 60 ))
 
-  # Output the time in hours, using half-up rounding
-  if [ $mins_until -ge 60 ]; then
-    time_until="in $(( ( mins_until + 60 / 2 ) / 60 ))h"
+  # Output the time in hours
+  if [ $relativeStartTimeInMinutes -ge 60 ]; then
+    result="$eventTitle in $(inHours $relativeStartTimeInMinutes)h"
 
   # Output the time in the past tense
-  elif [ $mins_until -lt 0 ]; then 
+  elif [ $relativeStartTimeInMinutes -lt 0 ]; then 
 
     # Remove the minus sign
-    mins_until=${mins_until/-/}
+    relativeStartTimeInMinutes=${relativeStartTimeInMinutes/-/}
 
-    if [ $mins_until -gt 60 ]; then
-      # In hours
-      time_until="started $(( ( mins_until + 60 / 2 ) / 60 ))h ago"
+    if [ $relativeStartTimeInMinutes -gt 60 ]; then
+      result="$eventTitle started $(inHours $relativeStartTimeInMinutes)h ago"
     else
-      # In minutes
-      time_until="started $mins_until minutes ago"
+      result="$eventTitle started $relativeStartTimeInMinutes minutes ago"
     fi
 
   # Catch this edge case...
-  elif [ $mins_until -eq 0 ]; then 
-    time_until="starts now"
+  elif [ $relativeStartTimeInMinutes -eq 0 ]; then 
+    result="$eventTitle starts now"
 
   # Output the results in minutes
   else
-    time_until="in $mins_until minutes"
+    result="$eventTitle in $relativeStartTimeInMinutes minutes"
 
   fi
 
   # Emphasise nearing events
-  if [ $mins_until -le 10 ] && [ $mins_until -gt -2 ]; then
+  if [ $relativeStartTimeInMinutes -le 10 ] && [ $relativeStartTimeInMinutes -gt -2 ]; then
     background=on
     color=0xe6ffffff
     font=semibold
   fi
-
-  result="${event_title} ${time_until}"
 
 fi
 
@@ -77,4 +78,3 @@ sketchybar --set calendar \
   label.color=$color \
   label.font.style=$font \
   icon.color=$color
-
