@@ -25,7 +25,17 @@ else
 
   # Output the time in the past tense
   elif [ $mins_until -lt 0 ]; then 
-    time_until="started ${mins_until/-/} minutes ago"
+
+    # Remove the minus sign
+    mins_until=${mins_until/-/}
+
+    if [ $mins_until -gt 60 ]; then
+      # In hours
+      time_until="started $(( ( mins_until + 60 / 2 ) / 60 ))h ago"
+    else
+      # In minutes
+      time_until="started $mins_until minutes ago"
+    fi
 
   # Catch this edge case...
   elif [ $mins_until -eq 0 ]; then 
