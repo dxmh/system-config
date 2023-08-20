@@ -6,7 +6,6 @@ sketchybar --default label.font="SF Compact Display:Medium:14.0" label.color=0xc
 sketchybar --default icon.font="SF Compact Display:Medium:14.0" icon.color=0xcc000000
 
 # Mission Control Space indicators
-declare -A spaceicons=( [1]=􀟛 [2]=􀌨 [3]=􀐫 [4]=􀩼 [5]=􀩼 [6]=􀩼 [7]=􀩼 [8]=􀩼 [9]=􀩼 )
 for i in 1 2 3 4 5 6 7 8 9; do sketchybar \
   --add space space.$i left \
   --set space.$i associated_space=$i \
@@ -17,7 +16,7 @@ for i in 1 2 3 4 5 6 7 8 9; do sketchybar \
     icon.drawing=on \
     icon.padding_left=8 \
     icon.padding_right=8 \
-    icon="${spaceicons[$i]}" \
+    icon="${spaceicons[$i]:=􀏃}" \
     label.drawing=on \
     label.padding_left=0 \
     label.padding_right=10 \

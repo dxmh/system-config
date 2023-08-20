@@ -6,6 +6,11 @@
 }: {
   options.hxy.window-management = {
     enable = lib.mkEnableOption "Enable custom window management";
+    space-icons = lib.mkOption {
+      type = lib.types.str;
+      default = "";
+      description = "Bash array of icons to use for spaces";
+    };
   };
 
   config = lib.mkIf config.hxy.window-management.enable {
@@ -19,7 +24,7 @@
     };
 
     # Status bar
-    services.sketchybar = import ./sketchybar.nix {inherit pkgs;};
+    services.sketchybar = import ./sketchybar.nix {inherit config pkgs;};
     homebrew.brews = ["ical-buddy"];
 
     # Hide macOS menubar and Dock

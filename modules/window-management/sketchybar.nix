@@ -1,6 +1,14 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   enable = true;
-  config = builtins.readFile ./scripts/sketchybarrc.sh;
+  config =
+    ''
+      spaceicons=(${config.hxy.window-management.space-icons})
+    ''
+    + builtins.readFile ./scripts/sketchybarrc.sh;
   extraPackages = with pkgs; [
     jq
     (writeShellScriptBin "calendar.sh" ./scripts/calendar.sh)

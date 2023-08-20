@@ -48,4 +48,7 @@
     userName = "Dom H";
     userEmail = "dom.hay@cyber-duck.co.uk";
   };
+  hxy.window-management = {
+    space-icons = "[1]=􀟛 [2]=􀌨 [3]=􀐫 [4]=􀩼 [5]=􀩼 [6]=􀩼 [7]=􀩼 [8]=􀩼 [9]=􀩼 ";
+  };
 }
