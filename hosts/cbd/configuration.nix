@@ -50,5 +50,6 @@
   };
   hxy.window-management = {
     space-icons = "[1]=􀟛 [2]=􀌨 [3]=􀐫 [4]=􀩼 [5]=􀩼 [6]=􀩼 [7]=􀩼 [8]=􀩼 [9]=􀩼 ";
+    calendars = "D3EDB5CA-0EA4-45EA-A902-7DCB7072C301";
   };
 }
