@@ -11,6 +11,11 @@
       default = "";
       description = "Bash array of icons to use for spaces";
     };
+    calendars = lib.mkOption {
+      type = lib.types.str;
+      default = "";
+      description = "List of calendar UIDs to use in status bar (see `icalBuddy calendars`)";
+    };
   };
 
   config = lib.mkIf config.hxy.window-management.enable {

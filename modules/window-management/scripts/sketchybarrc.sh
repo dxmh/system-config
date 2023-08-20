@@ -84,7 +84,7 @@ sketchybar \
     icon.padding_left=10 \
     icon=􀉉 \
     label.padding_right=10 \
-    script=calendar.sh \
+    script="calendarUIDs=${calendarUIDs} calendar.sh" \
     update_freq=60
 
 # Slack indicator

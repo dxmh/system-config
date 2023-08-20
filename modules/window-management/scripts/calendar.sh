@@ -11,6 +11,7 @@ nextEvent=$(
     --bullet "" \
     --excludeAllDayEvents \
     --excludeEndDates \
+    --includeCals "${calendarUIDs}" \
     --includeOnlyEventsFromNowOn \
     --limitItems 1 \
     --noCalendarNames \

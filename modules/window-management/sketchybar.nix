@@ -7,6 +7,7 @@
   config =
     ''
       spaceicons=(${config.hxy.window-management.space-icons})
+      calendarUIDs="${config.hxy.window-management.calendars}"
     ''
     + builtins.readFile ./scripts/sketchybarrc.sh;
   extraPackages = with pkgs; [
