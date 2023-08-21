@@ -12,6 +12,7 @@ nextEvent=$(
     --excludeAllDayEvents \
     --excludeEndDates \
     --includeCals "${calendarUIDs}" \
+    --includeEventProps "datetime,title" \
     --includeOnlyEventsFromNowOn \
     --limitItems 1 \
     --noCalendarNames \
