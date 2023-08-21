@@ -85,7 +85,9 @@ sketchybar \
     icon=􀉉 \
     label.padding_right=10 \
     script="calendarUIDs=${calendarUIDs} calendar.sh" \
-    update_freq=60
+    update_freq=60 \
+  --subscribe calendar \
+    system_woke
 
 # Slack indicator
 sketchybar \
