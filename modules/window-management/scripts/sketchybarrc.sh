@@ -80,7 +80,7 @@ sketchybar \
     background.drawing=off \
     background.height=30 \
     background.padding_left=10 \
-    click_script="open -a Calendar" \
+    click_script="calendarUIDs=${calendarUIDs} calendar-click.sh" \
     icon.padding_left=10 \
     icon=􀉉 \
     label.padding_right=10 \

@@ -12,7 +12,10 @@
     + builtins.readFile ./scripts/sketchybarrc.sh;
   extraPackages = with pkgs; [
     jq
+    gnugrep
+    gnused
     (writeShellScriptBin "calendar.sh" ./scripts/calendar.sh)
+    (writeShellScriptBin "calendar-click.sh" ./scripts/calendar-click.sh)
     (writeShellScriptBin "mail.sh" ./scripts/mail.sh)
     (writeShellScriptBin "slack.sh" ./scripts/slack.sh)
     (writeShellScriptBin "space.sh" ./scripts/space.sh)
