@@ -1,4 +1,5 @@
 {pkgs, ...}: let
+  space-rename = pkgs.writeShellScript "space-rename.sh" ./scripts/space-rename.sh;
   mod = "ctrl + alt + cmd";
   yabai = "${pkgs.yabai}/bin/yabai";
   kitty = "${pkgs.kitty}/bin/kitty";
@@ -29,4 +30,6 @@ in ''
 
   ${mod} - t : ${kitty} @ --to unix:/tmp/kitty.sock launch --type=os-window --cwd=current || open -a Kitty
   ${mod} - w : osascript -e 'tell application "Safari" to make new document activate'
+
+  ${mod} - 0x2B : ${space-rename}
 ''
