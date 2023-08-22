@@ -2,7 +2,7 @@
 
 # Set some defaults
 background=off
-color=0xcc000000
+color=0xffffffff
 font=medium
 
 # Get the next event in the format "12:34 My Event"
