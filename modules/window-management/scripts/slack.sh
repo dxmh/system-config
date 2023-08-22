@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# Slack's window title contains indicators that suggest unread messages:
-yabai -m query --windows | jq -r '.[] | select(.app == "Slack") | .title' \
-  | grep -e \* -e ! -e new && icon=on
-  
+# Show Slack icon in the bar if Slack has a badge in the Dock:
+lsappinfo info -only StatusLabel -app Slack \
+  | sed s/\"//g | grep -Po "label=\S" && icon=on
+
 sketchybar --set slack icon.drawing="${icon:=off}"
