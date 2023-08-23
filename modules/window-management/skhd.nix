@@ -4,10 +4,10 @@
   yabai = "${pkgs.yabai}/bin/yabai";
   kitty = "${pkgs.kitty}/bin/kitty";
 in ''
-  ${mod} - down : ${yabai} -m window --focus south || ${yabai} -m window --focus stack.prev
+  ${mod} - down : ${yabai} -m window --focus south || ${yabai} -m window --focus stack.prev || ${yabai} -m window --focus stack.last
   ${mod} - left : ${yabai} -m window --focus west
   ${mod} - right : ${yabai} -m window --focus east
-  ${mod} - up : ${yabai} -m window --focus north || ${yabai} -m window --focus stack.next
+  ${mod} - up : ${yabai} -m window --focus north || ${yabai} -m window --focus stack.next || ${yabai} -m window --focus stack.first
 
   ${mod} + shift - down : ${yabai} -m window --swap south
   ${mod} + shift - left : ${yabai} -m window --swap west
