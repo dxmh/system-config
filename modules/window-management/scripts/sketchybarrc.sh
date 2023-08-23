@@ -116,10 +116,12 @@ sketchybar \
     click_script="open -a Mail" \
     icon.color=0xe6ffffff \
     icon.drawing=off \
-    icon.padding_left=5 \
-    icon.padding_right=5 \
+    icon.padding_left=8 \
+    icon.padding_right=8 \
     icon=􀍛 \
     label.drawing=off \
+    label.padding_left=0 \
+    label.padding_right=8 \
     script=mail.sh \
     update_freq=10 \
 

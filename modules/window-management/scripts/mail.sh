@@ -2,6 +2,9 @@
 
 unreadCount=$(osascript -e 'tell application "Mail" to return the unread count of inbox')
   
-[ "$unreadCount" -gt 0 ] && icon=on
+if [ "$unreadCount" -gt 0 ]; then 
+  icon=on
+  label=on
+fi 
 
-sketchybar --set mail icon.drawing="${icon:=off}"
+sketchybar --set mail icon.drawing="${icon:=off}" label.drawing="${label:=off}" label=$unreadCount
