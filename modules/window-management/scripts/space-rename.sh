@@ -20,3 +20,6 @@ else
     label="$current_space_label" \
     label.drawing=off
 fi
+
+# Return focus to previous app
+osascript -e 'tell app "System Events" to quit'
