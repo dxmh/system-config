@@ -17,7 +17,7 @@ for i in 1 2 3 4 5 6 7 8 9; do sketchybar \
     icon.padding_left=8 \
     icon.padding_right=8 \
     icon="${spaceicons[$i]:=􀏃}" \
-    label.drawing=on \
+    label.drawing=off \
     label.padding_left=0 \
     label.padding_right=10 \
     label="$i" \
