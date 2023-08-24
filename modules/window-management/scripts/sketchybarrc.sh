@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Setup and defaults
-sketchybar --bar height=45 position=top color=0x15000000
+sketchybar --bar height=45 position=top color=0x33000000 blur_radius=20
 sketchybar --default label.font="SF Compact Display:Medium:14.0" label.color=0xffffffff label.padding_left=10
 sketchybar --default icon.font="SF Compact Display:Medium:14.0" icon.color=0xffffffff
 
