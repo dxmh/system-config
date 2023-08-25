@@ -9,10 +9,10 @@ in ''
   ${mod} - right : ${yabai} -m window --focus east
   ${mod} - up : ${yabai} -m window --focus north || ${yabai} -m window --focus stack.next || ${yabai} -m window --focus stack.first
 
-  ${mod} + shift - down : ${yabai} -m window --swap south
-  ${mod} + shift - left : ${yabai} -m window --swap west
-  ${mod} + shift - right : ${yabai} -m window --swap east
-  ${mod} + shift - up : ${yabai} -m window --swap north
+  ${mod} + shift - down : ${yabai} -m window --warp south
+  ${mod} + shift - left : ${yabai} -m window --warp west
+  ${mod} + shift - right : ${yabai} -m window --warp east
+  ${mod} + shift - up : ${yabai} -m window --warp north
 
   ${mod} - 0x18 : ${yabai} -m space --balance
   ${mod} - m : ${yabai} -m window --toggle zoom-fullscreen
