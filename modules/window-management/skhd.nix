@@ -1,6 +1,6 @@
 {pkgs, ...}: let
   space-rename = pkgs.writeShellScript "space-rename.sh" ./scripts/space-rename.sh;
-  mod = "ctrl + alt + cmd";
+  mod = "ctrl";
   yabai = "${pkgs.yabai}/bin/yabai";
   kitty = "${pkgs.kitty}/bin/kitty";
 in ''
@@ -15,12 +15,12 @@ in ''
   ${mod} + shift - up : ${yabai} -m window --swap north
 
   ${mod} - 0x18 : ${yabai} -m space --balance
-  ${mod} - f : ${yabai} -m window --toggle zoom-fullscreen
-  ${mod} - return : ${yabai} -m window --toggle zoom-fullscreen
+  ${mod} - m : ${yabai} -m window --toggle zoom-fullscreen
+  ${mod} - f : ${yabai} -m window --toggle float
 
-  ${mod} - 0 : ${yabai} -m space --layout float
-  ${mod} - 1 : ${yabai} -m space --layout stack
-  ${mod} - 2 : ${yabai} -m space --layout bsp
+  ${mod} + shift - f : ${yabai} -m space --layout float
+  ${mod} + shift - s : ${yabai} -m space --layout stack
+  ${mod} + shift - b : ${yabai} -m space --layout bsp
 
   ctrl + shift - 1 : ${yabai} -m window --space 1
   ctrl + shift - 2 : ${yabai} -m window --space 2
