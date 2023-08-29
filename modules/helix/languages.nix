@@ -13,6 +13,11 @@
       text-width = 80;
     }
     {
+      # Spellchecking in git https://github.com/helix-editor/helix/pull/7838
+      name = "git-commit";
+      language-servers = ["ltex-ls"];
+    }
+    {
       name = "nix";
       auto-format = true;
       formatter = {
