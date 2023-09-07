@@ -13,6 +13,7 @@
         ssm-session-manager-plugin
         terraform
         (writeShellScriptBin "ssm" (builtins.readFile ./ssm.sh))
+        (writeShellScriptBin "ecsh" (builtins.readFile ./ecsh.sh))
         (buildGoModule rec {
           pname = "aws-console";
           version = "1.2.0";
