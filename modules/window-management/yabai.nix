@@ -21,6 +21,9 @@ in {
   };
   extraConfig = ''
     yabai -m rule --add app='System Settings' manage=off
+    yabai -m rule --add app='QuickTime Player' title='Movie Recording' manage=off
+    yabai -m rule --add app='Raycast' manage=off
+    yabai -m rule --add app='Things' manage=off
     yabai -m signal --add event=window_focused action="${sketchybar} --trigger yabai_focus_change"
     yabai -m signal --add event=window_title_changed action="${sketchybar} --trigger yabai_title_change"
     yabai -m signal --add event=window_resized action="${sketchybar} --trigger yabai_window_resized"
