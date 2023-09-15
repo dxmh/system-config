@@ -1,7 +1,14 @@
 #!/bin/sh
 
-# Show Slack icon in the bar if Slack has a badge in the Dock:
-lsappinfo info -only StatusLabel -app Slack \
-  | sed s/\"//g | grep -Po "label=\S" && icon=on
+dockBadge=$(lsappinfo info -only StatusLabel -app Slack | sed -rn 's/"StatusLabel"=\{ "label"="(.*)" \}/\1/p')
 
-sketchybar --set slack icon.drawing="${icon:=off}"
+if [ -n "$dockBadge" ]; then
+  icon=on
+  label=on
+  [ "$dockBadge" = "•" ] && label=off # Don't show a pointless label
+fi
+
+sketchybar --set slack \
+  icon.drawing="${icon:=off}" \
+  label.drawing="${label:=off}" \
+  label="$dockBadge"
