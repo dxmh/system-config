@@ -29,7 +29,8 @@ in ''
   ctrl + shift - 5 : ${yabai} -m window --space 5
 
   ${mod} - t : ${kitty} @ --to unix:/tmp/kitty.sock launch --type=os-window --cwd=current || open -a Kitty
-  ${mod} - w : osascript -e 'tell application "Safari" to make new document activate'
+  ${mod} - s : osascript -e 'tell application "Safari" to make new document activate'
+  ${mod} - q : osascript -e 'tell app "QuickTime Player" to activate' -e 'tell app "QuickTime Player" to present new movie recording'
 
   ${mod} - 0x2B : ${space-rename}
 ''
