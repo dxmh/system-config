@@ -8,6 +8,7 @@
     render = true;
     character = "╎";
   };
+  smart-tab.enable = true;
   soft-wrap.enable = false;
   whitespace.render = {
     space = "none";
