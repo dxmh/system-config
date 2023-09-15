@@ -14,11 +14,13 @@ for i in 1 2 3 4 5 6 7 8 9; do sketchybar \
     background.drawing=off \
     background.height=30 \
     icon.drawing=on \
-    icon.padding_left=8 \
-    icon.padding_right=8 \
+    icon.font.size=18 \
+    icon.padding_left=6 \
+    icon.padding_right=9 \
+    icon.y_offset=1 \
     icon="${spaceicons[$i]:=􀏃}" \
     label.drawing=off \
-    label.padding_left=0 \
+    label.padding_left=-1 \
     label.padding_right=10 \
     label="$i" \
     script=space.sh \
@@ -96,13 +98,16 @@ sketchybar \
     background.color=0xff4a154b \
     background.corner_radius=5 \
     background.height=30 \
+    background.padding_left=8 \
     click_script="open -a Slack" \
     icon.color=0xe6ffffff \
     icon.drawing=off \
-    icon.padding_left=5 \
-    icon.padding_right=5 \
+    icon.padding_left=8 \
+    icon.padding_right=8 \
     icon=􁋬 \
     label.drawing=off \
+    label.padding_left=0 \
+    label.padding_right=8 \
     script=slack.sh \
     update_freq=10
 
@@ -113,6 +118,7 @@ sketchybar \
     background.color=0xff1d9ff7 \
     background.corner_radius=5 \
     background.height=30 \
+    background.padding_left=8 \
     click_script="open -a Mail" \
     icon.color=0xe6ffffff \
     icon.drawing=off \
