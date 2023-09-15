@@ -8,7 +8,7 @@
     enable = lib.mkEnableOption "Enable custom window management";
     space-icons = lib.mkOption {
       type = lib.types.str;
-      default = "";
+      default = "[1]=􀃋 [2]=􀃍 [3]=􀃏 [4]=􀘚 [5]=􀃓 [6]=􀑶 [7]=􀃗 [8]=􀃙 [9]=􀑸 ";
       description = "Bash array of icons to use for spaces";
     };
     calendars = lib.mkOption {
