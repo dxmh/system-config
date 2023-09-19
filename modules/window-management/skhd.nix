@@ -1,3 +1,7 @@
+# skhd help:
+# readme: https://github.com/koekeishiya/skhd/blob/master/README.md
+# sample config: https://github.com/koekeishiya/skhd/blob/master/examples/skhdrc
+# modifier and keywords: https://github.com/koekeishiya/skhd/issues/1
 {pkgs, ...}: let
   space-rename = pkgs.writeShellScript "space-rename.sh" ./scripts/space-rename.sh;
   mod = "ctrl";
