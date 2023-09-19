@@ -18,6 +18,11 @@ in ''
   ${mod} + shift - right : ${yabai} -m window --warp east
   ${mod} + shift - up : ${yabai} -m window --warp north
 
+  ${mod} + cmd - down : ${yabai} -m window --insert south
+  ${mod} + cmd - left : ${yabai} -m window --insert west
+  ${mod} + cmd - right : ${yabai} -m window --insert east
+  ${mod} + cmd - up : ${yabai} -m window --insert north
+
   ${mod} - 0x18 : ${yabai} -m space --balance
   ${mod} - m : ${yabai} -m window --toggle zoom-fullscreen
   ${mod} - f : ${yabai} -m window --toggle float
