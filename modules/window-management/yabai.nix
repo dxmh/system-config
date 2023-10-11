@@ -16,7 +16,7 @@ in {
     external_bar = "all:${bar_height}:0";
     active_window_border_color = "0x40000000"; # 30% black
     normal_window_border_color = "0x00ffffff"; # transparent
-    window_border = "on";
+    window_border = "off";
     window_border_width = "2";
   };
   extraConfig = ''
