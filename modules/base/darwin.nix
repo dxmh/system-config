@@ -121,7 +121,7 @@
         "bluesnooze"
         "raycast"
         "sf-symbols"
-        "mouse-fix"
+        "mac-mouse-fix"
         "utm"
       ];
       masApps = {
