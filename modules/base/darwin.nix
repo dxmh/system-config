@@ -118,7 +118,6 @@
         "keith/formulae"
       ];
       casks = [
-        "bluesnooze"
         "raycast"
         "sf-symbols"
         "mac-mouse-fix"
