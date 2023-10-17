@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  gaps = 35;
+  gaps = 20;
   bar_height = "45";
   sketchybar = "${pkgs.sketchybar}/bin/sketchybar";
 in {
