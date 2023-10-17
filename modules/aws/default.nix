@@ -14,6 +14,7 @@
         terraform
         (writeShellScriptBin "ssm" (builtins.readFile ./ssm.sh))
         (writeShellScriptBin "ecsh" (builtins.readFile ./ecsh.sh))
+        (writeShellScriptBin "acon" (builtins.readFile ./acon.sh))
         (buildGoModule rec {
           pname = "aws-console";
           version = "1.2.0";
