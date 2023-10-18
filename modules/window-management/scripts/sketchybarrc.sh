@@ -83,7 +83,7 @@ sketchybar \
 
 # Name of active application:
 sketchybar \
-  --add item yabai_app_name center \
+  --add item yabai_app_name q \
   --set yabai_app_name \
     label.font.style=bold \
     label.padding_left=8 \
@@ -93,7 +93,7 @@ sketchybar \
 
 # Name of active window title:
 sketchybar \
-  --add item yabai_window_title center \
+  --add item yabai_window_title q \
   --set yabai_window_title \
     label.padding_left=5 \
     script=yabai-window-title.sh \
