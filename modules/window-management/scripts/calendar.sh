@@ -3,7 +3,7 @@
 # Set some defaults
 background=off
 color=0xffffffff
-font=medium
+font=regular
 
 # Get the next event in the format "12:34 My Event"
 nextEvent=$(
