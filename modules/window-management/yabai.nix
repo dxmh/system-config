@@ -24,6 +24,7 @@ in {
     yabai -m rule --add app='Slack' manage=off grid='9:9:2:1:5:7'
     yabai -m rule --add app='QuickTime Player' title='Movie Recording' manage=off
     yabai -m rule --add app='Raycast' manage=off
+    yabai -m rule --add app='Music' title='Mini Player' manage=off
     yabai -m rule --add app='Things' manage=off grid='9:9:5:1:3:6'
     yabai -m rule --add app='zoom.us' manage=off
     yabai -m rule --add app='zoom.us' title='Zoom meeting' manage=off grid='9:9:2:1:5:7'
