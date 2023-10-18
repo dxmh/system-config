@@ -67,7 +67,9 @@ for layout in "${!layout_icons[@]}"; do sketchybar \
     script=yabai-layout.sh \
     update_freq=3 \
     click_script="CLICKED=$layout yabai-layout-click.sh" \
-  --subscribe yabai_layout
+  --subscribe "yabai_layout_$layout" \
+    space_change \
+    yabai_layout_change
 done
 
 # Group for layout selectors
