@@ -27,6 +27,15 @@ for i in 1 2 3 4 5 6 7 8 9; do sketchybar \
     click_script="SID=$i space-click.sh"
 done
 
+# Group for space indicators
+sketchybar \
+  --add bracket space_indicators "/space\..*/" \
+  --set space_indicators \
+    background.color=0x22ffffff \
+    background.corner_radius=5 \
+    background.height=30 \
+    background.drawing=on
+
 # Add some custom events to trigger updates
 sketchybar \
   --add event yabai_layout_change \
@@ -34,24 +43,43 @@ sketchybar \
   --add event yabai_title_change \
   --add event yabai_window_resized
 
-# Yabai layout information
+# Spacer
 sketchybar \
-  --add item yabai_layout left \
-  --set yabai_layout \
-    click_script=yabai-layout-click.sh \
-    icon.padding_left=20 \
-    icon.padding_right=2 \
-    icon=􀏝  \
+  --add item spacer left \
+  # --set spacer background.padding_left=5
+
+# Yabai layout selectors
+declare -A layout_icons=( ["stack"]="􀯰 " ["float"]="􀇴 " ["bsp"]="􀏝 " )
+for layout in "${!layout_icons[@]}"; do sketchybar \
+  --add item "yabai_layout_$layout" left \
+  --set "yabai_layout_$layout" \
+    background.color=0x44ffffff \
+    background.corner_radius=5 \
+    background.drawing=off \
+    background.height=30 \
+    icon="${layout_icons[$layout]}" \
+    icon.font.size=18 \
+    icon.padding_left=6 \
+    icon.padding_right=9 \
+    icon.y_offset=1 \
+    label="$layout" \
     label.drawing=off \
-    label.padding_left=5 \
+    label.padding_left=-1 \
+    label.padding_right=10 \
     script=yabai-layout.sh \
     update_freq=3 \
-  --subscribe yabai_layout \
-    space_change \
-    display_change \
-    yabai_layout_change \
-    yabai_window_resized \
-    yabai_focus_change
+    click_script="CLICKED=$layout yabai-layout-click.sh" \
+  --subscribe yabai_layout
+done
+
+# Group for layout selectors
+sketchybar \
+  --add bracket yabai_layout_selectors "/yabai_layout_.*/" \
+  --set yabai_layout_selectors \
+    background.color=0x22ffffff \
+    background.corner_radius=5 \
+    background.height=30 \
+    background.drawing=on
 
 # Name of active application:
 sketchybar \
