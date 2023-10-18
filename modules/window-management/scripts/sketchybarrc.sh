@@ -44,9 +44,7 @@ sketchybar \
   --add event yabai_window_resized
 
 # Spacer
-sketchybar \
-  --add item spacer left \
-  # --set spacer background.padding_left=5
+sketchybar --add item spacer1 left
 
 # Yabai layout selectors
 declare -A layout_icons=( ["stack"]="􀯰 " ["float"]="􀇴 " ["bsp"]="􀏝 " )
@@ -81,9 +79,12 @@ sketchybar \
     background.height=30 \
     background.drawing=on
 
+# Spacer
+sketchybar --add item spacer2 left
+
 # Name of active application:
 sketchybar \
-  --add item yabai_app_name q \
+  --add item yabai_app_name left \
   --set yabai_app_name \
     label.font.style=bold \
     label.padding_left=8 \
@@ -93,7 +94,7 @@ sketchybar \
 
 # Name of active window title:
 sketchybar \
-  --add item yabai_window_title q \
+  --add item yabai_window_title left \
   --set yabai_window_title \
     label.padding_left=5 \
     script=yabai-window-title.sh \
