@@ -2,8 +2,8 @@
 
 # Setup and defaults
 sketchybar --bar height=46 position=top color=0x33000000 blur_radius=20
-sketchybar --default label.font="SF Pro Display:Regular:16.0" label.color=0xffffffff label.padding_left=10
-sketchybar --default icon.font="SF Pro Display:Regular:16.0" icon.color=0xffffffff
+sketchybar --default label.font="SF Compact Display:Regular:16.0" label.color=0xffffffff label.padding_left=10
+sketchybar --default icon.font="SF Compact Display:Regular:16.0" icon.color=0xffffffff
 
 # Mission Control Space indicators
 for i in 1 2 3 4 5 6 7 8 9; do sketchybar \
