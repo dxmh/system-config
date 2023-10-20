@@ -55,7 +55,7 @@
         # Font configuration (run `kitty list-fonts --psnames` for font names)
         extraConfig = ''
           font_family SF Mono
-          font_size 14
+          font_size 15
           macos_thicken_font 0.5
           modify_font cell_height 7px
           modify_font cell_width 97%
