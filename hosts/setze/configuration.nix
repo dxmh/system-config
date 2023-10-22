@@ -1,10 +1,45 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   homebrew.casks = [
     "discord"
     "element"
     "signal"
     "zoom"
   ];
+
+  # Background tasks
+  launchd.agents = let
+    logfile = "/Users/${config.hxy.base.mainUser}/Library/Logs/nix-lauchd-agents.txt";
+    myUser = config.hxy.base.mainUser;
+  in {
+    housekeeping-weekly.serviceConfig = {
+      UserName = myUser;
+      ProgramArguments = ["${pkgs.nix}/bin/nix" "run" "/Users/${myUser}/Code/hxy/housekeeping" "weekly"];
+      StandardErrorPath = logfile;
+      StartCalendarInterval = [
+        {
+          Weekday = 7;
+          Hour = 6;
+          Minute = 00;
+        }
+      ];
+    };
+    housekeeping-monthly.serviceConfig = {
+      UserName = myUser;
+      ProgramArguments = ["${pkgs.nix}/bin/nix" "run" "/Users/${myUser}/Code/hxy/housekeeping" "monthly"];
+      StandardErrorPath = logfile;
+      StartCalendarInterval = [
+        {
+          Day = 20;
+          Hour = 6;
+          Minute = 00;
+        }
+      ];
+    };
+  };
 
   home-manager.users.${config.hxy.base.mainUser} = {
     # SSH client configuration (~/.ssh/config)
