@@ -11,7 +11,7 @@
     # launchd agents (otherwise it defaults to /var/empty/)
     users.users.${config.hxy.base.mainUser}.home = "/Users/${config.hxy.base.mainUser}";
 
-    hxy.window-management.enable = true;
+    hxy.window-management.enable = lib.mkDefault true;
     hxy.kitty.graphical = true;
 
     environment.systemPath = [
