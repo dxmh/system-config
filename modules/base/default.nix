@@ -82,6 +82,7 @@
       htop
       jless
       jq
+      mpv
       nix-output-monitor
       prettyping
       ripgrep

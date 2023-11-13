@@ -118,6 +118,7 @@
         "keith/formulae"
       ];
       casks = [
+        "lunar"
         "raycast"
         "sf-symbols"
         "mac-mouse-fix"

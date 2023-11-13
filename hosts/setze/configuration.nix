@@ -4,6 +4,7 @@
   ...
 }: {
   homebrew.casks = [
+    "android-file-transfer"
     "discord"
     "element"
     "signal"
