@@ -13,7 +13,7 @@
     };
     userEmail = lib.mkOption {
       type = lib.types.str;
-      default = "dom@hxy.io";
+      default = "dom@domhay.com";
       description = "Default user email to use.";
     };
   };
