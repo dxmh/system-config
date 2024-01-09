@@ -10,7 +10,7 @@
   # Configure mappings between a local address and a list of replacement
   # addresses. In this case we just configure a single "catch all" address.
   environment.etc.aliases.text = ''
-    default: dom@hxy.io
+    default: dom@domhay.com
   '';
 
   # Overwrite NixOS's msmtprc config file with the one from our secrets
