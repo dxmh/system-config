@@ -114,7 +114,6 @@
         "zap"
       ];
       taps = [
-        "homebrew/cask"
         "keith/formulae"
       ];
       casks = [
