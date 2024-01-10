@@ -14,10 +14,6 @@ in {
     window_gap = gaps;
     mouse_modifier = "ctrl";
     external_bar = "all:${bar_height}:0";
-    active_window_border_color = "0x40000000"; # 30% black
-    normal_window_border_color = "0x00ffffff"; # transparent
-    window_border = "off";
-    window_border_width = "2";
   };
   extraConfig = ''
     yabai -m rule --add app='System Settings' manage=off
@@ -31,5 +27,6 @@ in {
     yabai -m signal --add event=window_focused action="${sketchybar} --trigger yabai_focus_change"
     yabai -m signal --add event=window_title_changed action="${sketchybar} --trigger yabai_title_change"
     yabai -m signal --add event=window_resized action="${sketchybar} --trigger yabai_window_resized"
+    borders active_color=0xff569CE0 inactive_color=0x00ffffff width=10.0 hidpi=on &
   '';
 }

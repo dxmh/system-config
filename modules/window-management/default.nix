@@ -30,7 +30,15 @@
 
     # Status bar
     services.sketchybar = import ./sketchybar.nix {inherit config pkgs;};
-    homebrew.brews = ["ical-buddy"];
+
+    # Homebrew packages
+    homebrew.taps = [
+      "FelixKratz/formulae" # For window borders
+    ];
+    homebrew.brews = [
+      "borders" # https://github.com/FelixKratz/JankyBorders
+      "ical-buddy" # For Calender events in status bar
+    ];
 
     # Hide macOS menubar and Dock
     system.defaults.NSGlobalDomain._HIHideMenuBar = lib.mkForce true;
