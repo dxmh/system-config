@@ -125,7 +125,7 @@
       ];
       masApps = {
         "hush-nag-blocker" = 1544743900;
-        "StopTheMadness" = 1376402589;
+        "StopTheMadnessPro" = 6471380298;
         "Vimari" = 1480933944;
         "wipr" = 1320666476;
       };
