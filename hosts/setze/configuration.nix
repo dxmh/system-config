@@ -7,6 +7,7 @@
     "android-file-transfer"
     "discord"
     "element"
+    "rectangle"
     "signal"
     "zoom"
   ];
@@ -79,5 +80,6 @@
   hxy.git.enable = true;
   hxy.helix.enable = true;
   hxy.sops-tools.enable = true;
+  hxy.window-management.enable = false;
   hxy.window-management.calendars = "19F3F933-3ADA-48D2-B960-FEE78FF854E2,20177754-749A-451E-8245-0415CEE96655";
 }
