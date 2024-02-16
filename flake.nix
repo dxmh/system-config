@@ -44,6 +44,11 @@
       system = "aarch64-linux";
     };
 
+    nixosConfigurations.dln-vm = mkSystem "dln-vm" {
+      inherit self overlays;
+      system = "aarch64-linux";
+    };
+
     nixosConfigurations.thebox = mkSystem "thebox" {
       inherit self overlays;
       system = "x86_64-linux";
