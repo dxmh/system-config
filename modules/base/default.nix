@@ -75,7 +75,7 @@
       diceware
       dig
       direnv
-      exa
+      eza
       fd
       fzf
       gnumake

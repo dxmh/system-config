@@ -14,7 +14,7 @@
   users.users.dom = {
     uid = 1000;
     group = "dom";
-    passwordFile = config.sops.secrets.dom_hashedPassword.path;
+    hashedPasswordFile = config.sops.secrets.dom_hashedPassword.path;
   };
 
   users.users.poppy = {
@@ -23,6 +23,6 @@
     shell = null;
     uid = 1001;
     group = "poppy";
-    passwordFile = config.sops.secrets.poppy_hashedPassword.path;
+    hashedPasswordFile = config.sops.secrets.poppy_hashedPassword.path;
   };
 }

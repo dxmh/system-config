@@ -4,10 +4,9 @@
   inputs = {
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    helix.url = "github:helix-editor/helix";
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs";
     nur.url = "github:nix-community/NUR";
     sops-nix.url = "github:Mic92/sops-nix";
@@ -16,7 +15,6 @@
 
   outputs = {
     darwin,
-    helix,
     home-manager,
     nixpkgs,
     nixpkgs-unstable,
@@ -27,10 +25,6 @@
     mkSystem = import ./lib/mkSystem.nix;
     overlays = [
       (final: prev: {
-        git-open = nixpkgs-unstable.legacyPackages.${prev.system}.git-open;
-        helix = helix.packages.${prev.system}.default;
-        nil = nixpkgs-unstable.legacyPackages.${prev.system}.nil;
-        fish = nixpkgs-unstable.legacyPackages.${prev.system}.fish;
       })
     ];
   in {
