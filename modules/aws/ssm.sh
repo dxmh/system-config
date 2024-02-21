@@ -8,11 +8,11 @@ listInstances() {
   aws ec2 describe-instances --profile "$profile" | \
     jq -r '.Reservations[].Instances[] as $instance |
       $instance.Tags[] | select(.Key=="Name") as $name |
-      $instance.InstanceId + " " + $name.Value + " " + $instance.State.Name + " " + $instance.LaunchTime'
+      $instance.InstanceId + "," + $name.Value + "," + $instance.State.Name + "," + $instance.LaunchTime'
 }
 
 selectInstance() {
-  instance=$(listInstances | grep running | column -t -s" " | fzf -e -1 -q "$filter")
+  instance=$(listInstances | grep running | column -t -s"," | fzf -e -1 -q "$filter")
   instance_id=$(awk '{print $1}' <<< "$instance")
   instance_name=$(awk '{print $2}' <<< "$instance")
 }
