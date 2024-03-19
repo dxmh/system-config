@@ -23,11 +23,15 @@
 
   # Enable network manager
   networking.networkmanager.enable = true;
-  users.users.${config.hxy.base.mainUser}.extraGroups = ["networkmanager"];
-  users.users.${config.hxy.base.mainUser}.packages = with pkgs; [
-    firefox
-    gnome.gnome-boxes
-  ];
+
+  # Configure user
+  users.users.${config.hxy.base.mainUser} = {
+    extraGroups = ["networkmanager"];
+    packages = with pkgs; [
+      firefox
+      gnome.gnome-boxes
+    ];
+  };
 
   # Select internationalisation properties.
   i18n = {
