@@ -26,7 +26,10 @@
 
   # Configure user
   users.users.${config.hxy.base.mainUser} = {
-    extraGroups = ["networkmanager"];
+    extraGroups = [
+      "libvirtd"
+      "networkmanager"
+    ];
     packages = with pkgs; [
       firefox
       gnome.gnome-boxes
@@ -78,4 +81,24 @@
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
+
+  # Enable virtualisation
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [
+          (pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          })
+          .fd
+        ];
+      };
+    };
+  };
 }
