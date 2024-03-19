@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware.nix
   ];
@@ -11,7 +15,7 @@
     };
   };
 
-  hxy.helix.enable = false;
+  hxy.helix.enable = true;
 
   networking.hostName = "quinze";
 
@@ -20,6 +24,10 @@
   # Enable network manager
   networking.networkmanager.enable = true;
   users.users.${config.hxy.base.mainUser}.extraGroups = ["networkmanager"];
+  users.users.${config.hxy.base.mainUser}.packages = with pkgs; [
+    firefox
+    gnome.gnome-boxes
+  ];
 
   # Select internationalisation properties.
   i18n = {
