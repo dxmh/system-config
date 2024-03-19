@@ -1,9 +1,15 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware.nix
   ];
 
-  environment.systemPackages = [];
+  environment.systemPackages = [
+    pkgs.packer
+  ];
 
   hxy.base = {
     enable = true;
