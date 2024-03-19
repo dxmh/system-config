@@ -48,6 +48,11 @@
       system = "x86_64-linux";
     };
 
+    nixosConfigurations.quinze = mkSystem "quinze" {
+      inherit self overlays;
+      system = "x86_64-linux";
+    };
+
     formatter.aarch64-darwin =
       nixpkgs.legacyPackages.aarch64-darwin.alejandra;
   };
