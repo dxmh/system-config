@@ -33,6 +33,7 @@
     packages = with pkgs; [
       firefox
       gnome.gnome-boxes
+      ventoy-full
     ];
   };
 
