@@ -70,7 +70,7 @@
       "public" = "yes";
       "writable" = "no";
       "guest account" = "nobody";
-      "guest ok" = "yes";
+      "guest only" = "yes";
     };
   };
 
