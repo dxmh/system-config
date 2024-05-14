@@ -19,6 +19,9 @@
       disable netbios = yes
       dns proxy = no
 
+      # Allow guest
+      map to guest = Bad User
+
       # Mac-friendly client settings
       vfs objects = catia fruit streams_xattr
       fruit:aapl = yes
