@@ -65,12 +65,6 @@
       "public" = "no";
       "writable" = "yes";
     };
-    media = {
-      "path" = "/tank/media";
-      "public" = "yes";
-      "writable" = "no";
-      "guest account" = "nobody";
-    };
   };
 
   users.groups.samba-users = {
