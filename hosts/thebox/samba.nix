@@ -72,7 +72,7 @@
       "path" = "/tank/media";
       "public" = "yes";
       "writable" = "no";
-      "guest account" = "nobody";
+      "guest account" = "dom";
       "guest only" = "yes";
     };
   };
