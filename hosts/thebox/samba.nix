@@ -73,7 +73,6 @@
       "public" = "yes";
       "writable" = "no";
       "guest account" = "dom";
-      "guest only" = "yes";
     };
   };
 
