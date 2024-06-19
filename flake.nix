@@ -38,6 +38,11 @@
       system = "aarch64-linux";
     };
 
+    nixosConfigurations.s6s-vm = mkSystem "s6s-vm" {
+      inherit self overlays;
+      system = "aarch64-linux";
+    };
+
     nixosConfigurations.dln-vm = mkSystem "dln-vm" {
       inherit self overlays;
       system = "aarch64-linux";
