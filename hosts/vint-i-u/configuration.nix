@@ -65,6 +65,10 @@
     desktopManager.gnome.enable = true;
   };
 
+  # Remove some of the default packages
+  environment.gnome.excludePackages = [pkgs.gnome-tour];
+  services.xserver.excludePackages = [pkgs.xterm];
+
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
