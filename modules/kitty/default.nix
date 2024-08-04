@@ -80,7 +80,7 @@
     # Reload kitty configuration after nixos-rebuild
     system.activationScripts = lib.mkIf config.hxy.kitty.graphical {
       postActivation.text = ''
-        killall -SIGUSR1 kitty
+        ${pkgs.nix}/bin/killall -SIGUSR1 kitty
       '';
     };
   };
