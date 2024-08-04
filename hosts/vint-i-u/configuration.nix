@@ -66,8 +66,22 @@
   };
 
   # Remove some of the default packages
-  environment.gnome.excludePackages = [pkgs.gnome-tour];
   services.xserver.excludePackages = [pkgs.xterm];
+  environment.gnome.excludePackages =
+    (with pkgs; [
+      gnome-photos
+      gnome-tour
+    ])
+    ++ (with pkgs.gnome; [
+      gnome-characters
+      gnome-clocks
+      gnome-contacts
+      gnome-maps
+      gnome-music
+      gnome-weather
+      totem # video player
+      yelp # help viewer
+    ]);
 
   # Enable sound with pipewire.
   sound.enable = true;
