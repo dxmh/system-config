@@ -82,6 +82,7 @@
       htop
       jless
       jq
+      killall
       mpv
       nix-output-monitor
       prettyping
