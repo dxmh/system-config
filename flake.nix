@@ -63,6 +63,11 @@
       system = "x86_64-linux";
     };
 
+    nixosConfigurations.t480 = mkSystem "t480" {
+      inherit self overlays;
+      system = "x86_64-linux";
+    };
+
     formatter.aarch64-darwin =
       nixpkgs.legacyPackages.aarch64-darwin.alejandra;
   };
