@@ -19,7 +19,7 @@
   networking.hostName = "m1p";
 
   # Specify path to peripheral firmware files
-  hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+  hardware.asahi.peripheralFirmwareDirectory = /boot/asahi;
 
   # Use iwd instead of wpa_supplicant on Apple Silicon
   networking.wireless.iwd = {
