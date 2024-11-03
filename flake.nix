@@ -35,11 +35,6 @@
       system = "aarch64-darwin";
     };
 
-    nixosConfigurations.s6s-vm = mkSystem "s6s-vm" {
-      inherit self overlays;
-      system = "aarch64-linux";
-    };
-
     nixosConfigurations.thebox = mkSystem "thebox" {
       inherit self overlays;
       system = "x86_64-linux";
