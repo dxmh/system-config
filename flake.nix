@@ -35,11 +35,6 @@
       system = "aarch64-darwin";
     };
 
-    nixosConfigurations.setze-vm = mkSystem "setze-vm" {
-      inherit self overlays;
-      system = "aarch64-linux";
-    };
-
     nixosConfigurations.s6s-vm = mkSystem "s6s-vm" {
       inherit self overlays;
       system = "aarch64-linux";
