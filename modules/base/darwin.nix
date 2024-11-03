@@ -51,17 +51,18 @@
       mineffect = "scale";
       minimize-to-application = false;
       mru-spaces = false; # Don't automatically rearrange spaces
-      orientation = "bottom";
-      show-process-indicators = false; # Show dots for open applications
+      orientation = "left";
+      show-process-indicators = true; # Show dots for open applications
       show-recents = false;
-      static-only = true; # Whether to show only open applications in the Dock
-      showhidden = true; # Whether to dim hidden applications in the Dock
-      tilesize = 34;
-      largesize = 48;
-      # Trigger mission control via hot corners:
-      wvous-bl-corner = 2;
-      wvous-br-corner = 2;
-      wvous-tl-corner = 2;
+      static-only = false; # Whether to show only open applications in the Dock
+      showhidden = false; # Whether to dim hidden applications in the Dock
+      tilesize = 48;
+      largesize = 56;
+      # Hot corners:
+      wvous-bl-corner = 1;
+      wvous-br-corner = 1;
+      wvous-tl-corner = 1;
+      wvous-tr-corner = 1;
     };
 
     system.defaults.finder = {
