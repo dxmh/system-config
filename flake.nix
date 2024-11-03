@@ -68,6 +68,11 @@
       system = "x86_64-linux";
     };
 
+    nixosConfigurations.m1p = mkSystem "m1p" {
+      inherit self overlays;
+      system = "aarch64-linux";
+    };
+
     formatter.aarch64-darwin =
       nixpkgs.legacyPackages.aarch64-darwin.alejandra;
   };
