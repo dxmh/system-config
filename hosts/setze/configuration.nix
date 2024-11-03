@@ -7,9 +7,10 @@
     "android-file-transfer"
     "discord"
     "element"
-    "rectangle"
+    "firefox"
     "signal"
     "zoom"
+    "rockboxutility"
   ];
 
   # Background tasks
