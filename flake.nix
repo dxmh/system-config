@@ -2,6 +2,7 @@
   description = "System configuration";
 
   inputs = {
+    apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-24.05";
@@ -14,6 +15,7 @@
   };
 
   outputs = {
+    apple-silicon,
     darwin,
     home-manager,
     nixpkgs,
