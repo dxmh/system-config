@@ -31,6 +31,8 @@ in
       ++ (lists.optionals (platform == "linux") [
         inputs.home-manager.nixosModules.home-manager
         inputs.sops-nix.nixosModules.sops
+      ])
+      ++ (lists.optionals (system == "aarch64-linux") [
         inputs.apple-silicon.nixosModules.apple-silicon-support
       ]);
   }
